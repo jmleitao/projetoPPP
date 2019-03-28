@@ -40,4 +40,4 @@ int carrega_lista_alunos(Lista_alunos *node)
 
     fclose(fp);
 }
-#include "ficheiros.h"
+
