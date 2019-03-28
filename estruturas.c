@@ -15,9 +15,9 @@ Lista_alunos * cria_lista_alunos()/* so funciona se estiver no main*/
     return node;
 }
 
-Lista_viagens  * cria_lista_viagens(){
-    Lista_viagens  *node_viagem= (Lista_viagens*)malloc(sizeof(Lista_viagens));
-    if(node_viagem!=NULL)
-        *node_viagem = NULL;
-    return node_viagem;
+Lista_locais  * cria_lista_locais(){
+    Lista_locais  *node_local= (Lista_locais*)malloc(sizeof(Lista_locais));
+    if(node_local!=NULL)
+        *node_local = NULL;
+    return node_local;
 }

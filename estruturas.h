@@ -6,7 +6,7 @@
 #define PROJETO_ESTUTURAS_H
 
 typedef struct aluno *Lista_alunos;
-typedef struct viagens *Lista_viagens;
+typedef struct locais *Lista_locais;
 
 typedef struct dados_aluno{
     char nome[50];
@@ -25,16 +25,22 @@ typedef struct data
     int dia, mes, ano;
 }Data;
 
-typedef struct dados_viagens{
-    char nome_cidade[50];
-}t_dados_viagens;
+typedef struct hora
+{
+    int hora_i, hora_f;
+    int min_i, min_f;
+}Hora;
 
-typedef struct viagens{
-    struct dados_viagens DADOS_VIAGENS;
-    struct viagens *prox;
-}t_viagens;
+typedef struct dados_locais{
+    char nome_cidade[50];
+}t_dados_locais;
+
+typedef struct locais{
+    struct dados_locais DADOS_LOCAIS;
+    struct locais *prox;
+}t_locais;
 
 Lista_alunos * cria_lista_alunos();
-Lista_viagens * cria_lista_viagens();
+Lista_locais * cria_lista_locais();
 
 #endif //PROJETO_ESTUTURAS_H

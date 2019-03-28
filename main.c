@@ -31,8 +31,8 @@ void escolher_opt(char *opt){
     Lista_alunos *node_alunos;
     node_alunos = cria_lista_alunos();
 
-    Lista_viagens *node_viagem;
-    node_viagem = cria_lista_viagens();
+    Lista_locais *node_local;
+    node_local = cria_lista_locais();
 
     carrega_lista_alunos(node_alunos);
 
