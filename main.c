@@ -38,6 +38,8 @@ void escolher_opt(char *opt){
     Lista_locais *node_local;
     node_local = cria_lista_locais();
 
+    carrega_lista_alunos(node_alunos);
+
     while (1){
 
         menu();
@@ -52,7 +54,7 @@ void escolher_opt(char *opt){
         switch(*opt){
             case '1':
                 while(opt2=='0'){
-                    system("CLS");
+                    system("clear");
                     printf("\tPretende:\n\n");
                     printf("\t1 - Criar Aluno\n");
                     printf("\t2 - Alterar dados de Aluno\n");
@@ -72,20 +74,20 @@ void escolher_opt(char *opt){
                         }
                         else if(opt2 == '3'){
                             int n;
-                            system("cls");
+                            system("clear");
                             printf("Insira o telefone do aluno a remover:\n");
                             scanf("%d",&n);
                             if(verifica_aluno(node_alunos,n)){
                                 remove_aluno(node_alunos,n);
                                 printf("O aluno foi removido com sucesso!\n");
                             } else{
-                                system("cls");
+
                                 printf("O telefone de aluno que inseriu não existe\n");
                                 system("pause");
                             }
                             system("pause");
                         } else{
-                            system("CLS");
+
                             printf("entrou no else");
                             fflush(stdin);
                             system("pause");
@@ -95,7 +97,7 @@ void escolher_opt(char *opt){
                 break;
             case '2':
                 while (opt2=='0'){
-                    system("CLS");
+                    system("clear");
                     printf("\tPretende:\n\n");
                     printf("\t1 - Mostrar os Locais disponíveis\n");
                     ler_string(str,size);
@@ -107,7 +109,7 @@ void escolher_opt(char *opt){
                         opt2=str[0];
 
                         if(opt2 == '1'){
-                            system("cls");
+                            system("clear");
                             listar_locais();
                             system("pause");
                         }
@@ -116,7 +118,7 @@ void escolher_opt(char *opt){
                         }
                         else{
                             opt2='0';
-                            system("CLS");
+                            system("clear");
                             printf("entrou no else");
                             system("pause");
                         }
@@ -124,10 +126,12 @@ void escolher_opt(char *opt){
                 }
                 break;
             case '0':
+                carrega_ficheiro_alunos(node_alunos);
+                libera_alunos(node_alunos);
                 exit(1);
                 break;
             default:
-                system("CLS");
+                system("clear");
                 break;
         }
     }

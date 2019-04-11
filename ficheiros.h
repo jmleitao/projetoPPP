@@ -7,7 +7,7 @@
 
 int listar_locais();
 
-
-
+int carrega_lista_alunos(Lista_alunos *node);
+int carrega_ficheiro_alunos(Lista_alunos *node);
 
 #endif //PROJETO_FICHEIROS_H

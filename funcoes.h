@@ -16,4 +16,6 @@ int verifica_aluno(Lista_alunos *node, int num);
 int insere_aluno(Lista_alunos*  node);
 int remove_aluno(Lista_alunos *node, int num);
 
+int libera_alunos(Lista_alunos *node);
+
 #endif //PROJETO_FUNCOES_H

@@ -44,17 +44,21 @@ int verifica_aluno(Lista_alunos *node, int num){
 int insere_aluno(Lista_alunos*  node){
     struct dados_aluno aux;
 
-    system("cls");/*nome*/
+    system("clear");/*nome*/
     printf("Insira o nome do aluno:\n");
     fgets(aux.nome,60,stdin);
     RetiraEnter(aux.nome);
     fflush(stdin);
 
-    system("cls");/*morada*/
+    system("clear");/*morada*/
     printf("Insira a sua morada:\n");
     fgets(aux.morada, 50, stdin);
 
-    system("cls");/*telefone*/
+    system("clear");/*data de nascimento*/
+    printf("Insira a sua data de nascimento:\n");
+    fgets(aux.data_nasc, 50, stdin);
+
+    system("clear");/*telefone*/
     printf("Insira o seu nº de telefone:\n");
     scanf("%d",&aux.telefone);
 
@@ -108,3 +112,15 @@ int remove_aluno(Lista_alunos *node, int num){
 
 }
 
+
+int libera_alunos(Lista_alunos *node){
+    if(node!=NULL){
+        t_aluno *no;
+        while((*node)!=NULL){
+            no=*node;
+            *node=(*node)->prox;
+            free(no);
+        }
+        free(node);
+    }
+}
