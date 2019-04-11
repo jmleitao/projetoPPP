@@ -9,34 +9,12 @@
 #include "ficheiros.h"
 
 
-/*int carrega_lista_alunos(Lista_alunos *node)
-{
+int listar_locais(){
     FILE *fp;
-    fp = fopen("", "r");
-
-    t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));
-
-    while((fscanf(fp,"%s",no->DADOS_ALUNO.nome))!=EOF){
-
-        fscanf(fp,"%s %p %d %d",&(no->DADOS_ALUNO.nome),&(no->DADOS_ALUNO.morada),&(no->DADOS_ALUNO.data),&(no->DADOS_ALUNO.telefone));
-
-        if((*node)== NULL ){
-            no->prox = (*node);
-            *node = no;
-        }
-        else{
-            t_aluno *aux = *node;
-            while(aux->prox != NULL){
-                aux = aux->prox;
-            }
-            aux->prox = no;
-
-        }
-
-        t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));
-
+    fp  = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/locais.txt","r");
+    char linha[256];
+    while ((fgets(linha, sizeof(linha),fp) != NULL)){
+        printf("%s",linha);
     }
-    return 1;
-
     fclose(fp);
-}*/
+}

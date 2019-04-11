@@ -5,7 +5,8 @@
 #ifndef PROJETO_FICHEIROS_H
 #define PROJETO_FICHEIROS_H
 
-int carrega_lista_alunos(Lista_alunos *node);
+int listar_locais();
+
 
 
 #endif //PROJETO_FICHEIROS_H

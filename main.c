@@ -38,8 +38,6 @@ void escolher_opt(char *opt){
     Lista_locais *node_local;
     node_local = cria_lista_locais();
 
-    //carrega_lista_alunos(node_alunos);
-
     while (1){
         menu();
         int size=2;
@@ -72,6 +70,23 @@ void escolher_opt(char *opt){
                             system("pause");
                         }
                         else if(opt2 == '3'){
+                            int n;
+                            system("cls");
+                            printf("Insira o telefone do aluno a remover:\n");
+                            scanf("%d",&n);
+                            if(verifica_aluno(node_alunos,n)){
+                                remove_aluno(node_alunos,n);
+                                printf("O aluno foi removido com sucesso!\n");
+                            } else{
+                                system("cls");
+                                printf("O telefone de aluno que inseriu não existe\n");
+                                system("pause");
+                            }
+                            system("pause");
+                        } else{
+                            system("CLS");
+                            printf("entrou no else");
+                            fflush(stdin);
                             system("pause");
                         }
                     }
@@ -80,6 +95,31 @@ void escolher_opt(char *opt){
             case '2':
                 while (opt2=='0'){
                     system("CLS");
+                    printf("\tPretende:\n\n");
+                    printf("\t1 - Mostrar os Locais disponíveis\n");
+                    ler_string(str,size);
+                    fflush(stdin);
+                    if(str[1] != '0')
+                        opt2 = 'a';
+
+                    else{
+                        opt2=str[0];
+
+                        if(opt2 == '1'){
+                            system("cls");
+                            listar_locais();
+                            system("pause");
+                        }
+                        else if(opt2 == '2'){
+                            system("pause");
+                        }
+                        else{
+                            opt2='0';
+                            system("CLS");
+                            printf("entrou no else");
+                            system("pause");
+                        }
+                    }
                 }
                 break;
             case '0':

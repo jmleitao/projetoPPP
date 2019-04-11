@@ -7,8 +7,7 @@
 #include <string.h>
 #include "estruturas.h"
 
-Lista_alunos * cria_lista_alunos()/* so funciona se estiver no main*/
-{
+Lista_alunos * cria_lista_alunos()/* so funciona se estiver no main*/{
     Lista_alunos *node =(Lista_alunos*)malloc(sizeof(Lista_alunos));
     if(node!=NULL)
         *node=NULL;
