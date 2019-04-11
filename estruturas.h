@@ -11,7 +11,7 @@ typedef struct locais *Lista_locais;
 typedef struct dados_aluno{
     char nome[50];
     char morada[50];
-    int data;
+    //inserir a data de nascimento
     int telefone;
 }t_dados_alunos;
 

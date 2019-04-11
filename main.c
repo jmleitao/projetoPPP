@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
+
 #include "estruturas.h"
 #include "ficheiros.h"
+#include "funcoes.h"
+
 void menu(){
     printf("\tEscolha uma das seguintes opções:\n\n");
     printf("\t1 - Alunos\n");
@@ -34,7 +38,7 @@ void escolher_opt(char *opt){
     Lista_locais *node_local;
     node_local = cria_lista_locais();
 
-    carrega_lista_alunos(node_alunos);
+    //carrega_lista_alunos(node_alunos);
 
     while (1){
         menu();
@@ -50,6 +54,27 @@ void escolher_opt(char *opt){
             case '1':
                 while(opt2=='0'){
                     system("CLS");
+                    printf("\tPretende:\n\n");
+                    printf("\t1 - Criar Aluno\n");
+                    printf("\t2 - Alterar dados de Aluno\n");
+                    printf("\t3 - Apagar Aluno\n");
+                    ler_string(str,size);
+                    fflush(stdin);
+                    if(str[1] != '0')
+                        opt2 = 'a';
+                    else {
+                        opt2 = str[0];
+                        if (opt2 == '1') {
+                            insere_aluno(node_alunos);
+                            system("pause");
+                        }
+                        else if(opt2 == '2'){
+                            system("pause");
+                        }
+                        else if(opt2 == '3'){
+                            system("pause");
+                        }
+                    }
                 }
                 break;
             case '2':

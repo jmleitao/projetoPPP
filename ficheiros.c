@@ -3,13 +3,13 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>/*setlocale(LC_ALL,"Portuguese");*/
+#include <locale.h>
 #include <string.h>
 #include "estruturas.h"
 #include "ficheiros.h"
 
 
-int carrega_lista_alunos(Lista_alunos *node)
+/*int carrega_lista_alunos(Lista_alunos *node)
 {
     FILE *fp;
     fp = fopen("", "r");
@@ -18,7 +18,7 @@ int carrega_lista_alunos(Lista_alunos *node)
 
     while((fscanf(fp,"%s",no->DADOS_ALUNO.nome))!=EOF){
 
-        fscanf(fp,"%p %p %d %d",&(no->DADOS_ALUNO.nome),&(no->DADOS_ALUNO.morada),&(no->DADOS_ALUNO.data),&(no->DADOS_ALUNO.telefone));
+        fscanf(fp,"%s %p %d %d",&(no->DADOS_ALUNO.nome),&(no->DADOS_ALUNO.morada),&(no->DADOS_ALUNO.data),&(no->DADOS_ALUNO.telefone));
 
         if((*node)== NULL ){
             no->prox = (*node);
@@ -39,5 +39,4 @@ int carrega_lista_alunos(Lista_alunos *node)
     return 1;
 
     fclose(fp);
-}
-
+}*/
