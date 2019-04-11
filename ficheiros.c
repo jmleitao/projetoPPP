@@ -40,7 +40,6 @@ int carrega_lista_alunos(Lista_alunos *node){
                 aux = aux->prox;
             }
             aux->prox = no;
-
         }
 
         t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));

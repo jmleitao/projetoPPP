@@ -20,3 +20,4 @@ Lista_locais  * cria_lista_locais(){
         *node_local = NULL;
     return node_local;
 }
+

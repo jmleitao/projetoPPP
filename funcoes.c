@@ -17,6 +17,7 @@ void RetiraEnter(char *str){
     str[i]='\0';
 }
 
+
 int lista_vazia_alunos(Lista_alunos *li){
     if(li == NULL || *li==NULL) return 1;
     return 0;
