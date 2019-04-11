@@ -39,6 +39,7 @@ void escolher_opt(char *opt){
     node_local = cria_lista_locais();
 
     while (1){
+
         menu();
         int size=2;
         char opt2='0';

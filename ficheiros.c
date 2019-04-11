@@ -12,6 +12,7 @@
 int listar_locais(){
     FILE *fp;
     fp  = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/locais.txt","r");
+
     char linha[256];
     while ((fgets(linha, sizeof(linha),fp) != NULL)){
         printf("%s",linha);
