@@ -1,6 +1,6 @@
 //
 // Created by joao on 11-04-2019.
-//
+// and pedro
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -10,44 +10,44 @@
 #include "ficheiros.h"
 #include "funcoes.h"
 
-void RetiraEnter(char *str){
-    int i=0;
-    while(str[i]!= '\n')
+void RetiraEnter(char *str) {
+    int i = 0;
+    while (str[i] != '\n')
         i++;
-    str[i]='\0';
+    str[i] = '\0';
 }
 
 
-int lista_vazia_alunos(Lista_alunos *li){
-    if(li == NULL || *li==NULL) return 1;
+int lista_vazia_alunos(Lista_alunos *li) {
+    if (li == NULL || *li == NULL) return 1;
     return 0;
 }
 
-int lista_vazia_locais(Lista_locais *li){
-    if(li == NULL || *li==NULL) return 1;
+int lista_vazia_locais(Lista_locais *li) {
+    if (li == NULL || *li == NULL) return 1;
     return 0;
 }
 
-int verifica_aluno(Lista_alunos *node, int num){
-    if(node == NULL) return 0;
+int verifica_aluno(Lista_alunos *node, int num) {
+    if (node == NULL) return 0;
     t_aluno *no = *node;
-    while(no != NULL && no->DADOS_ALUNO.telefone != num){
+    while (no != NULL && no->DADOS_ALUNO.telefone != num) {
         printf("entrou no while");
         no = no->prox;
     }
     system("pause");
-    if(no == NULL) return 0;
+    if (no == NULL) return 0;
 
     return 1;
 }
 
 
-int insere_aluno(Lista_alunos*  node){
+int insere_aluno(Lista_alunos *node) {
     struct dados_aluno aux;
 
     system("clear");/*nome*/
     printf("Insira o nome do aluno:\n");
-    fgets(aux.nome,60,stdin);
+    fgets(aux.nome, 60, stdin);
     RetiraEnter(aux.nome);
     fflush(stdin);
 
@@ -61,33 +61,31 @@ int insere_aluno(Lista_alunos*  node){
 
     system("clear");/*telefone*/
     printf("Insira o seu nº de telefone:\n");
-    scanf("%d",&aux.telefone);
+    scanf("%d", &aux.telefone);
 
-    if(verifica_aluno(node, aux.telefone)){
+    if (verifica_aluno(node, aux.telefone)) {
         printf("O aluno já existe");
         return 0;
     }
-    if(node == NULL) return 0;
-    t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));
-    if(no == NULL) return 0;
+    if (node == NULL) return 0;
+    t_aluno *no = (t_aluno *) malloc(sizeof(t_aluno));
+    if (no == NULL) return 0;
     no->DADOS_ALUNO = aux;
 
-    if(lista_vazia_alunos(node)){//insere no inicio//
+    if (lista_vazia_alunos(node)) {//insere no inicio//
         no->prox = (*node);
-        *node= no;
+        *node = no;
         return 1;
-    }
-    else{
+    } else {
         t_aluno *ant, *atual = *node;
-        while(atual != NULL && atual->DADOS_ALUNO.telefone < aux.telefone){
+        while (atual != NULL && atual->DADOS_ALUNO.telefone < aux.telefone) {
             ant = atual;
             atual = atual->prox;
         }
-        if(atual == *node){//insere inicio//
+        if (atual == *node) {//insere inicio//
             no->prox = (*node);
             *node = no;
-        }
-        else{
+        } else {
             no->prox = ant->prox;
             ant->prox = no;
         }
@@ -95,16 +93,16 @@ int insere_aluno(Lista_alunos*  node){
     }
 }
 
-int remove_aluno(Lista_alunos *node, int num){
-    if(node == NULL) return 0;
+int remove_aluno(Lista_alunos *node, int num) {
+    if (node == NULL) return 0;
     t_aluno *ant, *no = *node;
-    while(no != NULL && no->DADOS_ALUNO.telefone != num){
+    while (no != NULL && no->DADOS_ALUNO.telefone != num) {
         ant = no;
         no = no->prox;
     }
-    if(no == NULL) return 0;
+    if (no == NULL) return 0;
 
-    if(no == *node)//remover o primeiro?//
+    if (no == *node)//remover o primeiro?//
         *node = no->prox;
     else
         ant->prox = no->prox;
@@ -114,12 +112,12 @@ int remove_aluno(Lista_alunos *node, int num){
 }
 
 
-int libera_alunos(Lista_alunos *node){
-    if(node!=NULL){
+int libera_alunos(Lista_alunos *node) {
+    if (node != NULL) {
         t_aluno *no;
-        while((*node)!=NULL){
-            no=*node;
-            *node=(*node)->prox;
+        while ((*node) != NULL) {
+            no = *node;
+            *node = (*node)->prox;
             free(no);
         }
         free(node);
