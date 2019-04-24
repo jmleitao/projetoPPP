@@ -9,7 +9,7 @@
 
 void menu(){
     printf("\tEscolha uma das seguintes opções:\n\n");
-    printf("\t1 - Alunos\n");
+    printf("\t1 - Students\n");
     printf("\t2 - Viagens\n");
     printf("\t0 - Sair\n");
 }
@@ -32,13 +32,13 @@ void ler_string(char string[],int size){
 
 void escolher_opt(char *opt){
 
-    Lista_alunos *node_alunos;
-    node_alunos = cria_lista_alunos();
+    StudentsList *node_Students;
+    node_Students = BuildStudentsList();
 
-    Lista_locais *node_local;
-    node_local = cria_lista_locais();
+    PlacesList *node_local;
+    node_local = BuildPlacesList();
 
-    carrega_lista_alunos(node_alunos);
+    carrega_StudentsList(node_Students);
 
     while (1){
 
@@ -56,9 +56,9 @@ void escolher_opt(char *opt){
                 while(opt2=='0'){
                     system("clear");
                     printf("\tPretende:\n\n");
-                    printf("\t1 - Criar Aluno\n");
-                    printf("\t2 - Alterar dados de Aluno\n");
-                    printf("\t3 - Apagar Aluno\n");
+                    printf("\t1 - Criar Student\n");
+                    printf("\t2 - Alterar data de Student\n");
+                    printf("\t3 - Apagar Student\n");
                     ler_string(str,size);
                     fflush(stdin);
                     if(str[1] != '0')
@@ -66,7 +66,7 @@ void escolher_opt(char *opt){
                     else {
                         opt2 = str[0];
                         if (opt2 == '1') {
-                            insere_aluno(node_alunos);
+                            insere_Student(node_Students);
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -75,14 +75,14 @@ void escolher_opt(char *opt){
                         else if(opt2 == '3'){
                             int n;
                             system("clear");
-                            printf("Insira o telefone do aluno a remover:\n");
+                            printf("Insira o phone_number do Student a remover:\n");
                             scanf("%d",&n);
-                            if(verifica_aluno(node_alunos,n)){
-                                remove_aluno(node_alunos,n);
-                                printf("O aluno foi removido com sucesso!\n");
+                            if(verifica_Student(node_Students,n)){
+                                remove_Student(node_Students,n);
+                                printf("O Student foi removido com sucesso!\n");
                             } else{
 
-                                printf("O telefone de aluno que inseriu não existe\n");
+                                printf("O phone_number de Student que inseriu não existe\n");
                                 system("pause");
                             }
                             system("pause");
@@ -99,7 +99,7 @@ void escolher_opt(char *opt){
                 while (opt2=='0'){
                     system("clear");
                     printf("\tPretende:\n\n");
-                    printf("\t1 - Mostrar os Locais disponíveis\n");
+                    printf("\t1 - Mostrar os Places disponíveis\n");
                     ler_string(str,size);
                     fflush(stdin);
                     if(str[1] != '0')
@@ -110,7 +110,7 @@ void escolher_opt(char *opt){
 
                         if(opt2 == '1'){
                             system("clear");
-                            listar_locais();
+                            listar_Places();
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -126,8 +126,8 @@ void escolher_opt(char *opt){
                 }
                 break;
             case '0':
-                carrega_ficheiro_alunos(node_alunos);
-                libera_alunos(node_alunos);
+                carrega_ficheiro_Students(node_Students);
+                libera_Students(node_Students);
                 exit(1);
                 break;
             default:

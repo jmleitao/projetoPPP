@@ -9,9 +9,9 @@
 #include "ficheiros.h"
 
 
-int listar_locais(){
+int listar_Places(){
     FILE *fp;
-    fp  = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/locais.txt","r");
+    fp  = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Places.txt","r");
 
     char linha[256];
     while ((fgets(linha, sizeof(linha),fp) != NULL)){
@@ -20,29 +20,29 @@ int listar_locais(){
     fclose(fp);
 }
 
-int carrega_lista_alunos(Lista_alunos *node){
+int carrega_StudentsList(StudentsList *node){
     FILE *fp;
-    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/alunos", "r");
+    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Students", "r");
 
-    t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));
+    Student_t *no = (Student_t*) malloc(sizeof(Student_t));
 
-    while((fscanf(fp,"%s",no->DADOS_ALUNO.nome))!=EOF){
+    while((fscanf(fp,"%s",no->InfoStudent.name))!=EOF){
 
-        fscanf(fp,"%d %s %s",&(no->DADOS_ALUNO.telefone),(no->DADOS_ALUNO.data_nasc),(no->DADOS_ALUNO.morada));
+        fscanf(fp,"%d %s %s",&(no->InfoStudent.phone_number),(no->InfoStudent.date_of_birth),(no->InfoStudent.address));
 
         if((*node)== NULL ){
-            no->prox = (*node);
+            no->next = (*node);
             *node = no;
         }
         else{
-            t_aluno *aux = *node;
-            while(aux->prox != NULL){
-                aux = aux->prox;
+            Student_t *aux = *node;
+            while(aux->next != NULL){
+                aux = aux->next;
             }
-            aux->prox = no;
+            aux->next = no;
         }
 
-        t_aluno *no = (t_aluno*) malloc(sizeof(t_aluno));
+        Student_t *no = (Student_t*) malloc(sizeof(Student_t));
 
     }
     return 1;
@@ -50,20 +50,20 @@ int carrega_lista_alunos(Lista_alunos *node){
     fclose(fp);
 }
 
-int carrega_ficheiro_alunos(Lista_alunos *node){
+int carrega_ficheiro_Students(StudentsList *node){
     FILE *fp;
-    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/alunos", "w");
+    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Students", "w");
 
     if(node == NULL) return 0;
-    t_aluno *copia= *node;
+    Student_t *copia= *node;
 
     while(copia != NULL){
 
-        fprintf(fp,"%s ",copia->DADOS_ALUNO.nome);
-        fprintf(fp,"%d",copia->DADOS_ALUNO.telefone);
-        fprintf(fp," %s",copia->DADOS_ALUNO.data_nasc);
-        fprintf(fp," %s",copia->DADOS_ALUNO.morada);
-        copia=copia->prox;
+        fprintf(fp,"%s ",copia->InfoStudent.name);
+        fprintf(fp,"%d",copia->InfoStudent.phone_number);
+        fprintf(fp," %s",copia->InfoStudent.date_of_birth);
+        fprintf(fp," %s",copia->InfoStudent.address);
+        copia=copia->next;
     }
     fclose(fp);
     return 1;

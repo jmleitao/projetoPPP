@@ -18,22 +18,22 @@ void RetiraEnter(char *str) {
 }
 
 
-int lista_vazia_alunos(Lista_alunos *li) {
+int lista_vazia_Students(StudentsList *li) {
     if (li == NULL || *li == NULL) return 1;
     return 0;
 }
 
-int lista_vazia_locais(Lista_locais *li) {
+int lista_vazia_Places(PlacesList *li) {
     if (li == NULL || *li == NULL) return 1;
     return 0;
 }
 
-int verifica_aluno(Lista_alunos *node, int num) {
+int verifica_Student(StudentsList *node, int num) {
     if (node == NULL) return 0;
-    t_aluno *no = *node;
-    while (no != NULL && no->DADOS_ALUNO.telefone != num) {
+    Student_t *no = *node;
+    while (no != NULL && no->InfoStudent.phone_number != num) {
         printf("entrou no while");
-        no = no->prox;
+        no = no->next;
     }
     system("pause");
     if (no == NULL) return 0;
@@ -42,82 +42,82 @@ int verifica_aluno(Lista_alunos *node, int num) {
 }
 
 
-int insere_aluno(Lista_alunos *node) {
-    struct dados_aluno aux;
+int insere_Student(StudentsList *node) {
+    struct StudentData aux;
 
-    system("clear");/*nome*/
-    printf("Insira o nome do aluno:\n");
-    fgets(aux.nome, 60, stdin);
-    RetiraEnter(aux.nome);
+    system("clear");/*name*/
+    printf("Insira o name do Student:\n");
+    fgets(aux.name, 60, stdin);
+    RetiraEnter(aux.name);
     fflush(stdin);
 
-    system("clear");/*morada*/
-    printf("Insira a sua morada:\n");
-    fgets(aux.morada, 50, stdin);
+    system("clear");/*address*/
+    printf("Insira a sua address:\n");
+    fgets(aux.address, 50, stdin);
 
     system("clear");/*data de nascimento*/
     printf("Insira a sua data de nascimento:\n");
-    fgets(aux.data_nasc, 50, stdin);
+    fgets(aux.date_of_birth, 50, stdin);
 
-    system("clear");/*telefone*/
-    printf("Insira o seu nº de telefone:\n");
-    scanf("%d", &aux.telefone);
+    system("clear");/*phone_number*/
+    printf("Insira o seu nº de phone_number:\n");
+    scanf("%d", &aux.phone_number);
 
-    if (verifica_aluno(node, aux.telefone)) {
-        printf("O aluno já existe");
+    if (verifica_Student(node, aux.phone_number)) {
+        printf("O Student já existe");
         return 0;
     }
     if (node == NULL) return 0;
-    t_aluno *no = (t_aluno *) malloc(sizeof(t_aluno));
+    Student_t *no = (Student_t *) malloc(sizeof(Student_t));
     if (no == NULL) return 0;
-    no->DADOS_ALUNO = aux;
+    no->InfoStudent = aux;
 
-    if (lista_vazia_alunos(node)) {//insere no inicio//
-        no->prox = (*node);
+    if (lista_vazia_Students(node)) {//insere no inicio//
+        no->next = (*node);
         *node = no;
         return 1;
     } else {
-        t_aluno *ant, *atual = *node;
-        while (atual != NULL && atual->DADOS_ALUNO.telefone < aux.telefone) {
+        Student_t *ant, *atual = *node;
+        while (atual != NULL && atual->InfoStudent.phone_number < aux.phone_number) {
             ant = atual;
-            atual = atual->prox;
+            atual = atual->next;
         }
         if (atual == *node) {//insere inicio//
-            no->prox = (*node);
+            no->next = (*node);
             *node = no;
         } else {
-            no->prox = ant->prox;
-            ant->prox = no;
+            no->next = ant->next;
+            ant->next = no;
         }
         return 1;
     }
 }
 
-int remove_aluno(Lista_alunos *node, int num) {
+int remove_Student(StudentsList *node, int num) {
     if (node == NULL) return 0;
-    t_aluno *ant, *no = *node;
-    while (no != NULL && no->DADOS_ALUNO.telefone != num) {
+    Student_t *ant, *no = *node;
+    while (no != NULL && no->InfoStudent.phone_number != num) {
         ant = no;
-        no = no->prox;
+        no = no->next;
     }
     if (no == NULL) return 0;
 
     if (no == *node)//remover o primeiro?//
-        *node = no->prox;
+        *node = no->next;
     else
-        ant->prox = no->prox;
+        ant->next = no->next;
     free(no);
     return 1;
 
 }
 
 
-int libera_alunos(Lista_alunos *node) {
+int libera_Students(StudentsList *node) {
     if (node != NULL) {
-        t_aluno *no;
+        Student_t *no;
         while ((*node) != NULL) {
             no = *node;
-            *node = (*node)->prox;
+            *node = (*node)->next;
             free(no);
         }
         free(node);

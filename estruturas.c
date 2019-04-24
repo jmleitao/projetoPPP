@@ -1,23 +1,37 @@
-//
-// Created by joao on 27-03-2019.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>    /*setlocale(LC_ALL,"Portuguese");*/
 #include <string.h>
 #include "estruturas.h"
 
-Lista_alunos * cria_lista_alunos()/* so funciona se estiver no main*/{
-    Lista_alunos *node =(Lista_alunos*)malloc(sizeof(Lista_alunos));
-    if(node!=NULL)
-        *node=NULL;
-    return node;
+/* so funciona se estiver no main*/
+
+/*Inicializei a head da lista(primeiro node) com valores para facilitar o debug
+ * caso este seja necessário*/
+
+StudentsList BuildStudentsList() {
+    StudentsList head = (StudentsList) malloc(sizeof(StudentsList));
+    if (head != NULL) {
+        head->InfoStudent.name = '1';
+        head->InfoStudent.address = '1';
+        head->InfoStudent.date_of_birth = '1';
+        head->InfoStudent.phone_number = 1;
+        head->next = NULL;
+    }
+    return head;
 }
 
-Lista_locais  * cria_lista_locais(){
-    Lista_locais  *node_local= (Lista_locais*)malloc(sizeof(Lista_locais));
-    if(node_local!=NULL)
-        *node_local = NULL;
-    return node_local;
+PlacesList BuildPlacesList() {
+    PlacesList head = (PlacesList) malloc(sizeof(PlacesList));
+    if (head != NULL) {
+        head->InfoPlace.city = '1';
+        head->InfoPlace.info = '1';
+        head->InfoPlace.WorkingHours.start_hour = 1;
+        head->InfoPlace.WorkingHours.end_hour = 1;
+        head->InfoPlace.WorkingHours.end_minute = 1;
+        head->InfoPlace.WorkingHours.end_minute = 1;
+        head->next = NULL;
+    }
+    return head;
 }
 

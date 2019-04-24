@@ -1,47 +1,56 @@
-//
-// Created by joao on 27-03-2019.
-//
 
-#ifndef PROJETO_ESTUTURAS_H
-#define PROJETO_ESTUTURAS_H
+#ifndef PROJECT_STRUCTURES_H
+#define PROJECT_STRUCTURES_H
 
-typedef struct aluno *Lista_alunos;
-typedef struct locais *Lista_locais;
 
-typedef struct dados_aluno{
-    char nome[50];
-    char morada[50];
-    char data_nasc[50];
-    int telefone;
-}t_dados_alunos;
+typedef struct Student *StudentsList;
+typedef struct Places *PlacesList;
 
-typedef struct aluno{
-    struct dados_aluno DADOS_ALUNO;
-    struct  aluno *prox;
-}t_aluno;
 
-typedef struct data
-{
-    int dia, mes, ano;
-}Data;
+typedef struct StudentData {
+    char name;
+    char address;
+    char date_of_birth;
+    int phone_number;
+} StudentData_t;
 
-typedef struct hora
-{
-    int hora_i, hora_f;
-    int min_i, min_f;
-}Hora;
 
-typedef struct dados_locais{
-    char nome_cidade[50];
-}t_dados_locais;
+typedef struct Student {
+    struct StudentData InfoStudent;
+    struct Student *next;
+} Student_t;
 
-typedef struct locais{
-    struct dados_locais DADOS_LOCAIS;
-    struct locais *prox;
-}t_locais;
 
-Lista_alunos * cria_lista_alunos();
-Lista_locais * cria_lista_locais();
+typedef struct Hour {
+    int start_hour;
+    int end_hour;
+    int start_minute;
+    int end_minute;
+} Hour_t;
 
-#endif //PROJETO_ESTUTURAS_H
+
+typedef struct PlacesData {
+    struct Hour WorkingHours;
+    char info;
+    char city;
+} PlacesData_t;
+
+
+typedef struct Places {
+    struct PlacesData InfoPlace;
+    struct Places *next;
+} Places_t;
+
+typedef struct Date {
+    int day;
+    int month;
+    int year;
+} Date_t;
+
+
+StudentsList BuildStudentsList();
+
+PlacesList BuildPlacesList();
+
+#endif //PROJECT_STRUCTURES_H
 
