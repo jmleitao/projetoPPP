@@ -1,4 +1,5 @@
 # projetoPPP
+by João Leitão and Pedro Rodrigues
 
 # structs.c
     Ficheiro de código fonte de linguagem C (.c) que contem:
