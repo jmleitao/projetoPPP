@@ -16,7 +16,7 @@ int verifica_Student(StudentsList *node, int num);
 int insere_Student(StudentsList*  node);
 int remove_Student(StudentsList *node, int num);
 
-int libera_Students(StudentsList *node);
+int DeleteStudentsList(StudentsList node);
 
 #endif //PROJETO_FUNCOES_H
 

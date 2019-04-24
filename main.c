@@ -32,13 +32,11 @@ void ler_string(char string[],int size){
 
 void escolher_opt(char *opt){
 
-    StudentsList *node_Students;
-    node_Students = BuildStudentsList();
+    StudentsList students_head = BuildStudentsList();
 
-    PlacesList *node_local;
-    node_local = BuildPlacesList();
+    PlacesList places_head = BuildPlacesList();
 
-    carrega_StudentsList(node_Students);
+    LoadStudentsList(students_head);
 
     while (1){
 
@@ -66,7 +64,7 @@ void escolher_opt(char *opt){
                     else {
                         opt2 = str[0];
                         if (opt2 == '1') {
-                            insere_Student(node_Students);
+                            insere_Student(students_head);
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -77,8 +75,8 @@ void escolher_opt(char *opt){
                             system("clear");
                             printf("Insira o phone_number do Student a remover:\n");
                             scanf("%d",&n);
-                            if(verifica_Student(node_Students,n)){
-                                remove_Student(node_Students,n);
+                            if(verifica_Student(students_head,n)){
+                                remove_Student(students_head,n);
                                 printf("O Student foi removido com sucesso!\n");
                             } else{
 
@@ -110,7 +108,7 @@ void escolher_opt(char *opt){
 
                         if(opt2 == '1'){
                             system("clear");
-                            listar_Places();
+                            PrintPlaces();
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -126,8 +124,8 @@ void escolher_opt(char *opt){
                 }
                 break;
             case '0':
-                carrega_ficheiro_Students(node_Students);
-                libera_Students(node_Students);
+                LoadStudentsFile(students_head);
+                DeleteStudentsList(students_head);
                 exit(1);
                 break;
             default:

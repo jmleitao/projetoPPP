@@ -2,15 +2,16 @@
 #ifndef PROJECT_STRUCTURES_H
 #define PROJECT_STRUCTURES_H
 
+#define SIZE 50
 
 typedef struct Student *StudentsList;
 typedef struct Places *PlacesList;
 
 
 typedef struct StudentData {
-    char name;
-    char address;
-    char date_of_birth;
+    char name[SIZE];
+    char address[SIZE];
+    char date_of_birth[SIZE];
     int phone_number;
 } StudentData_t;
 
@@ -31,8 +32,8 @@ typedef struct Hour {
 
 typedef struct PlacesData {
     struct Hour WorkingHours;
-    char info;
-    char city;
+    char info[SIZE];
+    char city[SIZE];
 } PlacesData_t;
 
 

@@ -8,63 +8,83 @@
 #include "estruturas.h"
 #include "ficheiros.h"
 
-
-int listar_Places(){
+int createfile(char *name, char *extension) {
     FILE *fp;
-    fp  = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Places.txt","r");
+    int len = strlen(name) + strlen(extension) + 1;
+    char *file = malloc(sizeof(char) * len);
 
-    char linha[256];
-    while ((fgets(linha, sizeof(linha),fp) != NULL)){
-        printf("%s",linha);
+    sprintf(file, "%s%s", name, extension);
+
+    fp = fopen(file, "w");
+    fclose(fp);
+
+    free(file);
+
+    return 0;
+}
+
+int PrintPlaces() {
+    FILE *fp;
+    char *line = malloc(sizeof(char) * 256);
+
+    fp = fopen("Places", "r");
+
+    if (fp == NULL)
+        createfile("Places", ".txt");
+
+    while ((fgets(line, sizeof(line), fp) != NULL)) {
+        printf("%s", line);
     }
+
+    free(line);
     fclose(fp);
 }
 
-int carrega_StudentsList(StudentsList *node){
+int LoadStudentsList(StudentsList head) {
     FILE *fp;
-    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Students", "r");
+    fp = fopen("Students.txt", "r");
+    Student_t *new_student = (Student_t *) malloc(sizeof(Student_t));
+    Student_t *student = head;
 
-    Student_t *no = (Student_t*) malloc(sizeof(Student_t));
+    if (fp == NULL)
+        createfile("Students", ".txt");
 
-    while((fscanf(fp,"%s",no->InfoStudent.name))!=EOF){
+    while ((fscanf(fp, "%s", new_student->InfoStudent.name)) != EOF) {
 
-        fscanf(fp,"%d %s %s",&(no->InfoStudent.phone_number),(no->InfoStudent.date_of_birth),(no->InfoStudent.address));
+        fscanf(fp, "%d %s %s", &(new_student->InfoStudent.phone_number), (new_student->InfoStudent.date_of_birth),
+               (new_student->InfoStudent.address));
 
-        if((*node)== NULL ){
-            no->next = (*node);
-            *node = no;
-        }
-        else{
-            Student_t *aux = *node;
-            while(aux->next != NULL){
-                aux = aux->next;
+        if (head == NULL) {
+            new_student->next = head;
+            head = new_student;
+        } else {
+            while (student->next != NULL) {
+                student = student->next;
             }
-            aux->next = no;
+            student->next = new_student;
         }
-
-        Student_t *no = (Student_t*) malloc(sizeof(Student_t));
-
     }
-    return 1;
 
+    free(new_student);
     fclose(fp);
+    return 0;
 }
 
-int carrega_ficheiro_Students(StudentsList *node){
+int LoadStudentsFile(StudentsList head) {
     FILE *fp;
-    fp = fopen("/home/joao/Desktop/Curso/3ºAno/2ºSemestre/PPP/Projeto/Students", "w");
+    fp = fopen("Students", "w");
+    Student_t *student = head;
 
-    if(node == NULL) return 0;
-    Student_t *copia= *node;
+    if (head != NULL) {
+        while (student != NULL) {
 
-    while(copia != NULL){
-
-        fprintf(fp,"%s ",copia->InfoStudent.name);
-        fprintf(fp,"%d",copia->InfoStudent.phone_number);
-        fprintf(fp," %s",copia->InfoStudent.date_of_birth);
-        fprintf(fp," %s",copia->InfoStudent.address);
-        copia=copia->next;
+            fprintf(fp, "%s ", student->InfoStudent.name);
+            fprintf(fp, "%d", student->InfoStudent.phone_number);
+            fprintf(fp, " %s", student->InfoStudent.date_of_birth);
+            fprintf(fp, " %s", student->InfoStudent.address);
+            student = student->next;
+        }
     }
     fclose(fp);
-    return 1;
+    return 0;
 }

@@ -10,6 +10,7 @@
 #include "ficheiros.h"
 #include "funcoes.h"
 
+
 void RetiraEnter(char *str) {
     int i = 0;
     while (str[i] != '\n')
@@ -111,15 +112,16 @@ int remove_Student(StudentsList *node, int num) {
 
 }
 
+int isEmptyStudent(struct Student *head) { return head->next == NULL ? 1 : 0; }
 
-int libera_Students(StudentsList *node) {
-    if (node != NULL) {
-        Student_t *no;
-        while ((*node) != NULL) {
-            no = *node;
-            *node = (*node)->next;
-            free(no);
-        }
-        free(node);
+
+int DeleteStudentsList(StudentsList head) {
+    Student_t *current;
+    while (!isEmptyStudent(head)) {
+        current = head;
+        head = head->next;
+        free(current);
     }
+    free(head);
+    return 0;
 }
