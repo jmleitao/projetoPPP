@@ -6,8 +6,8 @@
         - Uma função usada para criar uma lista ligada de Pontos de Interesse --> BuildPlacesList()
 # structs.h
     Ficheiro de cabeçalhos de linguagem C (.c) que que contem:
-        - Os cabeçalhos das funções descritas anteriormente --> StudentsList *BuildStudentsList();
-                                                            --> PlacesList *BuildPlacesList();
+        - Os cabeçalhos das funções descritas anteriormente --> StudentsList BuildStudentsList();
+                                                            --> PlacesList BuildPlacesList();
         -Todas as estruturas que vão ser utilizadas nos diversos ficheiros de codigo fonte e que devem portanto
         estar acessiveis a estes sendo por isso colocadas ficheiro de cabeçalhos (.h).
         (Estruturas permitem-nos criar conceitos num computador do que é o mundo e o que este tem).
