@@ -105,6 +105,7 @@ int InsertStudent(StudentsList head) {
     }
 }
 
+
 int RemoveStudent(StudentsList *node, int num) {
     if (node == NULL) return 0;
     Student_t *before, *no = *node;
