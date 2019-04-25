@@ -1,6 +1,3 @@
-//
-// Created by joao on 27-03-2019.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -23,7 +20,7 @@ int createfile(char *name, char *extension) {
     return 0;
 }
 
-int PrintPlaces() {
+int PrintPlaces(void) {
     FILE *fp;
     char *line = malloc(sizeof(char) * 256);
 
@@ -38,6 +35,8 @@ int PrintPlaces() {
 
     free(line);
     fclose(fp);
+
+    return 0;
 }
 
 int LoadStudentsList(StudentsList head) {

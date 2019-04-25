@@ -29,9 +29,9 @@ int lista_vazia_Places(PlacesList *li) {
     return 0;
 }
 
-int verifica_Student(StudentsList *node, int num) {
+int verifica_Student(StudentsList node, int num) {
     if (node == NULL) return 0;
-    Student_t *no = *node;
+    Student_t *no = node;
     while (no != NULL && no->InfoStudent.phone_number != num) {
         printf("entrou no while");
         no = no->next;
@@ -43,24 +43,24 @@ int verifica_Student(StudentsList *node, int num) {
 }
 
 
-int insere_Student(StudentsList *node) {
-    struct StudentData aux;
+int insere_Student(StudentsList node) {
+    StudentData_t aux;
 
-    system("clear");/*name*/
-    printf("Insira o name do Student:\n");
+    system("clear");                                        /*name*/
+    printf("Insira o nome do aluno:\n");
     fgets(aux.name, 60, stdin);
     RetiraEnter(aux.name);
     fflush(stdin);
 
-    system("clear");/*address*/
-    printf("Insira a sua address:\n");
+    system("clear");                                        /*address*/
+    printf("Insira o seu endereço:\n");
     fgets(aux.address, 50, stdin);
 
-    system("clear");/*data de nascimento*/
+    system("clear");                                        /*data de nascimento*/
     printf("Insira a sua data de nascimento:\n");
     fgets(aux.date_of_birth, 50, stdin);
 
-    system("clear");/*phone_number*/
+    system("clear");                                        /*phone_number*/
     printf("Insira o seu nº de phone_number:\n");
     scanf("%d", &aux.phone_number);
 
@@ -68,12 +68,14 @@ int insere_Student(StudentsList *node) {
         printf("O Student já existe");
         return 0;
     }
+
     if (node == NULL) return 0;
     Student_t *no = (Student_t *) malloc(sizeof(Student_t));
+
     if (no == NULL) return 0;
     no->InfoStudent = aux;
 
-    if (lista_vazia_Students(node)) {//insere no inicio//
+    if (lista_vazia_Students(node)) {                   /*insere no inicio*/
         no->next = (*node);
         *node = no;
         return 1;
