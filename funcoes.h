@@ -6,15 +6,15 @@
 #define PROJETO_FUNCOES_H
 
 
-void RetiraEnter(char *str);
+int removeEnter(char *str);
 
-int lista_vazia_Students(StudentsList *li);
-int lista_vazia_Places(PlacesList *li);
+int isEmptyStudent(StudentsList head);
+int isEmptyPlaces(PlacesList head);
 
-int verifica_Student(StudentsList node, int num);
+int searchStudent(StudentsList node, int key);
 
-int insere_Student(StudentsList node);
-int remove_Student(StudentsList *node, int num);
+int InsertStudent(StudentsList node);
+int RemoveStudent(StudentsList *node, int key);
 
 int DeleteStudentsList(StudentsList node);
 

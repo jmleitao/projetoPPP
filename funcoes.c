@@ -1,6 +1,3 @@
-//
-// Created by joao on 11-04-2019.
-// and pedro
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -11,96 +8,108 @@
 #include "funcoes.h"
 
 
-void RetiraEnter(char *str) {
+int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
+
+int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
+
+int removeEnter(char *str) {
     int i = 0;
-    while (str[i] != '\n')
+    while (*(str + i) != '\n')
         i++;
-    str[i] = '\0';
-}
-
-
-int lista_vazia_Students(StudentsList *li) {
-    if (li == NULL || *li == NULL) return 1;
+    *(str + i) = '\0';
     return 0;
 }
 
-int lista_vazia_Places(PlacesList *li) {
-    if (li == NULL || *li == NULL) return 1;
-    return 0;
-}
+int searchStudent(StudentsList node, int key) {
+    int found = 1;
+    Student_t *student = node;
 
-int verifica_Student(StudentsList node, int num) {
-    if (node == NULL) return 0;
-    Student_t *no = node;
-    while (no != NULL && no->InfoStudent.phone_number != num) {
+    if (node == NULL)
+        found = 0;
+    while (student != NULL && student->InfoStudent.phone_number != key) {
         printf("entrou no while");
-        no = no->next;
+        student = student->next;
     }
     system("pause");
-    if (no == NULL) return 0;
+    if (student == NULL)
+        found = 0;
 
-    return 1;
+    free(student);
+    return found;
 }
 
-
-int insere_Student(StudentsList node) {
-    StudentData_t aux;
+int getInfo(StudentData_t *student_data) {
 
     system("clear");                                        /*name*/
     printf("Insira o nome do aluno:\n");
-    fgets(aux.name, 60, stdin);
-    RetiraEnter(aux.name);
+    fgets(student_data->name, 60, stdin);
+    removeEnter(student_data->name);
     fflush(stdin);
 
     system("clear");                                        /*address*/
     printf("Insira o seu endereço:\n");
-    fgets(aux.address, 50, stdin);
+    fgets(student_data->address, 50, stdin);
 
-    system("clear");                                        /*data de nascimento*/
+    system("clear");                                        /*date of birth*/
     printf("Insira a sua data de nascimento:\n");
-    fgets(aux.date_of_birth, 50, stdin);
+    fgets(student_data->date_of_birth, 50, stdin);
 
     system("clear");                                        /*phone_number*/
     printf("Insira o seu nº de phone_number:\n");
-    scanf("%d", &aux.phone_number);
+    scanf("%d", &student_data->phone_number);
 
-    if (verifica_Student(node, aux.phone_number)) {
-        printf("O Student já existe");
+    return 0;
+}
+
+int InsertStudent(StudentsList head) {
+    StudentData_t student_data;
+    Student_t *before, *current = head;
+    Student_t *no;
+
+
+    getInfo(&student_data);
+
+    if (searchStudent(head, student_data.phone_number)) {
+        printf("O aluno já existe");
         return 0;
     }
 
-    if (node == NULL) return 0;
-    Student_t *no = (Student_t *) malloc(sizeof(Student_t));
+    if (head == NULL) return 0;
+
+
+    no = (Student_t *) malloc(sizeof(Student_t));
 
     if (no == NULL) return 0;
-    no->InfoStudent = aux;
 
-    if (lista_vazia_Students(node)) {                   /*insere no inicio*/
-        no->next = (*node);
-        *node = no;
+
+    no->InfoStudent = student_data;
+
+    if (isEmptyStudent(head)) {                   /*insere no inicio*/
+        no->next = head;
+        // head = no; ??
         return 1;
     } else {
-        Student_t *ant, *atual = *node;
-        while (atual != NULL && atual->InfoStudent.phone_number < aux.phone_number) {
-            ant = atual;
-            atual = atual->next;
+        
+        while (current != NULL && current->InfoStudent.phone_number < student_data.phone_number) {
+            before = current;
+            current = current->next;
         }
-        if (atual == *node) {//insere inicio//
-            no->next = (*node);
-            *node = no;
+        if (current == head) {                  //insere inicio//
+            no->next = head;
+            // head = no; ??
         } else {
-            no->next = ant->next;
-            ant->next = no;
+            no->next = before->next;
+            before->next = no;
         }
         return 1;
     }
 }
 
-int remove_Student(StudentsList *node, int num) {
+int RemoveStudent(StudentsList *node, int num) {
     if (node == NULL) return 0;
-    Student_t *ant, *no = *node;
+    Student_t *before, *no = *node;
     while (no != NULL && no->InfoStudent.phone_number != num) {
-        ant = no;
+        before = no;
         no = no->next;
     }
     if (no == NULL) return 0;
@@ -108,13 +117,11 @@ int remove_Student(StudentsList *node, int num) {
     if (no == *node)//remover o primeiro?//
         *node = no->next;
     else
-        ant->next = no->next;
+        before->next = no->next;
     free(no);
     return 1;
 
 }
-
-int isEmptyStudent(struct Student *head) { return head->next == NULL ? 1 : 0; }
 
 
 int DeleteStudentsList(StudentsList head) {

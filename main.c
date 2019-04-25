@@ -9,7 +9,7 @@
 
 void menu(){
     printf("\tEscolha uma das seguintes opções:\n\n");
-    printf("\t1 - Students\n");
+    printf("\t1 - Alunos\n");
     printf("\t2 - Viagens\n");
     printf("\t0 - Sair\n");
 }
@@ -64,7 +64,7 @@ void escolher_opt(char *opt){
                     else {
                         opt2 = str[0];
                         if (opt2 == '1') {
-                            insere_Student(students_head);
+                            InsertStudent(students_head);
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -75,8 +75,8 @@ void escolher_opt(char *opt){
                             system("clear");
                             printf("Insira o phone_number do Student a remover:\n");
                             scanf("%d",&n);
-                            if(verifica_Student(students_head,n)){
-                                remove_Student(students_head,n);
+                            if(searchStudent(students_head,n)){
+                                RemoveStudent(students_head,n);
                                 printf("O Student foi removido com sucesso!\n");
                             } else{
 
