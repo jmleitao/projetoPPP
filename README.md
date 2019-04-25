@@ -93,7 +93,6 @@ by João Leitão and Pedro Rodrigues
                         int month;          --> Mês do ano.
                         int year;           --> Ano ao qual os dois anteriores se referem.
                     } Date_t;
-
 # files.h
     Ficheiro de cabeçalhos de linguagem C (.h) que que contem:
     - Os cabeçalhos das funções descritas anteriormente --> createfile()
