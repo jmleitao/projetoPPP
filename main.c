@@ -7,11 +7,20 @@
 #include "ficheiros.h"
 #include "funcoes.h"
 
-void menu(){
+#define ClearConsole() system("clear")
+
+void menu1(void){
     printf("\tEscolha uma das seguintes opções:\n\n");
     printf("\t1 - Alunos\n");
     printf("\t2 - Viagens\n");
     printf("\t0 - Sair\n");
+}
+
+void menu2(void){
+    printf("\tPretende:\n\n");
+    printf("\t1 - Criar Student\n");
+    printf("\t2 - Alterar data de Student\n");
+    printf("\t3 - Apagar Student\n");
 }
 
 void ler_string(char string[],int size){
@@ -31,40 +40,39 @@ void ler_string(char string[],int size){
 }
 
 void escolher_opt(char *opt){
+    int size=2;
+    char opt2='0';
+    char *str;
 
     StudentsList students_head = BuildStudentsList();
+    LoadStudentsList(students_head);
 
     PlacesList places_head = BuildPlacesList();
 
-    LoadStudentsList(students_head);
-
     while (1){
 
-        menu();
-        int size=2;
-        char opt2='0';
-        char str[size];
-        ler_string(str,size);
+        menu1();
+        str = readline();
         fflush(stdin);
+
         if(str[1]!='\0') *opt = 'a';
         else
             *opt= str[0];
         switch(*opt){
             case '1':
                 while(opt2=='0'){
+                    //ClearConsole();
                     system("clear");
-                    printf("\tPretende:\n\n");
-                    printf("\t1 - Criar Student\n");
-                    printf("\t2 - Alterar data de Student\n");
-                    printf("\t3 - Apagar Student\n");
-                    ler_string(str,size);
+                    menu2();
+                    //ler_string(str,size);
+                    str = readline();
                     fflush(stdin);
                     if(str[1] != '0')
                         opt2 = 'a';
                     else {
                         opt2 = str[0];
                         if (opt2 == '1') {
-                            InsertStudent(students_head);
+                            AppendStudent(students_head);
                             system("pause");
                         }
                         else if(opt2 == '2'){
@@ -75,7 +83,7 @@ void escolher_opt(char *opt){
                             system("clear");
                             printf("Insira o phone_number do Student a remover:\n");
                             scanf("%d",&n);
-                            if(searchStudent(students_head,n)){
+                            if(SearchStudent(students_head,n)){
                                 RemoveStudent(students_head,n);
                                 printf("O Student foi removido com sucesso!\n");
                             } else{

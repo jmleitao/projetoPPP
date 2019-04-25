@@ -54,9 +54,9 @@ by João Leitão and Pedro Rodrigues
                 # Estrutura dos dados de um aluno:
 
                     typedef struct StudentData {
-                        char name;          --> Nome do aluno.
-                        char address;       --> Morada do aluno.
-                        char date_of_birth; --> Data de nascimento do aluno.
+                        char *name;          --> Nome do aluno.
+                        char *address;       --> Morada do aluno.
+                        char *date_of_birth; --> Data de nascimento do aluno.
                         int phone_number;   --> Numero de telemóvel do aluno.
                     } StudentData_t;
 
@@ -71,8 +71,8 @@ by João Leitão and Pedro Rodrigues
 
                     typedef struct PlacesData {
                         struct Hour WorkingHours;   --> Informação sobre o Horário de funcionamento.
-                        char info;                  --> Descrição do Ponto de Interesse.
-                        char city;                  --> Nome do Ponto de Interesse (nome da cidade).
+                        char *info;                  --> Descrição do Ponto de Interesse.
+                        char *city;                  --> Nome do Ponto de Interesse (nome da cidade).
                     } PlacesData_t;
 
                 # Estrutura do Horário de funcionamento de um Ponto de Interesse:
