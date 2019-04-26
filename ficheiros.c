@@ -24,7 +24,7 @@ int PrintPlaces(void) {
     FILE *fp;
     char *line = malloc(sizeof(char) * 256);
 
-    fp = fopen("Places", "r");
+    fp = fopen("Places.txt", "r");
 
     if (fp == NULL)
         createfile("Places", ".txt");

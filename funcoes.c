@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
+#include <stdio_ext.h>
 
 #include "estruturas.h"
 #include "ficheiros.h"
@@ -16,25 +17,29 @@ int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 int getInfoStudent(StudentData_t *student_data) {
 
     system("clear");                                        /*name*/
-    printf("Insira o nome do aluno: ");
-    //student_data->name = readline();
+    printf("Insira o nome do aluno:");
     fgets(student_data->name, 60, stdin);
     removeEnter(student_data->name);
     fflush(stdin);
+    __fpurge(stdin);
 
     system("clear");                                        /*address*/
     printf("Insira o seu endereço: ");
-    //student_data->address = readline();
     fgets(student_data->address, 50, stdin);
+    fflush(stdin);
+    __fpurge(stdin);
 
     system("clear");                                        /*date of birth*/
     printf("Insira a sua data de nascimento: ");
-    //student_data->date_of_birth = readline();
     fgets(student_data->date_of_birth, 50, stdin);
+    fflush(stdin);
+    __fpurge(stdin);
 
     system("clear");                                        /*phone_number*/
     printf("Insira o seu nº de Numero de Telemovel: ");
     scanf("%d", &student_data->phone_number);
+    fflush(stdin);
+    __fpurge(stdin);
 
     return 0;
 }
@@ -87,13 +92,19 @@ int AppendStudent(StudentsList head) {
 
     getInfoStudent(&student_data);
 
-    newStudent->InfoStudent = student_data;
-    newStudent->next = NULL;
+    if (SearchStudent(head, student_data.phone_number) == NULL) {
 
-    while (current->next != NULL) {
-        current = current->next;
+        newStudent->InfoStudent = student_data;
+        newStudent->next = NULL;
+
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = newStudent;
+
+    } else {
+        printf("Estudante já tem conta criada!\n");
     }
-    current->next = newStudent;
     return 0;
 }
 
@@ -130,17 +141,20 @@ int removeEnter(char *str) {
     return 0;
 }
 
-char *readline() {
-    char chr, *line = NULL;
-    int size = 0, i = 0;
 
-    while ((chr = getc(stdin)) != '\n') {
-        if (size <= i) {
-            size += 5;
-            line = realloc(line, size);
+int ler_string(char *string, int size) {
+    int i;
+    char c;
+
+    for (i = 0; i < size; i++) {
+        scanf("%c", &c);
+        if (c == '\n') {
+            string[i] = '\0';
+            break;
         }
-        *(line + i) = chr;
-        i++;
+
+        string[i] = c;
     }
-    return line;
+    string[i] = '\0';
+    return 0;
 }

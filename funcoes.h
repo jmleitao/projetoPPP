@@ -25,7 +25,7 @@ int InsertStudent(StudentsList head, int key);
 
 int DeleteStudentsList(StudentsList node);
 
-char *readline();
+int ler_string(char *string,int size);
 
 StudentsList SearchStudent(StudentsList head, int key);
 
