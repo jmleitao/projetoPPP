@@ -35,16 +35,13 @@ int AppendToStudentsList(StudentsList head, StudentData_t student_data) {
         current = current->next;
     }
     current->next = newStudent;
-
     return 0;
 }
-
-
 int LoadStudentsList(StudentsList head) {
     FILE *fp;
     StudentsList new_student = (StudentsList) malloc(sizeof(StudentData_t));
-    int i = 0,first = 1;
-    char *token, *line = NULL, delimiter[2] = "|";
+    int i = 0, first = 1;
+    char *token = NULL, *line1 = NULL,*line2= NULL, delimiter[2] = "|";
     size_t len;
 
     fp = fopen("Students.txt", "r");
@@ -52,8 +49,10 @@ int LoadStudentsList(StudentsList head) {
     if (fp == NULL) {
         createfile("Students", ".txt");
     } else {
-        while ((getline(&line, &len, fp) != EOF)) {
-            token = strtok(line, delimiter);
+        while ((getline(&line1, &len, fp) != EOF)) {
+            line2 = malloc(sizeof(char)*strlen(line1));
+            strcpy(line2,line1);
+            token = strtok(line2, delimiter);
             while (token != NULL && i < 4) {
                 switch (i) {
                     case 0:
@@ -76,12 +75,12 @@ int LoadStudentsList(StudentsList head) {
                 token = strtok(NULL, delimiter);
                 i++;
             }
-            if(first != 1) //Não carrega a primeira linha porque é igual à head por default ver função BuildStudentsList()
+            if (first != 1) //Não carrega a primeira linha porque é igual à head por default (ver função BuildStudentsList())
                 AppendToStudentsList(head, new_student->InfoStudent);
             first = 0;
             i = 0;
         }
-        free(line);
+        free(line1);
         fclose(fp);
     }
     return 0;

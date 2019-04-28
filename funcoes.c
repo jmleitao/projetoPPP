@@ -15,20 +15,24 @@ int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
 
 int getInfoStudent(StudentData_t *student_data) {
+    //const int size = 60;
 
     system("clear");                                        /*name*/
-    printf("Insira o nome do aluno:");
-    student_data->name = readlines();
+    printf("Insira o nome do aluno: ");
+    //fgets(student_data->name,size,stdin);
+    student_data->name = readline();
     ClearBuffer();
 
     system("clear");                                        /*address*/
     printf("Insira o seu endereço: ");
-    student_data->address = readlines();
+    //fgets(student_data->address,size,stdin);
+    student_data->address = readline();
     ClearBuffer();
 
     system("clear");                                        /*date of birth*/
     printf("Insira a sua data de nascimento: ");
-    student_data->date_of_birth = readlines();
+    //fgets(student_data->date_of_birth,size,stdin);
+    student_data->date_of_birth = readline();
     ClearBuffer();
 
     system("clear");                                        /*phone_number*/
@@ -127,7 +131,7 @@ int DeleteStudentsList(StudentsList head) {
 }
 
 int PrintStudentsList(StudentsList head) {
-    StudentsList current = head;
+    StudentsList current = head->next;
     while (current != NULL) {
         printf("--------------------\n");
         printf("Nome do Aluno: %s\n", current->InfoStudent.name);
@@ -139,6 +143,16 @@ int PrintStudentsList(StudentsList head) {
     return 0;
 }
 
+int PrintStudent(StudentsList student) {
+    if (student != NULL) {
+        printf("--------------------\n");
+        printf("Nome do Aluno: %s\n", student->InfoStudent.name);
+        printf("Morada do Aluno: %s\n", student->InfoStudent.address);
+        printf("Data de nascimento do Aluno: %s\n", student->InfoStudent.date_of_birth);
+        printf("Numero de Telemovel do Aluno: %d\n", student->InfoStudent.phone_number);
+    }
+    return 0;
+}
 
 
 int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter) {
@@ -166,29 +180,34 @@ int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter) {
 
 int getInfoPDI(PDIs_t *pdi_data) {
     Hour_t hour;
-    char *str,*delimiter = ":";
+    //const int size = 60;
+    char *str, *delimiter = ":";
 
     system("clear");
     printf("Insira o nome do Ponto de Interse:");
-    pdi_data->name = readlines();
+    //fgets(pdi_data->name,size,stdin);
+    pdi_data->name = readline();
     ClearBuffer();
 
     system("clear");
     printf("Insira a sua descrição do Ponto de Interesse: ");
-    pdi_data->info = readlines();
+    //fgets(pdi_data->info,size,stdin);
+    pdi_data->info = readline();
     ClearBuffer();
 
     system("clear");
     printf("Insira a sua Horario de Funcionamento do Ponto de Interesse: ");
     printf("Hora de Abertura\n\t\tno formato (hh:mm): ");
-    str = readlines();
+    //fgets(str,size,stdin);
+    str = readline();
     ClearBuffer();
-    getHourAndMinute(&hour,0,str,delimiter);
+    getHourAndMinute(&hour, 0, str, delimiter);
     ClearBuffer();
     printf("Hora de Fecho\n\t\tno formato (hh:mm): ");
-    str = readlines();
+    //fgets(str,size,stdin);
+    str = readline();
     ClearBuffer();
-    getHourAndMinute(&hour,0,str,delimiter);
+    getHourAndMinute(&hour, 0, str, delimiter);
     ClearBuffer();
     pdi_data->WorkingHours = hour;
 
@@ -216,14 +235,14 @@ PlacesList SearchPlace(PlacesList head, char *key) {
     PlacesList before;
     PlacesList current;
     FindPlace(head, &before, &current,
-                key);
+              key);
     return current;
 }
 
-int AddPDI(PlacesList head,PlacesList city) {
+int AddPDI(PlacesList head, PlacesList city) {
     PDIs_t pdi_data;
     PlacesList current = head;
-    PlacesList newPlace= (PlacesList) malloc(sizeof(Places_t));
+    PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
 
 
     if (SearchPlace(head, city->name) == NULL) {
@@ -297,13 +316,14 @@ int ler_string(char *string, int size) {
     return 0;
 }
 
-char *readlines() {
-    char chr, *line = NULL;
+char *readline() {
+    int chunk = 40; // Initial string size
+    char chr, *line = malloc(sizeof(char) * chunk);
     int size = 0, i = 0;
 
     while ((chr = getc(stdin)) != '\n') {
         if (size <= i) {
-            size += 5;
+            size += 15;
             line = realloc(line, size);
         }
         *(line + i) = chr;
@@ -312,4 +332,3 @@ char *readlines() {
     *(line + i) = '\0';
     return line;
 }
-

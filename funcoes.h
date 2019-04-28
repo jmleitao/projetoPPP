@@ -29,11 +29,13 @@ int DeleteStudentsList(StudentsList node);
 
 int ler_string(char *string, int size);
 
-char *readlines();
-
 StudentsList SearchStudent(StudentsList head, int key);
 
+char *readline(void);
+
 int PrintStudentsList(StudentsList head);
+
+int PrintStudent(StudentsList student);
 
 #endif //PROJECT_FUNCTIONS_H
 

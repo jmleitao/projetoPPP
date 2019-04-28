@@ -121,11 +121,14 @@ int UserInterface(void) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     //UserInterface();
+    int key = 920957188;
     StudentsList students_head = BuildStudentsList();
+    StudentsList student;
     LoadStudentsList(students_head);
-    //AddStudent(students_head);
-    PrintStudentsList(students_head);
-    //LoadStudentsFile(students_head);
+    AddStudent(students_head);
+    student = SearchStudent(students_head,key);
+    PrintStudent(student);
+    LoadStudentsFile(students_head);
     DeleteStudentsList(students_head);
     return 0;
 }
