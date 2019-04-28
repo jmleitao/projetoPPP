@@ -11,11 +11,13 @@
 
 StudentsList BuildStudentsList() {
     StudentsList head = (StudentsList) malloc(sizeof(StudentsList));
+    StudentData_t student_data;
     if (head != NULL) {
-        sprintf(head->InfoStudent.name, "%d", -1);
-        sprintf(head->InfoStudent.address, "%d", -1);
-        sprintf(head->InfoStudent.date_of_birth, "%d", -1);
-        head->InfoStudent.phone_number = -1;
+        student_data.name = "Name";
+        student_data.date_of_birth = "Date of Birth";
+        student_data.address = "Address";
+        student_data.phone_number = -1;
+        head->InfoStudent = student_data;
         head->next = NULL;
     }
     return head;
@@ -24,12 +26,12 @@ StudentsList BuildStudentsList() {
 PlacesList BuildPlacesList() {
     PlacesList head = (PlacesList) malloc(sizeof(PlacesList));
     if (head != NULL) {
-        sprintf(head->InfoPlace.city, "%d", -1);
-        sprintf(head->InfoPlace.info, "%d", -1);
-        head->InfoPlace.WorkingHours.start_hour = -1;
-        head->InfoPlace.WorkingHours.end_hour = -1;
-        head->InfoPlace.WorkingHours.end_minute = -1;
-        head->InfoPlace.WorkingHours.end_minute = -1;
+        sprintf(head->name, "%d", -1);
+        sprintf(head->PointOfInterest->name, "%d", -1);
+        head->PointOfInterest->WorkingHours.start_hour = -1;
+        head->PointOfInterest->WorkingHours.end_hour = -1;
+        head->PointOfInterest->WorkingHours.end_minute = -1;
+        head->PointOfInterest->WorkingHours.end_minute = -1;
         head->next = NULL;
     }
     return head;

@@ -5,6 +5,8 @@
 #ifndef PROJECT_FUNCTIONS_H
 #define PROJECT_FUNCTIONS_H
 
+#define ClearBuffer() __fpurge(stdin)
+#define ClearConsole() system("clear")
 
 int removeEnter(char *str);
 
@@ -17,7 +19,7 @@ int getInfoStudent(StudentData_t *student_data);
 int FindStudent(StudentsList head, StudentsList *before,
                 StudentsList *current, int key);
 
-int AppendStudent(StudentsList node);
+int AddStudent(StudentsList node);
 
 int RemoveStudent(StudentsList node, int key);
 
@@ -25,10 +27,13 @@ int InsertStudent(StudentsList head, int key);
 
 int DeleteStudentsList(StudentsList node);
 
-int ler_string(char *string,int size);
+int ler_string(char *string, int size);
+
+char *readlines();
 
 StudentsList SearchStudent(StudentsList head, int key);
 
+int PrintStudentsList(StudentsList head);
 
 #endif //PROJECT_FUNCTIONS_H
 

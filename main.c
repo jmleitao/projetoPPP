@@ -8,8 +8,6 @@
 #include "ficheiros.h"
 #include "funcoes.h"
 
-#define ClearConsole() system("clear")
-#define ClearBuffer() __fpurge(stdin)
 
 void menu1(void) {
     printf("\tEscolha uma das seguintes opções:\n\n");
@@ -48,13 +46,14 @@ int UserInterface(void) {
 
             case 1:
                 do {
+                    LoadStudentsList(students_head);
                     menu2();
                     scanf("%d", &option2);
                     ClearBuffer();
                     ClearConsole();
 
                     if (option2 == 1) {
-                        AppendStudent(students_head);
+                        AddStudent(students_head);
                         system("pause");
 
                     } else if (option2 == 2) {
@@ -121,6 +120,12 @@ int UserInterface(void) {
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    UserInterface();
+    //UserInterface();
+    StudentsList students_head = BuildStudentsList();
+    LoadStudentsList(students_head);
+    //AddStudent(students_head);
+    PrintStudentsList(students_head);
+    //LoadStudentsFile(students_head);
+    DeleteStudentsList(students_head);
     return 0;
 }

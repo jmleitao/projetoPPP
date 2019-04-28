@@ -9,4 +9,6 @@ int LoadStudentsList(StudentsList node);
 
 int LoadStudentsFile(StudentsList node);
 
+int AppendToStudentsList(StudentsList head, StudentData_t student);
+
 #endif //PROJECT_FILES_H
