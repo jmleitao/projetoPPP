@@ -4,13 +4,13 @@
 
 typedef struct Student *StudentsList;
 typedef struct Places *PlacesList;
-
+typedef struct PointsOfInterest *PointsOfInterestList;
 
 typedef struct StudentData {
     char *name;
     char *address;
     char *date_of_birth;
-    int phone_number;
+    char *phone_number;
 } StudentData_t;
 
 
@@ -27,17 +27,17 @@ typedef struct Hour {
     int end_minute;
 } Hour_t;
 
-typedef struct PDIs{
+typedef struct PointsOfInterest {
     char *name;
     char *info;
     struct Hour WorkingHours;
-    struct PDIs *next;
-}PDIs_t;
+    struct PointsOfInterest *next;
+} PointsOfInterest_t;
 
 
 typedef struct Places {
     char *name;
-    struct PDIs *PointOfInterest;
+    PointsOfInterestList PointOfInterest;
     struct Places *next;
 } Places_t;
 
@@ -49,10 +49,11 @@ typedef struct Date {
 } Date_t;
 
 
+StudentsList BuildStudentsList(void);
 
-StudentsList BuildStudentsList();
+PlacesList BuildPlacesList(void);
 
-PlacesList BuildPlacesList();
+PointsOfInterestList BuildPointsOfInterestList(void);
 
 #endif //PROJECT_STRUCTURES_H
 

@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -D_REENTRANT -pthread -Wall -g
 LDFLAGS = -lm
-OBJS = main.o ficheiros.o estruturas.o funcoes.o
+OBJS = main.o files.o structs.o functions.o
 PROG = projeto
 
 # ------------------------------------------------

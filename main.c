@@ -4,9 +4,12 @@
 #include <string.h>
 #include <stdio_ext.h>
 
-#include "estruturas.h"
-#include "ficheiros.h"
-#include "funcoes.h"
+#include "Headers/structs.h"
+#include "Headers/files.h"
+#include "Headers/functions.h"
+#include "Headers/PointsOfInterestList.h"
+#include "Headers/PlacesList.h"
+#include "Headers/StudentsList.h"
 
 
 void menu1(void) {
@@ -32,9 +35,11 @@ void menu3(void) {
 
 
 int UserInterface(void) {
-    int option1, option2, phone;
+    int option1, option2;
+    char * phone;
     StudentsList students_head = BuildStudentsList();
     PlacesList places_head = BuildPlacesList();
+    //PointsOfInterestList pdi_head = BuildPointsOfInterestList();
 
     do {
 
@@ -63,7 +68,7 @@ int UserInterface(void) {
                     } else if (option2 == 3) {
                         ClearConsole();
                         printf("Insira o numero de telemovel do aluno a remover:\n");
-                        scanf("%d", &phone);
+                        scanf("%s", phone);
                         if (SearchStudent(students_head, phone) != NULL) {
                             RemoveStudent(students_head, phone);
                             printf("O aluno foi removido com sucesso!\n");
@@ -120,15 +125,6 @@ int UserInterface(void) {
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    //UserInterface();
-    int key = 920957188;
-    StudentsList students_head = BuildStudentsList();
-    StudentsList student;
-    LoadStudentsList(students_head);
-    AddStudent(students_head);
-    student = SearchStudent(students_head,key);
-    PrintStudent(student);
-    LoadStudentsFile(students_head);
-    DeleteStudentsList(students_head);
+    UserInterface();
     return 0;
 }
