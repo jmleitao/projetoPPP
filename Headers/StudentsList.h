@@ -1,7 +1,3 @@
-//
-// Created by pedro on 29-04-2019.
-//
-
 #ifndef PROJETO_STUDENTSLIST_H
 
 

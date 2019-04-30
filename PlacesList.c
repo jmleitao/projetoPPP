@@ -1,6 +1,3 @@
-//
-// Created by pedro on 29-04-2019.
-//
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <string.h>
@@ -14,8 +11,7 @@ int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
 
 
-int FindPlace(PlacesList head, PlacesList *before,
-              PlacesList *current, char *key) {
+int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *key) {
     *before = head;
     *current = head->next;
 

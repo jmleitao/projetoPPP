@@ -1,7 +1,3 @@
-//
-// Created by joao on 11-04-2019.
-//
-
 #ifndef PROJECT_FUNCTIONS_H
 #define PROJECT_FUNCTIONS_H
 
