@@ -3,6 +3,7 @@
 
 #define ClearBuffer() __fpurge(stdin)
 #define ClearConsole() system("clear")
+#define ConsolePause() getchar()
 
 int removeEnter(char *str);
 
@@ -13,4 +14,3 @@ int getPhoneNumber(char **phone);
 int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter);
 
 #endif //PROJECT_FUNCTIONS_H
-

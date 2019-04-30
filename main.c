@@ -36,7 +36,7 @@ void menu3(void) {
 
 int UserInterface(void) {
     int option1, option2;
-    char * phone;
+    char * phone = NULL;
     StudentsList students_head = BuildStudentsList();
     PlacesList places_head = BuildPlacesList();
     //PointsOfInterestList pdi_head = BuildPointsOfInterestList();
@@ -125,6 +125,12 @@ int UserInterface(void) {
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    UserInterface();
+    //UserInterface();
+    StudentsList students_head = BuildStudentsList();
+    LoadStudentsList(students_head);
+    AddStudent(students_head);
+
+    //SearchStudent(students_head,"924109520");
+
     return 0;
 }
