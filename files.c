@@ -62,17 +62,17 @@ int LoadStudentsList(StudentsList head) {
             while (token != NULL && i < 4) {
                 switch (i) {
                     case 0:
-                        new_student->InfoStudent.name = token;
+                        new_student->InfoStudent.name = strdup(token);
                         break;
                     case 1:
-                        new_student->InfoStudent.address = token;
+                        new_student->InfoStudent.address = strdup(token);
                         break;
                     case 2:
-                        new_student->InfoStudent.date_of_birth = token;
+                        new_student->InfoStudent.date_of_birth = strdup(token);
                         break;
                     case 3:
                         removeEnter(token);
-                        new_student->InfoStudent.phone_number = token;
+                        new_student->InfoStudent.phone_number = strdup(token);
                         break;
                     default:
                         printf("ERROR!");
@@ -90,7 +90,7 @@ int LoadStudentsList(StudentsList head) {
                 line3 = malloc(sizeof(char) * len);
                 strcpy(line3, line1);
                 removeEnter(line3);
-                new_student->InfoInterests.favorite_places[i] = line3;
+                new_student->InfoInterests.favorite_places[i] = strdup(line3);
                 i++;
             }
             i = 0;
@@ -100,10 +100,10 @@ int LoadStudentsList(StudentsList head) {
                 strcpy(line3, line1);
                 if (i == 0 && line3[0] != delimiter2[0]) {
                     removeEnter(line3);
-                    new_student->InfoInterests.hot = line3;
+                    new_student->InfoInterests.hot = strdup(line3);
                 } else if (i != 0 && line3[0] != delimiter2[0]) {
                     removeEnter(line3);
-                    new_student->InfoInterests.other_points_of_interest[i - 1] = line3;
+                    new_student->InfoInterests.other_points_of_interest[i - 1] = strdup(line3);
                 }
                 i++;
             }
@@ -113,6 +113,9 @@ int LoadStudentsList(StudentsList head) {
             i = 0;
         }
     }
+    free(line1);
+    free(line2);
+    free(line3);
     fclose(fp);
     return 0;
 }

@@ -124,6 +124,7 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
     //UserInterface();
     PlacesList places_head= BuildPlacesList();
-    //PrintPlaces();
+    PrintPlaces();
+    DeletePlacesList(places_head);
     return 0;
 }
