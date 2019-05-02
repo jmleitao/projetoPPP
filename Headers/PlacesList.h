@@ -11,6 +11,7 @@ PlacesList SearchPlace(PlacesList head, char *key);
 
 int DeletePlacesList(PlacesList head);
 
+int PrintPlacesList(PlacesList head);
 
 #define PROJETO_PLACESLIST_H
 

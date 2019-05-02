@@ -1,6 +1,8 @@
-
 #ifndef PROJECT_STRUCTURES_H
 #define PROJECT_STRUCTURES_H
+
+#define NUM_POINTS_OF_INTEREST 50
+
 
 typedef struct Student *StudentsList;
 typedef struct Places *PlacesList;
@@ -13,18 +15,24 @@ typedef struct StudentData {
     char *phone_number;
 } StudentData_t;
 
+typedef struct StudentInterests {
+    char *hot;
+    char *other_points_of_interest[NUM_POINTS_OF_INTEREST];
+    char *favorite_places[3];
+    int num_points;
+} Student_Interests_t;
+
 
 typedef struct Student {
     struct StudentData InfoStudent;
+    struct StudentInterests InfoInterests;
     struct Student *next;
+    int StudentCount;
 } Student_t;
 
-
 typedef struct Hour {
-    int start_hour;
-    int end_hour;
-    int start_minute;
-    int end_minute;
+    char *OpeningHour;
+    char *ClosingHour;
 } Hour_t;
 
 typedef struct PointsOfInterest {
@@ -38,15 +46,8 @@ typedef struct PointsOfInterest {
 typedef struct Places {
     char *name;
     PointsOfInterestList PointOfInterest;
-    struct Places *next;
+    PlacesList next;
 } Places_t;
-
-
-typedef struct Date {
-    int day;
-    int month;
-    int year;
-} Date_t;
 
 
 StudentsList BuildStudentsList(void);

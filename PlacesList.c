@@ -15,11 +15,11 @@ int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *ke
     *before = head;
     *current = head->next;
 
-    while ((*current) != NULL && !strcmp((*current)->name, key)) {
+    while ((*current) != NULL && strcmp((*current)->name, key) != 0) {
         *before = *current;
         *current = (*current)->next;
     }
-    if ((*current) != NULL && !strcmp((*current)->name, key)) {
+    if ((*current) != NULL && strcmp((*current)->name, key) != 0) {
         *current = NULL;
     }
     return 0;
@@ -33,7 +33,6 @@ PlacesList SearchPlace(PlacesList head, char *key) {
               key);
     return current;
 }
-
 
 int RemovePlace(PlacesList head, char *key) {
     PlacesList current;
@@ -55,6 +54,16 @@ int DeletePlacesList(PlacesList head) {
         free(current);
     }
     free(head);
+    return 0;
+}
+
+int PrintPlacesList(PlacesList head) {
+    PlacesList current = head->next;
+    while (current != NULL) {
+        printf("--------------------\n");
+        printf("Nome do Local: %s\n", current->name);
+        current = current->next;
+    }
     return 0;
 }
 

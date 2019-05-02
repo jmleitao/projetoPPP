@@ -24,5 +24,8 @@ int PrintStudent(StudentsList student);
 
 int StudentCount(StudentsList head);
 
+int ChangeStudentInfo(StudentsList head, char *key);
+
+
 #define PROJETO_STUDENTSLIST_H
 #endif //PROJETO_STUDENTSLIST_H

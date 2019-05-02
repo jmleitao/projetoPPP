@@ -6,51 +6,58 @@
 #include "Headers/functions.h"
 #include "Headers/StudentsList.h"
 
+int changeInfomenu(){
+    printf("Que parametro deseja alterar?\n");
+    printf("\t1 - Alterar o nome\n");
+    printf("\t2 - Alterar a morada\n");
+    printf("\t3 - Alterar a data de nascimento\n");
+    printf("\t4 - Alterar o numero de Telemovel\n");
+    return 0;
+}
+
 int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
 
-
-int ChangeStudentInfo(StudentsList head, char *key) {
+int ChangeStudentInfo(StudentsList head,char *key) {
     StudentsList student;
     int option;
-    printf("Insira o numero de Telemovel\n");
     student = SearchStudent(head, key);
     if (student != NULL) {
         do {
-            printf("Que parametro deseja alterar?\n");
-            printf("\tPretende:\n\n");
-            printf("\t1 - Alterar o nome\n");
-            printf("\t2 - Alterar a morada\n");
-            printf("\t3 - Alterar a data de nascimento\n");
-            printf("\t3 - Alterar o numero de Telemovel\n");
+            changeInfomenu();
             ClearBuffer();
             scanf("%d", &option);
             switch (option) {
                 case 1:
-                    ClearConsole();
+                    ClearBuffer();
                     printf("Insira o nome do aluno: ");
-                    readstring(&(student->InfoStudent.name), 30, 20);
+                    readstring(&student->InfoStudent.name, 30, 10);
+                    ClearConsole();
                     break;
                 case 2:
-                    ClearConsole();
+                    ClearBuffer();
                     printf("Insira o seu endereço: ");
-                    readstring(&student->InfoStudent.address, 30, 20);
-
+                    readstring(&student->InfoStudent.address, 30, 10);
+                    ClearConsole();
                     break;
                 case 3:
-                    ClearConsole();
+                    ClearBuffer();
                     printf("Insira a sua data de nascimento: ");
-                    readstring(&student->InfoStudent.date_of_birth, 30, 20);
+                    getDateOfBirth(&student->InfoStudent.date_of_birth);
+                    ClearConsole();
                     break;
                 case 4:
-                    ClearConsole();
+                    ClearBuffer();
+                    printf("Insira o seu nº de Numero de Telemovel: ");
                     getPhoneNumber(&student->InfoStudent.phone_number);
+                    ClearConsole();
                     break;
                 default:
                     printf("Invalid Key!\n");
+                    ClearConsole();
                     option = -1;
                     break;
             }
-        } while (option < 1 || option > 4);
+        } while (option == -1);
     } else {
         printf("O Estudante com esse numero não está registado\n");
     }
@@ -61,22 +68,23 @@ int ChangeStudentInfo(StudentsList head, char *key) {
 int getInfoStudent(StudentData_t *student_data) {
     //const int size = 60;
 
-    system("clear");                                        /*name*/
+    system("clear");
     printf("Insira o nome do aluno: ");
-    readstring(&(student_data->name), 30, 20);
+    readstring(&(student_data->name), 30, 10);
     ClearBuffer();
 
-    system("clear");                                        /*address*/
+    system("clear");
     printf("Insira o seu endereço: ");
-    readstring(&student_data->address, 30, 20);
+    readstring(&student_data->address, 30, 10);
     ClearBuffer();
 
-    system("clear");                                        /*date of birth*/
+    system("clear");
     printf("Insira a sua data de nascimento: ");
-    readstring(&student_data->date_of_birth, 30, 20);
+    getDateOfBirth(&student_data->phone_number);
     ClearBuffer();
 
-    system("clear");                                        /*phone_number*/
+    system("clear");
+    printf("Insira o seu nº de Numero de Telemovel: ");
     getPhoneNumber(&student_data->phone_number);
     ClearBuffer();
 
@@ -90,7 +98,9 @@ int StudentCount(StudentsList head) {
         current = current->next;
         counter++;
     }
-    return counter;
+    head->StudentCount = counter;
+    printf("Number of Students: %d\n",counter);
+    return 0;
 }
 
 int FindStudent(StudentsList head, StudentsList *before,

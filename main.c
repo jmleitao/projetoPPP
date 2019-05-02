@@ -39,10 +39,7 @@ int UserInterface(void) {
     char * phone = NULL;
     StudentsList students_head = BuildStudentsList();
     PlacesList places_head = BuildPlacesList();
-    //PointsOfInterestList pdi_head = BuildPointsOfInterestList();
-
     do {
-
         menu1();
         scanf("%d", &option1);
         ClearBuffer();
@@ -126,11 +123,7 @@ int UserInterface(void) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     //UserInterface();
-    StudentsList students_head = BuildStudentsList();
-    LoadStudentsList(students_head);
-    AddStudent(students_head);
-
-    //SearchStudent(students_head,"924109520");
-
+    PlacesList places_head= BuildPlacesList();
+    //PrintPlaces();
     return 0;
 }

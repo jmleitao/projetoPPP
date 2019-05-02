@@ -7,10 +7,12 @@
 
 int removeEnter(char *str);
 
-char readstring(char **string, int init_size, int chunk);
-
 int getPhoneNumber(char **phone);
 
 int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter);
+
+int getDateOfBirth(char **date);
+
+char readstring(char **string, int init_size, int chunk);
 
 #endif //PROJECT_FUNCTIONS_H

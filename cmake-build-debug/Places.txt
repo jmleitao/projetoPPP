@@ -1,5 +1,34 @@
-Lisboa:
-Paris:
+> Lisboa
+@ Mosteiro dos Jerónimos
+-
+O Mosteiro dos Jerónimos situa-se perto da costa da freguesia de Belém. O mosteiro é um dos
+monumentos mais importantes da arquitetura estilo manuelino em Lisboa, considerado Património Mundial pela UNESCO
+em 1983, juntamente com a vizinha torre de Belém.O mosteiro foi mandado construir por D. Manuel I para perpetuar
+a memória do Infante D. Henrique. Foi fundado em 1496, na altura como Mosteiro de Sta. Maria de Belém. Aqui se
+encontram sepultados alguns rei portugueses como D. Manuel I e sua mulher, D. João II e sua mulher, e alguns poetas
+como Luís Vaz de Camões e Fernando Pessoa.
+-
+@ Torre de Belém
+-
+A Torre de Belém é uma torre fortificada,localizada na freguesia de Santa Maria de Belém. É Património
+Mundial devido ao papel significativo que desempenhou nas descobertas marítimas portuguesas. O edifício foi encomendado
+pelo rei João II para ser parte de um sistema de defesa na foz do rio Tejo e uma porta de entrada para Lisboa.
+Construída em 1515 como uma fortaleza para proteger a entrada do Porto de Lisboa, a torre de Belém foi o ponto de
+partida para muitas das viagens de descoberta, e para muitos os marinheiros foi a última visão da sua pátria.
+-
+@ Bairro Alto & Chiado
+-
+O Bairro Alto é um distrito central da cidade de Lisboa.É um bairro pitoresco que à noite se
+transforma no centro da vida noturna da cidade.Por trás de fachadas coloridas e cheias de grafite existe uma variedade
+de restaurantes tradicionais e internacionais, casas de Fado e uma infinidade de restaurantes, bares e lojas
+alternativas que ficam abertas até tarde da noite.O Chiado, vizinho do Bairro Alto, é o nome de uma praça e seus
+arredores da cidade de Lisboa. É um elegante e sofisticado bairro de teatros, livrarias, cafés de estilo antigo e
+lojas de jóias. É uma zona comercial tradicional que mistura estabelecimentos comerciais antigos e modernos.O mais
+famoso café do Chiado é “A Brasileira”, famoso por ter tido o poeta Fernando Pessoa, entre os seus clientes.
+O Chiado é também um importante espaço cultural, com vários museus e teatros.Não deixe de visitar estes dois lugares
+vizinhos que muito têm para oferecer.
+-
+> Paris
 Londres:
 Roma:
 Edinburgo:

@@ -10,9 +10,7 @@
 
 
 int getInfoPointOfInterest(PointsOfInterest_t *point_of_interest_data) {
-    Hour_t hour;
     //const int size = 60;
-    char *str, *delimiter = ":";
 
     system("clear");
     printf("Insira o nome do Ponto de Interse:");
@@ -29,18 +27,10 @@ int getInfoPointOfInterest(PointsOfInterest_t *point_of_interest_data) {
     system("clear");
     printf("Insira a sua Horario de Funcionamento do Ponto de Interesse: ");
     printf("Hora de Abertura\n\t\tno formato (hh:mm): ");
-    readstring(&str, 30, 20);   //fgets(str,size,stdin);
+    readstring(&point_of_interest_data->WorkingHours.OpeningHour, 30, 20);
     ClearBuffer();
-    getHourAndMinute(&hour, 0, str, delimiter);
-    ClearBuffer();
-
     printf("Hora de Fecho\n\t\tno formato (hh:mm): ");
-    readstring(&str, 30, 20);   //fgets(str,size,stdin);
-    ClearBuffer();
-    getHourAndMinute(&hour, 0, str, delimiter);
-    ClearBuffer();
-
-    point_of_interest_data->WorkingHours = hour;
+    readstring(&point_of_interest_data->WorkingHours.OpeningHour, 30, 20);
 
     return 0;
 }

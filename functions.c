@@ -35,33 +35,10 @@ char readstring(char **string, int init_size, int chunk) {
     return 0;
 }
 
-int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter) {
-    char *token;
-    int i = 0;
-    token = strtok(string, delimiter);
-    while (token != NULL) {
-        if (i == 0) {
-            if (option == 0)
-                time->start_hour = atoi(token);
-            else
-                time->end_hour = atoi(token);
-        } else {
-            if (option == 0)
-                time->start_minute = atoi(token);
-            else
-                time->end_minute = atoi(token);
-        }
-        i++;
-        token = strtok(NULL, delimiter);
-    }
-    return 0;
-}
-
 int getPhoneNumber(char **phone) {
     char *i;
     int count, found;
     do {
-        printf("Insira o seu nº de Numero de Telemovel: ");
         readstring(phone, 9, 5);
         ClearBuffer();
         found = 1;
@@ -72,8 +49,25 @@ int getPhoneNumber(char **phone) {
         }
         if (count != 9 || found == 0) {
             printf("Numero Invalido!\n");
+            printf("Insira o seu nº de Numero de Telemovel: ");
         }
     } while (found == 0 || count != 9);
     return 0;
 }
+
+int getDateOfBirth(char **date) {
+    int found, day, month, year;
+    do {
+        found = 1;
+        readstring(date, 9, 3);
+        sscanf(*date, "%d/%d/%d", &day, &month, &year);
+        if (day < 0 || day > 31 || month < 0 || month > 12) {
+            printf("Data Invalida! (dd/mm/yyyy)\n");
+            printf("Insira a sua data de nascimento: ");
+            found = 0;
+        }
+    } while (found == 0);
+    return 0;
+}
+
 

@@ -7,8 +7,11 @@ int PrintPlaces();
 
 int LoadStudentsList(StudentsList node);
 
+int LoadPlacesList(PlacesList head);
+
 int LoadStudentsFile(StudentsList node);
 
-int AppendToStudentsList(StudentsList head, StudentData_t student);
+int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_Interests_t student_interests);
+
 
 #endif //PROJECT_FILES_H
