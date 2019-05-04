@@ -13,6 +13,8 @@ int DeletePlacesList(PlacesList head);
 
 int PrintPlacesList(PlacesList head);
 
+int DeletePointsOfInterestList(PointsOfInterestList head);
+
 #define PROJETO_PLACESLIST_H
 
 #endif //PROJETO_PLACESLIST_H

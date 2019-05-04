@@ -13,5 +13,6 @@ int LoadStudentsFile(StudentsList node);
 
 int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_Interests_t student_interests);
 
+int LoadPlacesFile(PlacesList head);
 
 #endif //PROJECT_FILES_H

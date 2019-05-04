@@ -9,8 +9,6 @@ int removeEnter(char *str);
 
 int getPhoneNumber(char **phone);
 
-int getHourAndMinute(Hour_t *time, int option, char *string, char *delimiter);
-
 int getDateOfBirth(char **date);
 
 char readstring(char **string, int init_size, int chunk);

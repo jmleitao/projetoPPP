@@ -9,6 +9,7 @@
 
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
+int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0;}
 
 
 int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *key) {
@@ -45,9 +46,19 @@ int RemovePlace(PlacesList head, char *key) {
     return 0;
 }
 
+int DeletePointsOfInterestList(PointsOfInterestList head) {
+    PointsOfInterestList current;
+    while (!isEmptyPointsOfInterest(head)) {
+        current = head;
+        head = head->next;
+        free(current);
+    }
+    free(head);
+    return 0;
+}
 
 int DeletePlacesList(PlacesList head) {
-    Places_t *current;
+    PlacesList current;
     while (!isEmptyPlaces(head)) {
         current = head;
         head = head->next;

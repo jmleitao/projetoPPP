@@ -5,8 +5,9 @@
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 #include "Headers/StudentsList.h"
+#include "Headers/PlacesList.h"
 
-int changeInfomenu(){
+int changeInfomenu() {
     printf("Que parametro deseja alterar?\n");
     printf("\t1 - Alterar o nome\n");
     printf("\t2 - Alterar a morada\n");
@@ -17,7 +18,8 @@ int changeInfomenu(){
 
 int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
 
-int ChangeStudentInfo(StudentsList head,char *key) {
+
+int ChangeStudentInfo(StudentsList head, char *key) {
     StudentsList student;
     int option;
     student = SearchStudent(head, key);
@@ -80,7 +82,7 @@ int getInfoStudent(StudentData_t *student_data) {
 
     system("clear");
     printf("Insira a sua data de nascimento: ");
-    getDateOfBirth(&student_data->phone_number);
+    getDateOfBirth(&student_data->date_of_birth);
     ClearBuffer();
 
     system("clear");
@@ -99,7 +101,7 @@ int StudentCount(StudentsList head) {
         counter++;
     }
     head->StudentCount = counter;
-    printf("Number of Students: %d\n",counter);
+    printf("Number of Students: %d\n", counter);
     return 0;
 }
 
@@ -147,6 +149,12 @@ int AddStudent(StudentsList head) {
     StudentData_t student_data;
     StudentsList current = head;
     StudentsList newStudent = (StudentsList) malloc(sizeof(Student_t));
+    PointsOfInterestList defaultPointOfInterest = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
+    int i;
+
+    defaultPointOfInterest->name = "Not Defined";
+    defaultPointOfInterest->info= NULL;
+    defaultPointOfInterest->WorkingHours = NULL;
 
     getInfoStudent(&student_data);
 
@@ -154,6 +162,11 @@ int AddStudent(StudentsList head) {
 
         newStudent->InfoStudent = student_data;
         newStudent->next = NULL;
+        newStudent->InfoInterests.hot = "Not Defined ";
+        for (i = 0; i < 3; i++) {
+            newStudent->InfoInterests.favorite_places[i] = "Not Defined";
+        }
+        newStudent->InfoInterests.other_points_of_interest = defaultPointOfInterest;
 
         while (current->next != NULL) {
             current = current->next;
@@ -183,6 +196,7 @@ int DeleteStudentsList(StudentsList head) {
     while (!isEmptyStudent(head)) {
         current = head;
         head = head->next;
+        DeletePointsOfInterestList(current->InfoInterests.other_points_of_interest);
         free(current);
     }
     free(head);

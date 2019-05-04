@@ -26,11 +26,8 @@ int getInfoPointOfInterest(PointsOfInterest_t *point_of_interest_data) {
 
     system("clear");
     printf("Insira a sua Horario de Funcionamento do Ponto de Interesse: ");
-    printf("Hora de Abertura\n\t\tno formato (hh:mm): ");
-    readstring(&point_of_interest_data->WorkingHours.OpeningHour, 30, 20);
+    readstring(&point_of_interest_data->WorkingHours,30,20);
     ClearBuffer();
-    printf("Hora de Fecho\n\t\tno formato (hh:mm): ");
-    readstring(&point_of_interest_data->WorkingHours.OpeningHour, 30, 20);
 
     return 0;
 }

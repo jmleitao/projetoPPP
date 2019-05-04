@@ -11,6 +11,7 @@
 
 StudentsList BuildStudentsList(void) {
     StudentsList head = (StudentsList) malloc(sizeof(Student_t));
+    PointsOfInterestList points_of_interest_head = BuildPointsOfInterestList();
     StudentData_t student_data;
     Student_Interests_t student_interests;
 
@@ -22,13 +23,14 @@ StudentsList BuildStudentsList(void) {
     student_interests.favorite_places[0] = "Place1";
     student_interests.favorite_places[1] = "Place2";
     student_interests.favorite_places[2] = "Place3";
-    student_interests.other_points_of_interest[0] = "Hot";
-    student_interests.other_points_of_interest[0] = "Other Points of Interest";
-    student_interests.num_points = 2;
+    points_of_interest_head->name ="Hot / Other Points of Interest";
+    points_of_interest_head->WorkingHours = NULL;
+    points_of_interest_head->info = NULL;
 
     if (head != NULL) {
         head->InfoStudent = student_data;
         head->InfoInterests = student_interests;
+        head->InfoInterests.other_points_of_interest = points_of_interest_head;
         head->StudentCount = -1;
         head->next = NULL;
     }
@@ -38,13 +40,10 @@ StudentsList BuildStudentsList(void) {
 PointsOfInterestList BuildPointsOfInterestList(void) {
     PointsOfInterestList head = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
     PointsOfInterest_t point_of_interest_data;
-    Hour_t working_hours;
 
     point_of_interest_data.name = "Name";
     point_of_interest_data.info = "Info";
-    point_of_interest_data.WorkingHours.OpeningHour = "Opening Hour";
-    point_of_interest_data.WorkingHours.ClosingHour = "Closing Hour";
-
+    point_of_interest_data.WorkingHours = "Working Hours";
 
     if (head != NULL) {
         head->info = point_of_interest_data.info;
