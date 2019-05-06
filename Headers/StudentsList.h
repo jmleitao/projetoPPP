@@ -8,8 +8,6 @@ int getInfoStudent(StudentData_t *student_data);
 int FindStudent(StudentsList head, StudentsList *before,
                 StudentsList *current, char *key);
 
-StudentsList SearchStudent(StudentsList head, char *key);
-
 int AddStudent(StudentsList node);
 
 int RemoveStudent(StudentsList node, char *key);
@@ -26,6 +24,9 @@ int StudentCount(StudentsList head);
 
 int ChangeStudentInfo(StudentsList head, char *key);
 
+int Has3FavoritePlaces(StudentsList student);
+
+StudentsList SearchStudent(StudentsList head, char *key);
 
 #define PROJETO_STUDENTSLIST_H
 #endif //PROJETO_STUDENTSLIST_H

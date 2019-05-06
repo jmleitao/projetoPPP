@@ -130,7 +130,7 @@ Explica-se, também, a respeito dos tipos de uísques e aromas disponíveis de a
 de idade podem degustar algumas doses. A maior coleção de uísque do mundo se encontra nesse local e conta com 3500
 garrafas.
 -
-@  Royal Mile|Todos os dias: 00:00 - 24:00 |
+@ Royal Mile|Todos os dias: 00:00 - 24:00 |
 Com certeza uma das ruas mais charmosas e belas de toda a Europa. Leva esse nome por possuir um comprimento de uma
 milha escocesa. É a principal via do centro histórico de Edimburgo e liga o Castelo de Edimburgo ao Palácio de Holyrood.
 A cada metro há um edifício gótico espetacular. É impossível caminhar pela rua sem ficar parando a todo instante
@@ -168,7 +168,7 @@ atmosfera maravilhosa, com equipe amigável e música ao vivoEm Temple Bar você
 Irlandes, que conta a história de diversas bandas irlandesas famosas, a exemplo do U2 e Snow Patrol.
 >
 
-# Berlim:
+# Berlim
 >
 @ Portão de Brandenburgo|Todos os dias: 00:00 - 24:00 |
 O cartão-postal mais famoso de Berlim, o Portão de Brandenburgo está localizado no bairro Mitte na Pariser Platz, entre
@@ -197,5 +197,4 @@ onde fica a Gedächtniskirche. A Gedächtniskirche, também conhecida como “ig
 danificada na Segunda Guerra Mundial. Na verdade restou muito pouco da igreja, falta um pedaço da única torre que sobrou,
 mas estas ruínas foram mantidas justamente para lembrar os horrores da guerra, a destruição que ela causa.
 >
-
 

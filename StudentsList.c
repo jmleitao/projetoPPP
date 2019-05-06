@@ -190,6 +190,15 @@ int RemoveStudent(StudentsList head, char *key) {
     return 0;
 }
 
+int Has3FavoritePlaces(StudentsList student){
+    int i,answer = 1;
+    for(i = 0;i < 3 && answer != 0;i++){
+        if(strcmp(student->InfoInterests.favorite_places[i],"Not defined") == 0)
+            answer = 0;
+    }
+    return answer;
+}
+
 
 int DeleteStudentsList(StudentsList head) {
     Student_t *current;

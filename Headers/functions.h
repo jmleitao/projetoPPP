@@ -13,4 +13,5 @@ int getDateOfBirth(char **date);
 
 char readstring(char **string, int init_size, int chunk);
 
+
 #endif //PROJECT_FUNCTIONS_H

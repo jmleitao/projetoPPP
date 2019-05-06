@@ -17,15 +17,15 @@ typedef struct StudentData {
 
 typedef struct StudentInterests {
     char *hot;
-    PointsOfInterestList other_points_of_interest;
     char *favorite_places[NUM_PLACES];
+    PointsOfInterestList other_points_of_interest;
 } Student_Interests_t;
 
 
 typedef struct Student {
     struct StudentData InfoStudent;
     struct StudentInterests InfoInterests;
-    struct Student *next;
+    StudentsList next;
     int StudentCount;
 } Student_t;
 
@@ -34,7 +34,8 @@ typedef struct PointsOfInterest {
     char *name;
     char *info;
     char *WorkingHours;
-    struct PointsOfInterest *next;
+    int PointOfInterestCount;
+    PointsOfInterestList next;
 } PointsOfInterest_t;
 
 
@@ -42,6 +43,7 @@ typedef struct Places {
     char *name;
     PointsOfInterestList PointOfInterest;
     PlacesList next;
+    int PlacesCount;
 } Places_t;
 
 

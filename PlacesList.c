@@ -5,6 +5,7 @@
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 #include "Headers/PlacesList.h"
+#include "Headers/PointsOfInterestList.h"
 
 
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
@@ -76,5 +77,46 @@ int PrintPlacesList(PlacesList head) {
         current = current->next;
     }
     return 0;
+}
+
+PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2) {
+    PlacesList temporary = NodePointer2->next;
+    NodePointer2->next = NodePointer1;
+    NodePointer1->next = temporary;
+    return NodePointer2;
+}
+
+
+PlacesList AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
+    head = &(*head)->next;
+    PlacesList *start, node1;
+    int i, j, sorted;
+
+    for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
+        start = head;
+        sorted = 0;
+        for (j = 0; j < numNodes - 1 - i; j++) {
+            node1 = *start;
+            if (strcmp(node1->name, node1->next->name) > 0) {
+                *start = swapPlacesListNodes(node1, node1->next);
+                sorted = 1;
+            }
+            AlphaSortPointsOfInterestList(&(*start)->PointOfInterest,PointsOfInterestCount((*start)->PointOfInterest));
+            start = &((*start)->next);
+        }
+    }
+    return 0;
+}
+
+
+int PlacesCount(PlacesList head) {
+    int counter = 0;
+    PlacesList current = head->next;
+    while (current != NULL) {
+        current = current->next;
+        counter++;
+    }
+    head->PlacesCount = counter;
+    return counter;
 }
 

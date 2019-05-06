@@ -125,7 +125,8 @@ int main() {
     //UserInterface();
     PlacesList places_head= BuildPlacesList();
     LoadPlacesList(places_head);
-    LoadPlacesFile(places_head);
+    PlacesCount(places_head);
+    AlphaSortPlacesAndPointsOfInterest(&places_head,PlacesCount(places_head));
     DeletePlacesList(places_head);
     return 0;
 }

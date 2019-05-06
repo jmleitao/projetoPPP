@@ -1,36 +1,12 @@
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/PlacesList.h"
-
-
-
-int getInfoPointOfInterest(PointsOfInterest_t *point_of_interest_data) {
-    //const int size = 60;
-
-    system("clear");
-    printf("Insira o nome do Ponto de Interse:");
-    //fgets(point_of_interest_data->name,size,stdin);
-    readstring(&point_of_interest_data->name, 30, 20);
-    ClearBuffer();
-
-    system("clear");
-    printf("Insira a sua descrição do Ponto de Interesse: ");
-    //fgets(point_of_interest_data->info,size,stdin);
-    readstring(&point_of_interest_data->info, 30, 20);
-    ClearBuffer();
-
-    system("clear");
-    printf("Insira a sua Horario de Funcionamento do Ponto de Interesse: ");
-    readstring(&point_of_interest_data->WorkingHours,30,20);
-    ClearBuffer();
-
-    return 0;
-}
 
 
 int AddPointOfInterest(PlacesList head, PlacesList city) {
@@ -41,20 +17,52 @@ int AddPointOfInterest(PlacesList head, PlacesList city) {
 
     if (SearchPlace(head, city->name) == NULL) {
 
-        getInfoPointOfInterest(&point_of_interest_data);
 
-        newPlace->PointOfInterest->name = point_of_interest_data.name;
-        newPlace->PointOfInterest->info = point_of_interest_data.info;
-        newPlace->PointOfInterest->WorkingHours = point_of_interest_data.WorkingHours;
-        newPlace->next = NULL;
 
         while (current->next != NULL) {
             current = current->next;
         }
         current->next = newPlace;
 
-    } else {
-        printf("O local já existe\n");
     }
     return 0;
+}
+
+PointsOfInterestList swapNodes(PointsOfInterestList NodePointer1, PointsOfInterestList NodePointer2) {
+    PointsOfInterestList temporary = NodePointer2->next;
+    NodePointer2->next = NodePointer1;
+    NodePointer1->next = temporary;
+    return NodePointer2;
+}
+
+
+PointsOfInterestList AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes) {
+    head = &((*head)->next);
+    PointsOfInterestList *start, node1;
+    int i, j, sorted;
+
+    for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
+        start = head;
+        sorted = 0;
+        for (j = 0; j < numNodes - 1 - i; j++) {
+            node1 = *start;
+            if (strcmp(node1->name, node1->next->name) > 0) {
+                *start = swapNodes(node1, node1->next);
+                sorted = 1;
+            }
+            start = &((*start)->next);
+        }
+    }
+    return 0;
+}
+
+int PointsOfInterestCount(PointsOfInterestList head) {
+    int counter = 0;
+    PointsOfInterestList current = head->next;
+    while (current != NULL) {
+        current = current->next;
+        counter++;
+    }
+    head->PointOfInterestCount = counter;
+    return counter;
 }

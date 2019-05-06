@@ -69,5 +69,3 @@ int getDateOfBirth(char **date) {
     } while (found == 0);
     return 0;
 }
-
-
