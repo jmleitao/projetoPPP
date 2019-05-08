@@ -17,6 +17,10 @@ int PlacesCount(PlacesList head);
 
 int DeletePointsOfInterestList(PointsOfInterestList head);
 
+int DisplayPlacesAndPointsOfInterest(PlacesList head);
+
+int AddPlace(StudentsList student, char *place);
+
 PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2);
 
 PlacesList AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes);

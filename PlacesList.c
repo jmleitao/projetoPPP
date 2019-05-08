@@ -8,9 +8,20 @@
 #include "Headers/PointsOfInterestList.h"
 
 
+void yesOrno(void) {
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t| Locais favoritos totalmente preenchidos deseja substituir  |\n");
+    printf("\t\t\t\t\t\t\t\t\t|        algum dos locais anteriores para colocar este?      |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
+    printf("\t\t\t\t\t\t\t\t\t|            0 - Yes                  1 - No                 |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                        =========                           |\n");
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+}
+
+
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
-int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0;}
+int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
 
 
 int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *key) {
@@ -101,7 +112,7 @@ PlacesList AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
                 *start = swapPlacesListNodes(node1, node1->next);
                 sorted = 1;
             }
-            AlphaSortPointsOfInterestList(&(*start)->PointOfInterest,PointsOfInterestCount((*start)->PointOfInterest));
+            AlphaSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
             start = &((*start)->next);
         }
     }
@@ -116,7 +127,53 @@ int PlacesCount(PlacesList head) {
         current = current->next;
         counter++;
     }
-    head->PlacesCount = counter;
     return counter;
 }
 
+int DisplayPlacesAndPointsOfInterest(PlacesList head) {
+    PlacesList current_place = head->next;
+    PointsOfInterestList current_point_of_interest;
+
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t                 Locais e Pontos de Interesse\n\n");
+
+    while (current_place != NULL) {
+        current_point_of_interest = current_place->PointOfInterest->next;
+        printf("\t\t\t\t\t\t\t\t\t   %s: \n", current_place->name);
+        while (current_point_of_interest != NULL) {
+            printf("\t\t\t\t\t\t\t\t\t\t\t   -> %s \n", current_point_of_interest->name);
+            current_point_of_interest = current_point_of_interest->next;
+        }
+        printf("\n");
+        current_place = current_place->next;
+    }
+    printf("\n\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    return 0;
+}
+
+int AddPlace(StudentsList student, char *place) {
+    int i, answer, found = 0;
+    for (i = 0; i < 3 && found == 0; i++) {
+        if (student != NULL && strcmp(student->InfoInterests.favorite_places[i], "Not Defined") == 0) {
+            student->InfoInterests.favorite_places[i] = place;
+            found = 1;
+        }
+    }
+    if (found == 0 && student != NULL) {
+        yesOrno();
+        scanf("%d", &answer);
+        if (answer == 0) {
+            printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+            printf("\t\t\t\t\t\t\t\t\t             > Qual dos locais pretende substiuir? <          \n");
+            printf("\t\t\t\t\t\t\t\t\t                  1 - %s\n", student->InfoInterests.favorite_places[0]);
+            printf("\t\t\t\t\t\t\t\t\t                  2 - %s\n", student->InfoInterests.favorite_places[1]);
+            printf("\t\t\t\t\t\t\t\t\t                  3 - %s\n", student->InfoInterests.favorite_places[2]);
+            printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+            scanf("%d", &answer);
+            if (answer <= 2 && answer >= 1)
+                i = answer;
+            student->InfoInterests.favorite_places[i-1] = place;
+        }
+    }
+    return 0;
+}

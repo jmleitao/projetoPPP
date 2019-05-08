@@ -106,9 +106,7 @@ int StudentCount(StudentsList head) {
         current = current->next;
         counter++;
     }
-    head->StudentCount = counter;
-    printf("Number of Students: %d\n", counter);
-    return 0;
+    return counter;
 }
 
 int FindStudent(StudentsList head, StudentsList *before,
@@ -193,8 +191,10 @@ int RemoveStudent(StudentsList head, char *key) {
     if (current != NULL) {
         before->next = current->next;
         free(current);
+        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\tO aluno foi removido com sucesso!\n");
     }
-    printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\tO aluno foi removido com sucesso!\n");
+    else
+        printf("\t\t\t\t\t\t\t\t\t\tO Estudante com esse numero não se encontra registado\n");
     return 0;
 }
 

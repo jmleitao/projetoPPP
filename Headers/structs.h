@@ -26,7 +26,6 @@ typedef struct Student {
     struct StudentData InfoStudent;
     struct StudentInterests InfoInterests;
     StudentsList next;
-    int StudentCount;
 } Student_t;
 
 
@@ -34,7 +33,6 @@ typedef struct PointsOfInterest {
     char *name;
     char *info;
     char *WorkingHours;
-    int PointOfInterestCount;
     PointsOfInterestList next;
 } PointsOfInterest_t;
 
@@ -43,7 +41,6 @@ typedef struct Places {
     char *name;
     PointsOfInterestList PointOfInterest;
     PlacesList next;
-    int PlacesCount;
 } Places_t;
 
 

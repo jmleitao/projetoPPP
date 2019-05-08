@@ -31,7 +31,6 @@ StudentsList BuildStudentsList(void) {
         head->InfoStudent = student_data;
         head->InfoInterests = student_interests;
         head->InfoInterests.other_points_of_interest = points_of_interest_head;
-        head->StudentCount = -1;
         head->next = NULL;
     }
     return head;
@@ -49,7 +48,6 @@ PointsOfInterestList BuildPointsOfInterestList(void) {
         head->info = point_of_interest_data.info;
         head->name = point_of_interest_data.name;
         head->WorkingHours = point_of_interest_data.WorkingHours;
-        head->PointOfInterestCount = -1;
         head->next = NULL;
 
     }
@@ -64,7 +62,6 @@ PlacesList BuildPlacesList(void) {
     if (head != NULL) {
         head->PointOfInterest = BuildPointsOfInterestList();
         head->name = place_data.name;
-        head->PlacesCount = -1;
         head->next = NULL;
     }
     return head;

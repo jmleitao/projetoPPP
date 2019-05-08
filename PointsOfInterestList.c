@@ -63,6 +63,5 @@ int PointsOfInterestCount(PointsOfInterestList head) {
         current = current->next;
         counter++;
     }
-    head->PointOfInterestCount = counter;
     return counter;
 }

@@ -22,11 +22,18 @@ void WelcomeMenu(void) {
     ClearConsole();
 }
 
+void ByeByeMenu(void) {
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t|####################### Boa Viagem!! #######################|\n");
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    ClearConsole();
+}
+
 void MainMenu(void) {
     printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
     printf("\t\t\t\t\t\t\t\t\t|             > Escolha uma das seguintes opções <           |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                        1 - Alunos                          |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                        2 - Viagens                         |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                        1 - Contas de Utilizadores          |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                        2 - Viagens e Pontos de Interesse   |\n");
     printf("\t\t\t\t\t\t\t\t\t|                        0 - Sair                            |\n");
     printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
     printf("\t\t\t\t\t\t\t\t\t|                        ==========                          |\n");
@@ -58,7 +65,7 @@ void StudentLoginMenu(void) {
     gotoxy(25, 13);
 }
 
-void removeStudentMenu(void){
+void removeStudentMenu(void) {
     printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------+\n");
     printf("\t\t\t\t\t\t\t\t\t\t |           Remoção de uma conta de um aluno     |\n");
     printf("\t\t\t\t\t\t\t\t\t\t |      Insira o numero de telemovel da conta     |\n");
@@ -69,19 +76,41 @@ void removeStudentMenu(void){
     gotoxy(25, 13);
 }
 
-void menu3(void) {
-    system("clear");
-    printf("\tPretende:\n\n");
-    printf("\t1 - Mostrar os Places disponíveis\n");
+void login(void) {
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |                >>>   LOGIN  <<<                |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |                                                |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t | Numero de Telemovel:                           |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------+\n");
+    gotoxy(25, 13);
+}
+
+void tripsMenu(void) {
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t|                        > Pretende <                        |\n");
+    printf("\t\t\t\t\t\t\t\t\t|      1 - Listar Locais e Pontos de Interesse disponiveis   |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                 2 - Adicionar um Local                     |\n");
+    printf("\t\t\t\t\t\t\t\t\t|             3 - Adicionar um Ponto de Interesse            |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                4 - Construir uma Viagem                    |\n");
+    printf("\t\t\t\t\t\t\t\t\t|              (Necessário ter 3 Locais favoritos!)          |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                    0 - Menu Principal                      |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                          (LOGOUT)                          |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                         ==========                         |\n");
+    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    gotoxy(102, 6);
 }
 
 
 int UserInterface(void) {
-    int option1, option2;
-    char *key;
+    int option1 = -1, option2 = -1;
+    char *phone = NULL, *key = NULL;
+    StudentsList student = NULL;
 
     StudentsList students_head = BuildStudentsList();
     PlacesList places_head = BuildPlacesList();
+
 
     WelcomeMenu();
 
@@ -94,7 +123,8 @@ int UserInterface(void) {
 
         switch (option1) {
             case 1:
-                LoadStudentsList(students_head);
+                if(students_head->next == NULL)
+                    LoadStudentsList(students_head);
                 do {
 
                     StudentAccountsMenu();
@@ -121,12 +151,8 @@ int UserInterface(void) {
 
                         case 3:
                             removeStudentMenu();
-                            readstring(&key,9,5);
-                            if(SearchStudent(students_head,key) != NULL) {
-                                RemoveStudent(students_head, key);
-                            }
-                            else
-                                printf("\t\t\t\t\t\t\t\t\t\tO Estudante com esse numero não se encontra registado\n");
+                            readstring(&key, 9, 5);
+                            RemoveStudent(students_head, key);
                             ClearConsole();
                             ClearBuffer();
                             break;
@@ -144,27 +170,53 @@ int UserInterface(void) {
                 break;
 
             case 2:
-                do {
-                    menu3();
+                if(students_head->next == NULL)
+                    LoadStudentsList(students_head);
+                if(places_head->next == NULL)
+                    LoadPlacesList(places_head);
+
+                login();
+                readstring(&phone, 9, 5);
+
+                student = SearchStudent(students_head, phone);
+                phone = NULL;
+
+                ClearBuffer();
+                ClearConsole();
+
+                while (option2 != 0) {
+
+                    tripsMenu();
                     scanf("%d", &option2);
+
+                    ClearConsole();
                     ClearBuffer();
 
-                    if (option2 == 1) {
-                        ClearBuffer();
-                        PrintPlaces(places_head);
-                        system("pause");
-                    } else if (option2 == 2) {
-                        system("pause");
-                    } else {
-                        option2 = '0';
-                        ClearBuffer();
+                    switch (option2) {
+                        case 1:
+                            AlphaSortPlacesAndPointsOfInterest(&places_head, PlacesCount(places_head));
+                            DisplayPlacesAndPointsOfInterest(places_head);
+                            break;
+                        case 2:
+                            AddPlace(student,"Porto");
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t   Opção Invalida!!\n");
                     }
-                } while (option2 != 0);
+                }
                 break;
 
             case 0:
                 LoadStudentsFile(students_head);
+                //LoadPlacesFile(places_head);
                 DeleteStudentsList(students_head);
+                DeletePlacesList(places_head);
+                ByeByeMenu();
+                free(key);
+                free(phone);
+                free(student);
                 exit(0);
 
             default:
@@ -179,29 +231,5 @@ int UserInterface(void) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     UserInterface();
-    /*PlacesList places_head= BuildPlacesList();
-    LoadPlacesList(places_head);
-    PlacesCount(places_head);
-    AlphaSortPlacesAndPointsOfInterest(&places_head,PlacesCount(places_head));
-    DeletePlacesList(places_head);4*/
-    /*
-    StudentsList head = BuildStudentsList();
-    LoadStudentsList(head);
-    AddStudent(head);
-    LoadStudentsFile(head);
-    DeleteStudentsList(head);*/
     return 0;
 }
-
-
-/*
- * printf("Insira o numero de telemovel do aluno a remover:\n");
-                        scanf("%s", phone);
-                        if (SearchStudent(students_head, phone) != NULL) {
-                            RemoveStudent(students_head, phone);
-                            printf("O aluno foi removido com sucesso!\n");
-                        } else {
-
-                            printf("O numero de telemovel do aluno que inseriu não existe\n");
-                        }
- */
