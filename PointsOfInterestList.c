@@ -10,7 +10,7 @@
 
 
 int AddPointOfInterest(PlacesList head, PlacesList city) {
-    PointsOfInterest_t point_of_interest_data;
+    //PointsOfInterest_t point_of_interest_data;
     PlacesList current = head;
     PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
 

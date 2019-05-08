@@ -48,8 +48,8 @@ int getPhoneNumber(char **phone) {
                 found = 0;
         }
         if (count != 9 || found == 0) {
-            printf("Numero Invalido!\n");
-            printf("Insira o seu nº de Numero de Telemovel: ");
+            printf("\n\t\t\t\t\t\t\t\t\t Numero Invalido!\n");
+            printf("\t\t\t\t\t\t\t\t\t Insira o seu nº de Numero de Telemovel: ");
         }
     } while (found == 0 || count != 9);
     return 0;
@@ -61,9 +61,9 @@ int getDateOfBirth(char **date) {
         found = 1;
         readstring(date, 9, 3);
         sscanf(*date, "%d/%d/%d", &day, &month, &year);
-        if (day < 0 || day > 31 || month < 0 || month > 12) {
-            printf("Data Invalida! (dd/mm/yyyy)\n");
-            printf("Insira a sua data de nascimento: ");
+        if (day < 0 || day > 31 || month < 0 || month > 12 || year < 1900 || year > 2030) { // tolerancia entre 1900 - 2030
+            printf("\n\t\t\t\t\t\t\t\t\t Data Invalida! (dd/mm/yyyy)\n");
+            printf("\t\t\t\t\t\t\t\t\t Insira a sua data de nascimento: ");
             found = 0;
         }
     } while (found == 0);

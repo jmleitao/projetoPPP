@@ -4,6 +4,11 @@
 #define ClearBuffer() __fpurge(stdin)
 #define ClearConsole() system("clear")
 #define ConsolePause() getchar()
+#define gotoxy(x, y) printf("\033[%d;%dH", (y), (x))
+
+/*
+- Position the Cursor:
+  \033[<L>;<C>H*/
 
 int removeEnter(char *str);
 

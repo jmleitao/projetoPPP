@@ -170,7 +170,7 @@ int LoadStudentsFile(StudentsList head) {
 
     if (head != NULL) {
         while (student != NULL) {
-            PointsOfInterest_t *points_of_interest = student->InfoInterests.other_points_of_interest->next;
+            PointsOfInterestList points_of_interest = student->InfoInterests.other_points_of_interest->next;
 
             fprintf(fp, "%s|", student->InfoStudent.name);
             fprintf(fp, "%s|", student->InfoStudent.address);
@@ -189,9 +189,9 @@ int LoadStudentsFile(StudentsList head) {
             fprintf(fp, "@\n\n");
             student = student->next;
         }
-        fclose(fp);
-        return 0;
     }
+    fclose(fp);
+    return 0;
 }
 
 int LoadPlacesList(PlacesList head) {
@@ -272,6 +272,7 @@ int LoadPlacesList(PlacesList head) {
     }
     free(line1);
     free(line2);
+    fclose(fp);
     return 0;
 }
 
@@ -320,6 +321,5 @@ int PrintPlaces(void) {
 
     free(line);
     fclose(fp);
-
     return 0;
 }
