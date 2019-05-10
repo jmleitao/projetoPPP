@@ -18,7 +18,7 @@ int removeEnter(char *str) {
     return 0;
 }
 
-char readstring(char **string, int init_size, int chunk) {
+int readstring(char **string, int init_size, int chunk) {
     int size = 0, i = 0;
     char c;
     *string = malloc(sizeof(char) * init_size);
@@ -61,11 +61,27 @@ int getDateOfBirth(char **date) {
         found = 1;
         readstring(date, 9, 3);
         sscanf(*date, "%d/%d/%d", &day, &month, &year);
-        if (day < 0 || day > 31 || month < 0 || month > 12 || year < 1900 || year > 2030) { // tolerancia entre 1900 - 2030
+        if (day < 0 || day > 31 || month < 0 || month > 12 || year < 1900 ||
+            year > 2030) { // tolerancia entre 1900 - 2030
             printf("\n\t\t\t\t\t\t\t\t\t Data Invalida! (dd/mm/yyyy)\n");
             printf("\t\t\t\t\t\t\t\t\t Insira a sua data de nascimento: ");
             found = 0;
         }
     } while (found == 0);
+    return 0;
+}
+
+int strip(char **string) {
+    char *last = *string + strlen(*string) - 1;
+
+    while (last >= *string && isspace(*last)) {
+        last--;
+    }
+
+    *(last + 1) = '\0';
+
+    while (**string && isspace(**string)) {
+        (*string)++;
+    }
     return 0;
 }

@@ -9,6 +9,16 @@
 #include "Headers/files.h"
 #include "Headers/functions.h"
 
+// Ficheiros dos alunos e locais estão na pasta cmake-build-debug
+// Se for necessário alterar estes paths é só ir copiar os paths do desses ficheiros e dar paste aqui
+// Caso contrario o programa encarrega-se de criar estes ficheiros automaticamente e deixa-os vazios
+// No caso do ficheiro dos alunos não existe grande problema mas no caso dos locais iremos ter um ficheiro sem locais
+// Para ir recuperar a informação dos locais deixei um backup destes na pasta Info que vem com o projeto
+// É so ir la dar copy paste da informação
+
+#define STUDENTSPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Students.txt"
+#define PLACESPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Places.txt"
+
 
 int createfile(char *name, char *extension) {
     FILE *fp;
@@ -85,11 +95,11 @@ int LoadStudentsList(StudentsList head) {
     points_of_interest->next = NULL;
     points_of_interest->info = NULL;
 
-    fp = fopen("Students.txt", "r");
+    fp = fopen(STUDENTSPATH, "r");
 
     if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("\tEste foi criado!");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t   Este foi criado!\n");
         createfile("Students", ".txt");
     } else {
         while ((getline(&line1, &len, fp) != EOF)) {
@@ -151,11 +161,11 @@ int LoadStudentsList(StudentsList head) {
             AppendToStudentsList(head, new_student->InfoStudent, new_student->InfoInterests);
             i = 0;
         }
+        fclose(fp);
     }
     free(line1);
     free(line2);
     free(line3);
-    fclose(fp);
     return 0;
 }
 
@@ -166,7 +176,7 @@ int LoadStudentsFile(StudentsList head) {
     Student_t *student = head;
 
 
-    fp = fopen("Students.txt", "w");
+    fp = fopen(STUDENTSPATH, "w");
 
     if (head != NULL) {
         while (student != NULL) {
@@ -211,11 +221,11 @@ int LoadPlacesList(PlacesList head) {
     char delimiter1[1] = "-", delimiter2[1] = "|", delimiter3[1] = ">", *info = NULL;
     size_t len;
 
-    fp = fopen("Places.txt", "r");
+    fp = fopen(PLACESPATH, "r");
 
     if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("\tEste foi criado!");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t    Este foi criado!\n");
         createfile("Places", ".txt");
     } else {
         while (getline(&line1, &len, fp) != EOF) {
@@ -225,14 +235,15 @@ int LoadPlacesList(PlacesList head) {
             line2 = malloc(sizeof(char) * len);
             strncpy(line2, line1 + 1, len - 1);
             removeEnter(line2);
+            strip(&line2);
             new_place->name = strdup(line2);
             getline(&line1, &len, fp);
             getline(&line1, &len, fp);
 
 
             while (line2[0] != delimiter3[0]) {
-                info = malloc(sizeof(char) * len*10);
-                memset(info,0,len*10);
+                info = malloc(sizeof(char) * len * 10);
+                memset(info, 0, len * 10);
 
                 while (line1[0] != delimiter1[0] && line1[0] != delimiter3[0]) {
                     if (i == 0) {
@@ -259,20 +270,21 @@ int LoadPlacesList(PlacesList head) {
                     i++;
                 }
                 i = 0;
-                new_point_of_interest->info = strndup(info,strlen(info)-2);
+                new_point_of_interest->info = strndup(info, strlen(info) - 2);
                 AppendToPointsOfInterestList(point_of_interest_head, new_point_of_interest);
                 getline(&line1, &len, fp);
             }
             AppendToPlacesList(head, point_of_interest_head, new_place);
-            if(getc(fp) == '#')
+            if (getc(fp) == '#')
                 fseek(fp, -1, SEEK_CUR);
             else
                 *line1 = EOF;
         }
+        fclose(fp);
     }
     free(line1);
     free(line2);
-    fclose(fp);
+
     return 0;
 }
 
@@ -282,7 +294,7 @@ int LoadPlacesFile(PlacesList head) {
     head = head->next;
     PlacesList place = head;
 
-    fp = fopen("Places.txt", "w");
+    fp = fopen(PLACESPATH, "w");
 
     if (head != NULL) {
         while (place != NULL) {
@@ -308,11 +320,11 @@ int PrintPlaces(void) {
     FILE *fp;
     char *line = malloc(sizeof(char) * 256);
 
-    fp = fopen("Places.txt", "r");
+    fp = fopen(PLACESPATH, "r");
 
     if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("\tEste foi criado!");
+        printf("\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
+        printf("\t\t\t\t\t\t\t\t\t        Este foi criado!\n");
         createfile("Places", ".txt");
     }
     while ((fgets(line, sizeof(line), fp) != NULL)) {

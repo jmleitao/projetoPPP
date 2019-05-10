@@ -85,13 +85,42 @@ void login(void) {
     gotoxy(25, 13);
 }
 
+void whichPlaceMenu(void) {
+    printf("\t\t\t\t\t\t\t\t\t\t +-----------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |  > Insira o nome do local que prentede adicionar <  |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |                                                     |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t | Nome do local:                                      |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t +-----------------------------------------------------+\n");
+    gotoxy(25, 13);
+}
+
+void whichPointOfInterestMenu(void) {
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |  > Insira o nome do ponto de interesse que prentede adicionar <  |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |                                                                  |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t | Nome do local:                                                   |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------------------------+\n");
+    gotoxy(25, 13);
+}
+void whichPointOfInterestRemoveMenu(void) {
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------------------------+\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |  > Insira o nome do ponto de interesse que prentede remover <    |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t |                                                                  |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t | Nome do local:                                                   |\n");
+    printf("\t\t\t\t\t\t\t\t\t\t +------------------------------------------------------------------+\n");
+    gotoxy(25, 13);
+}
+
+
 void tripsMenu(void) {
     printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
     printf("\t\t\t\t\t\t\t\t\t|                        > Pretende <                        |\n");
     printf("\t\t\t\t\t\t\t\t\t|      1 - Listar Locais e Pontos de Interesse disponiveis   |\n");
     printf("\t\t\t\t\t\t\t\t\t|                 2 - Adicionar um Local                     |\n");
-    printf("\t\t\t\t\t\t\t\t\t|             3 - Adicionar um Ponto de Interesse            |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                4 - Construir uma Viagem                    |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                 3 - Remover um Local                       |\n");
+    printf("\t\t\t\t\t\t\t\t\t|             4 - Adicionar um Ponto de Interesse            |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                5 - Remover um Ponto de Interesse           |\n");
+    printf("\t\t\t\t\t\t\t\t\t|                6 - Construir uma Viagem                    |\n");
     printf("\t\t\t\t\t\t\t\t\t|              (Necessário ter 3 Locais favoritos!)          |\n");
     printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
     printf("\t\t\t\t\t\t\t\t\t|                    0 - Menu Principal                      |\n");
@@ -105,7 +134,7 @@ void tripsMenu(void) {
 
 int UserInterface(void) {
     int option1 = -1, option2 = -1;
-    char *phone = NULL, *key = NULL;
+    char *phone = NULL, *key = NULL, *place = NULL,*point_of_interest = NULL;
     StudentsList student = NULL;
 
     StudentsList students_head = BuildStudentsList();
@@ -123,7 +152,7 @@ int UserInterface(void) {
 
         switch (option1) {
             case 1:
-                if(students_head->next == NULL)
+                if (students_head->next == NULL)
                     LoadStudentsList(students_head);
                 do {
 
@@ -167,20 +196,26 @@ int UserInterface(void) {
                             break;
                     }
                 } while (option2 != 0);
+                option2 = -1;
                 break;
 
             case 2:
-                if(students_head->next == NULL)
+                if (students_head->next == NULL)
                     LoadStudentsList(students_head);
-                if(places_head->next == NULL)
+                if (places_head->next == NULL)
                     LoadPlacesList(places_head);
 
                 login();
+                ClearBuffer();
                 readstring(&phone, 9, 5);
 
                 student = SearchStudent(students_head, phone);
-                phone = NULL;
+                if (student == NULL) {
+                    printf("\t\t\t\t\t\t\t\t\tNão existe nenhuma conta registada com esse numero de telemovel\n");
+                    option2 = 0;
+                }
 
+                phone = NULL;
                 ClearBuffer();
                 ClearConsole();
 
@@ -198,14 +233,37 @@ int UserInterface(void) {
                             DisplayPlacesAndPointsOfInterest(places_head);
                             break;
                         case 2:
-                            AddPlace(student,"Porto");
+                            whichPlaceMenu();
+                            readstring(&place, 15, 5);
+                            strip(&place);
+                            AddPlace(student, places_head, place);
+                            break;
+                        case 3:
+                            RemovePlace(student);
+                            break;
+                        case 4:
+                            whichPointOfInterestMenu();
+                            readstring(&point_of_interest,15,5);
+                            strip(&point_of_interest);
+                            AddPointOfInterest(student,places_head,point_of_interest);
+                            break;
+                        case 5:
+                            whichPointOfInterestRemoveMenu();
+                            readstring(&point_of_interest,15,5);
+                            strip(&point_of_interest);
+                            RemovePointOfInterest(student,point_of_interest);
+                            break;
+                        case 6:
                             break;
                         case 0:
+                            ClearConsole();
+                            ClearBuffer();
                             break;
                         default:
                             printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t   Opção Invalida!!\n");
                     }
                 }
+                option2 = -1;
                 break;
 
             case 0:
@@ -214,9 +272,10 @@ int UserInterface(void) {
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();
+                ClearConsole();
                 free(key);
+                free(place);
                 free(phone);
-                free(student);
                 exit(0);
 
             default:
@@ -226,7 +285,6 @@ int UserInterface(void) {
     } while (option1 != 0);
     return 0;
 }
-
 
 int main() {
     setlocale(LC_ALL, "Portuguese");

@@ -9,21 +9,51 @@
 #include "Headers/PlacesList.h"
 
 
-int AddPointOfInterest(PlacesList head, PlacesList city) {
-    //PointsOfInterest_t point_of_interest_data;
-    PlacesList current = head;
-    PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
+int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
+
+int
+FindPointOfInterest(PointsOfInterestList head, PointsOfInterestList *before, PointsOfInterestList *current, char *key) {
+    *before = head;
+    *current = head->next;
+
+    while ((*current) != NULL && (strcmp((*current)->name, key) != 0)) {
+        *before = *current;
+        *current = (*current)->next;
+    }
+    if ((*current) != NULL && (strcmp((*current)->name, key) != 0)) {
+        *current = NULL;
+    }
+    return 0;
+}
 
 
-    if (SearchPlace(head, city->name) == NULL) {
+PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key) {
+    PointsOfInterestList before;
+    PointsOfInterestList current;
+    FindPointOfInterest(head, &before, &current, key);
+    return current;
+}
 
+int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) {
+    PlacesList current_place = places_head->next;
+    PointsOfInterestList current = student->InfoInterests.other_points_of_interest->next;
+    PointsOfInterestList point_of_interest = NULL;
+    int found = 0;
 
+    while (current_place != NULL && point_of_interest == NULL) {
+        point_of_interest = SearchPointOfInterest(current_place->PointOfInterest, key);
+        current_place = current_place->next;
+    }
+    if (point_of_interest != NULL) {
+        point_of_interest->next = NULL;
 
-        while (current->next != NULL) {
+        while (current->next != NULL && found != 1) {
+            if (strcmp(current->name, point_of_interest->name) == 0)
+                found = 1;
             current = current->next;
         }
-        current->next = newPlace;
-
+        if (found != 1)
+            current->next = point_of_interest;
     }
     return 0;
 }
@@ -64,4 +94,21 @@ int PointsOfInterestCount(PointsOfInterestList head) {
         counter++;
     }
     return counter;
+}
+
+int RemovePointOfInterest(StudentsList student, char *key) {
+    PointsOfInterestList head = student->InfoInterests.other_points_of_interest->next;
+    PointsOfInterestList current;
+    PointsOfInterestList before;
+
+    if (strcmp(student->InfoInterests.hot, key) == 0)
+        student->InfoInterests.hot = "Not Defined";
+    else {
+        FindPointOfInterest(head, &before, &current, key);
+        if (current != NULL) {
+            before->next = current->next;
+            free(current);
+        }
+    }
+    return 0;
 }

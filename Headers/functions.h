@@ -16,7 +16,8 @@ int getPhoneNumber(char **phone);
 
 int getDateOfBirth(char **date);
 
-char readstring(char **string, int init_size, int chunk);
+int readstring(char **string, int init_size, int chunk);
 
+int strip(char **string);
 
 #endif //PROJECT_FUNCTIONS_H
