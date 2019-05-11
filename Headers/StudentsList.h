@@ -1,5 +1,6 @@
 #ifndef PROJETO_STUDENTSLIST_H
 
+void noAccount(void);
 
 int isEmptyStudent(StudentsList head);
 
@@ -22,7 +23,7 @@ int PrintStudent(StudentsList student);
 
 int StudentCount(StudentsList head);
 
-int ChangeStudentInfo(StudentsList head, char *key);
+int ChangeStudentInfo(StudentsList head, char *key, int *option3);
 
 int Has3FavoritePlaces(StudentsList student);
 

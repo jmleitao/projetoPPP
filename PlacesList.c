@@ -9,14 +9,22 @@
 
 
 void yesOrno(void) {
-    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
-    printf("\t\t\t\t\t\t\t\t\t| Locais favoritos totalmente preenchidos deseja substituir  |\n");
-    printf("\t\t\t\t\t\t\t\t\t|        algum dos locais anteriores para colocar este?      |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                                                            |\n");
-    printf("\t\t\t\t\t\t\t\t\t|            0 - Sim                  1 - Não                |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                        =========                           |\n");
-    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("+------------------------------------------------------------+\n");
+    printf("| Locais favoritos totalmente preenchidos deseja substituir  |\n");
+    printf("|        algum dos locais anteriores para colocar este?      |\n");
+    printf("|                                                            |\n");
+    printf("|            0 - Sim                  1 - Não                |\n");
+    printf("|                        =========                           |\n");
+    printf("+------------------------------------------------------------+\n");
 }
+
+void justPause(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|            Carregue no Enter para continuar...            |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause();
+}
+
 
 
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
@@ -122,20 +130,22 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     PlacesList current_place = head->next;
     PointsOfInterestList current_point_of_interest;
 
-    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
-    printf("\t\t\t\t\t\t\t\t\t                 Locais e Pontos de Interesse\n\n");
+    printf("+------------------------------------------------------------+\n");
+    printf("                 Locais e Pontos de Interesse\n\n");
 
     while (current_place != NULL) {
         current_point_of_interest = current_place->PointOfInterest->next;
-        printf("\t\t\t\t\t\t\t\t\t   %s: \n", current_place->name);
+        printf("   %s: \n", current_place->name);
         while (current_point_of_interest != NULL) {
-            printf("\t\t\t\t\t\t\t\t\t\t\t   -> %s \n", current_point_of_interest->name);
+            printf("   -> %s \n", current_point_of_interest->name);
             current_point_of_interest = current_point_of_interest->next;
         }
         printf("\n");
         current_place = current_place->next;
     }
-    printf("\n\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("+------------------------------------------------------------+\n\n");
+    justPause();
+    ClearConsole();
     return 0;
 }
 
@@ -153,12 +163,12 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
             ClearBuffer();
             scanf("%d", &answer);
             if (answer == 0) {
-                printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
-                printf("\t\t\t\t\t\t\t\t\t             > Qual dos locais pretende substiuir? <          \n");
-                printf("\t\t\t\t\t\t\t\t\t                  1 - %s\n", student->InfoInterests.favorite_places[0]);
-                printf("\t\t\t\t\t\t\t\t\t                  2 - %s\n", student->InfoInterests.favorite_places[1]);
-                printf("\t\t\t\t\t\t\t\t\t                  3 - %s\n", student->InfoInterests.favorite_places[2]);
-                printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+                printf("+------------------------------------------------------------+\n");
+                printf("             > Qual dos locais pretende substiuir? <          \n");
+                printf("                  1 - %s\n", student->InfoInterests.favorite_places[0]);
+                printf("                  2 - %s\n", student->InfoInterests.favorite_places[1]);
+                printf("                  3 - %s\n", student->InfoInterests.favorite_places[2]);
+                printf("+------------------------------------------------------------+\n");
                 scanf("%d", &answer);
                 if (answer <= 2 && answer >= 1)
                     i = answer;
@@ -166,7 +176,7 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
             }
         }
     } else {
-        printf("\t\t\t\t\t\t\t\t\t\t\t Este local não se encontra na lista de locais disponiveis\n");
+        printf(" Este local não se encontra na lista de locais disponiveis\n");
     }
     return 0;
 }
@@ -192,27 +202,27 @@ int RemovePlace(StudentsList student) {
         ClearBuffer();
         ClearConsole();
 
-        printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
-        printf("\t\t\t\t\t\t\t\t\t             > Qual dos locais pretende remover? <            \n");
+        printf("+------------------------------------------------------------+\n");
+        printf("            > Qual dos locais pretende remover? <            \n");
         for (i = 0, j = 1; i < 3; i++) {
             if (strcmp(student->InfoInterests.favorite_places[i], "Not Defined") != 0) {
                 printf("\t\t\t\t\t\t\t\t\t                 %d - %s\n", j, student->InfoInterests.favorite_places[i]);
                 j++;
             }
         }
-        printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+        printf("+------------------------------------------------------------+\n");
 
         if (j == 1) {
             key = -1;
-            printf("\t\t\t\t\t\t\t\t\t\t\t O aluno ainda não tem locais favoritos definidos\n");
+            printf("O aluno ainda não tem locais favoritos definidos\n");
         } else {
             scanf("%d", &key);
 
             if (key < 4 && key > 0) {
                 student->InfoInterests.favorite_places[key - 1] = "Not Defined";
-                printf("\t\t\t\t\t\t\t\t\t\t\t Local removido com sucesso!!\n");
+                printf("Local removido com sucesso!!\n");
             } else
-                printf("\t\t\t\t\t\t\t\t\t\t\t Opção invalida\n");
+                printf("Opção invalida\n");
         }
 
     } while ((key >= 4 || key <= 0) && key != -1);

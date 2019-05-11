@@ -8,20 +8,63 @@
 #include "Headers/PlacesList.h"
 
 int changeInfomenu() {
-    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
-    printf("\t\t\t\t\t\t\t\t\t|             > Que parametro deseja alterar? <              |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                 1 - Alterar o nome                         |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                 2 - Alterar a morada                       |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                 3 - Alterar a data de nascimento           |\n");
-    printf("\t\t\t\t\t\t\t\t\t|                 4 - Alterar o numero de Telemovel          |\n");
-    printf("\t\t\t\t\t\t\t\t\t+------------------------------------------------------------+\n");
+    printf("+------------------------------------------------------------+\n");
+    printf("|             > Que parametro deseja alterar? <              |\n");
+    printf("|                 1 - Alterar o nome                         |\n");
+    printf("|                                                            |\n");
+    printf("|                 2 - Alterar a morada                       |\n");
+    printf("|                                                            |\n");
+    printf("|                 3 - Alterar a data de nascimento           |\n");
+    printf("|                                                            |\n");
+    printf("|                 4 - Alterar o numero de Telemovel          |\n");
+    printf("|                                                            |\n");
+    printf("|                         0 - Voltar                         |\n");
+    printf("|                                                            |\n");
+    printf("|                        ____________                        |\n");
+    printf("+------------------------------------------------------------+\n");
+    gotoxy(33, 13);
     return 0;
 }
+
+void added(void) {
+    ClearConsole();
+    printf("+------------------------------------------------------------+\n");
+    printf("|            A conta foi criada com sucesso!!                |\n");
+    printf("|            Carregue no Enter para continuar...             |\n");
+    printf("+------------------------------------------------------------+\n");
+    ConsolePause();
+}
+
+void removed(void) {
+    ClearConsole();
+    printf("+------------------------------------------------------------+\n");
+    printf("|           A conta foi removida com sucesso!!               |\n");
+    printf("|            Carregue no Enter para continuar...             |\n");
+    printf("+------------------------------------------------------------+\n");
+    ConsolePause();
+}
+
+void noAccount(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("| O aluno com este número de telemovel não tem conta criada! |\n");
+    printf("|            Carregue no Enter para continuar...             |\n");
+    printf("+------------------------------------------------------------+\n");
+    ConsolePause();
+}
+
+void hasAccount(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("| O aluno com este número de telemovel já tem conta criada! |\n");
+    printf("|            Carregue no Enter para continuar...            |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause();
+}
+
 
 int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
 
 
-int ChangeStudentInfo(StudentsList head, char *key) {
+int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
     StudentsList student;
     int option;
     student = SearchStudent(head, key);
@@ -33,41 +76,45 @@ int ChangeStudentInfo(StudentsList head, char *key) {
             switch (option) {
                 case 1:
                     ClearBuffer();
-                    printf("\t\t\t\t\t\t\t\t\t Nome atual: %s\n",student->InfoStudent.name);
-                    printf("\t\t\t\t\t\t\t\t\t Novo nome do aluno: ");
+                    printf("\nNome atual: %s\n", student->InfoStudent.name);
+                    printf("Novo nome do aluno: ");
                     readstring(&student->InfoStudent.name, 30, 10);
                     ClearConsole();
                     break;
                 case 2:
                     ClearBuffer();
-                    printf("\t\t\t\t\t\t\t\t\t Morada Atual: %s\n",student->InfoStudent.address);
-                    printf("\t\t\t\t\t\t\t\t\t Novo norada do aluno: ");
+                    printf("\nMorada Atual: %s\n", student->InfoStudent.address);
+                    printf("Novo norada do aluno: ");
                     readstring(&student->InfoStudent.address, 30, 10);
                     ClearConsole();
                     break;
                 case 3:
                     ClearBuffer();
-                    printf("\t\t\t\t\t\t\t\t\t Data de nascimento atual: %s\n",student->InfoStudent.date_of_birth);
-                    printf("\t\t\t\t\t\t\t\t\t Novo data de nascimento do aluno: ");
+                    printf("\nData de nascimento atual: %s\n", student->InfoStudent.date_of_birth);
+                    printf("Novo data de nascimento do aluno: ");
                     getDateOfBirth(&student->InfoStudent.date_of_birth);
                     ClearConsole();
                     break;
                 case 4:
                     ClearBuffer();
-                    printf("\t\t\t\t\t\t\t\t\t Número de telemovel atual: %s\n",student->InfoStudent.phone_number);
-                    printf("\t\t\t\t\t\t\t\t\t Novo número de telemovel: ");
+                    printf("\nNúmero de telemovel atual: %s\n", student->InfoStudent.phone_number);
+                    printf("Novo número de telemovel: ");
                     getPhoneNumber(&student->InfoStudent.phone_number);
                     ClearConsole();
                     break;
+                case 0:
+                    *option3 = 0;
+                    break;
                 default:
-                    printf("\n\t\t\t\t\t\t\t\t\t\t\t Opção Invalida!\n");
+                    printf("\nOpção Invalida!\n");
                     ClearConsole();
                     option = -1;
                     break;
             }
         } while (option == -1);
     } else {
-        printf("\t\t\t\t\t\t\t\t\t\tO Estudante com esse numero não se encontra registado\n");
+        *option3 = 0;
+        noAccount();
     }
     return 0;
 }
@@ -75,27 +122,23 @@ int ChangeStudentInfo(StudentsList head, char *key) {
 
 int getInfoStudent(StudentData_t *student_data) {
     //const int size = 60;
-    printf("\t\t\t\t\t\t\t\t\t\t\t»»» Introduza os dados nos respetivos campos «««\n\n");
-    ClearConsole();
-    printf("\t\t\t\t\t\t\t\t\t Nome do aluno: ");
+    printf("»»» Introduza os dados nos respetivos campos «««\n\n");
+    printf("Nome do aluno: ");
     readstring(&(student_data->name), 30, 10);
     ClearBuffer();
 
-    ClearConsole();
-    printf("\t\t\t\t\t\t\t\t\t Morada do aluno: ");
+    printf("Morada do aluno: ");
     readstring(&student_data->address, 30, 10);
     ClearBuffer();
 
-    ClearConsole();
-    printf("\t\t\t\t\t\t\t\t\t Data de nascimento do aluno: ");
+    printf("Data de nascimento do aluno (dd/mm/yyyy): ");
     getDateOfBirth(&student_data->date_of_birth);
     ClearBuffer();
 
-    ClearConsole();
-    printf("\t\t\t\t\t\t\t\t\t Número de telemovel do aluno: ");
+    printf("Número de telemovel do aluno: ");
     getPhoneNumber(&student_data->phone_number);
     ClearBuffer();
-
+    ClearConsole();
     return 0;
 }
 
@@ -157,7 +200,7 @@ int AddStudent(StudentsList head) {
     int i;
 
     defaultPointOfInterest->name = "Not Defined";
-    defaultPointOfInterest->info= NULL;
+    defaultPointOfInterest->info = NULL;
     defaultPointOfInterest->WorkingHours = NULL;
     defaultPointOfInterest->next = NULL;
 
@@ -178,8 +221,9 @@ int AddStudent(StudentsList head) {
         }
         current->next = newStudent;
 
+        added();
     } else {
-        printf("\n\t\t\t\t\t\t\t\t\t O aluno com este número de telemovel já tem conta criada!\n");
+        hasAccount();
     }
     return 0;
 }
@@ -191,17 +235,19 @@ int RemoveStudent(StudentsList head, char *key) {
     if (current != NULL) {
         before->next = current->next;
         free(current);
-        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\tO aluno foi removido com sucesso!\n");
+        ClearConsole();
+        removed();
+    } else {
+        ClearConsole();
+        noAccount();
     }
-    else
-        printf("\t\t\t\t\t\t\t\t\t\tO Estudante com esse numero não se encontra registado\n");
     return 0;
 }
 
-int Has3FavoritePlaces(StudentsList student){
-    int i,answer = 1;
-    for(i = 0;i < 3 && answer != 0;i++){
-        if(strcmp(student->InfoInterests.favorite_places[i],"Not defined") == 0)
+int Has3FavoritePlaces(StudentsList student) {
+    int i, answer = 1;
+    for (i = 0; i < 3 && answer != 0; i++) {
+        if (strcmp(student->InfoInterests.favorite_places[i], "Not defined") == 0)
             answer = 0;
     }
     return answer;

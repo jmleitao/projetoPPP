@@ -16,8 +16,8 @@
 // Para ir recuperar a informação dos locais deixei um backup destes na pasta Info que vem com o projeto
 // É so ir la dar copy paste da informação
 
-#define STUDENTSPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Students.txt"
-#define PLACESPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Places.txt"
+#define STUDENTSPATH "Students.txt"
+#define PLACESPATH "Places.txt"
 
 
 int createfile(char *name, char *extension) {
@@ -98,8 +98,8 @@ int LoadStudentsList(StudentsList head) {
     fp = fopen(STUDENTSPATH, "r");
 
     if (fp == NULL) {
-        printf("\t\t\t\t\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
-        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t   Este foi criado!\n");
+        printf("Não existe ficheiro de dados no disco!\n");
+        printf("Este foi criado!\n");
         createfile("Students", ".txt");
     } else {
         while ((getline(&line1, &len, fp) != EOF)) {
@@ -224,8 +224,8 @@ int LoadPlacesList(PlacesList head) {
     fp = fopen(PLACESPATH, "r");
 
     if (fp == NULL) {
-        printf("\t\t\t\t\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
-        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t    Este foi criado!\n");
+        printf("Não existe ficheiro de dados no disco!\n");
+        printf("Este foi criado!\n");
         createfile("Places", ".txt");
     } else {
         while (getline(&line1, &len, fp) != EOF) {
@@ -323,8 +323,8 @@ int PrintPlaces(void) {
     fp = fopen(PLACESPATH, "r");
 
     if (fp == NULL) {
-        printf("\t\t\t\t\t\t\t\t\tNão existe ficheiro de dados no disco!\n");
-        printf("\t\t\t\t\t\t\t\t\t        Este foi criado!\n");
+        printf("Não existe ficheiro de dados no disco!\n");
+        printf("Este foi criado!\n");
         createfile("Places", ".txt");
     }
     while ((fgets(line, sizeof(line), fp) != NULL)) {
