@@ -2,6 +2,8 @@
 #include <stdio_ext.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 #include "Headers/PlacesList.h"
@@ -13,19 +15,46 @@ void yesOrno(void) {
     printf("| Locais favoritos totalmente preenchidos deseja substituir  |\n");
     printf("|        algum dos locais anteriores para colocar este?      |\n");
     printf("|                                                            |\n");
-    printf("|            0 - Sim                  1 - Não                |\n");
+    printf("|            1 - Sim                  0 - Não                |\n");
     printf("|                        =========                           |\n");
     printf("+------------------------------------------------------------+\n");
+}
+
+void successPlace(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|               Local removido com sucesso!!                |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
 }
 
 void justPause(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("|            Carregue no Enter para continuar...            |\n");
     printf("+-----------------------------------------------------------+\n");
-    ConsolePause();
+    getchar();
 }
 
+void noFav(void) {
+    gotoxy(0,0);
+    printf("+-----------------------------------------------------------------+\n");
+    printf("|       O aluno ainda não tem locais favoritos definidos          |\n");
+    printf("+-----------------------------------------------------------------+\n");
+    ConsolePause(2);
+}
 
+void alreadyFav(void) {
+    printf("+-----------------------------------------------------------------+\n");
+    printf("| Este local já se encontra na lista de locais favoritos do aluno |\n");
+    printf("+-----------------------------------------------------------------+\n");
+    ConsolePause(2);
+}
+
+void noPlace(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("| Este local não se encontra na lista de locais disponiveis! |\n");
+    printf("+------------------------------------------------------------+\n");
+    ConsolePause(2);
+}
 
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -149,20 +178,37 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     return 0;
 }
 
+int isInFavPlaces(StudentsList student, char **place) {
+    int i, found = 0;
+    for (i = 0; i < 3 && found != 1; i++) {
+        if (strcmp(student->InfoInterests.favorite_places[i], *place) == 0) {
+            *place = "Already Added";
+            found = 1;
+        }
+    }
+    return 0;
+}
+
 int AddPlace(StudentsList student, PlacesList head, char *place) {
     int i, answer, found = 0;
-    if (SearchPlace(head, place) != NULL) {
+    isInFavPlaces(student, &place);
+    if (strcmp(place, "Already Added") == 0) {
+        alreadyFav();
+        ClearConsole();
+    } else if (SearchPlace(head, place) != NULL) {
         for (i = 0; i < 3 && found == 0; i++) {
             if (student != NULL && strcmp(student->InfoInterests.favorite_places[i], "Not Defined") == 0) {
                 student->InfoInterests.favorite_places[i] = place;
                 found = 1;
             }
+
         }
         if (found == 0 && student != NULL) {
             yesOrno();
             ClearBuffer();
             scanf("%d", &answer);
-            if (answer == 0) {
+            ClearConsole();
+            if (answer == 1) {
                 printf("+------------------------------------------------------------+\n");
                 printf("             > Qual dos locais pretende substiuir? <          \n");
                 printf("                  1 - %s\n", student->InfoInterests.favorite_places[0]);
@@ -170,13 +216,15 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
                 printf("                  3 - %s\n", student->InfoInterests.favorite_places[2]);
                 printf("+------------------------------------------------------------+\n");
                 scanf("%d", &answer);
+                ClearConsole();
                 if (answer <= 2 && answer >= 1)
                     i = answer;
                 student->InfoInterests.favorite_places[i - 1] = place;
             }
         }
     } else {
-        printf(" Este local não se encontra na lista de locais disponiveis\n");
+        noPlace();
+        ClearConsole();
     }
     return 0;
 }
@@ -197,7 +245,7 @@ int sortFavPlacesArray(char **strings) {
 }
 
 int RemovePlace(StudentsList student) {
-    int i, j, key;
+    int i, j, count = 0, key;
     do {
         ClearBuffer();
         ClearConsole();
@@ -206,21 +254,28 @@ int RemovePlace(StudentsList student) {
         printf("            > Qual dos locais pretende remover? <            \n");
         for (i = 0, j = 1; i < 3; i++) {
             if (strcmp(student->InfoInterests.favorite_places[i], "Not Defined") != 0) {
-                printf("\t\t\t\t\t\t\t\t\t                 %d - %s\n", j, student->InfoInterests.favorite_places[i]);
+                printf("                  %d - %s\n", j, student->InfoInterests.favorite_places[i]);
                 j++;
             }
         }
+        printf("\n                  _____________                             \n");
         printf("+------------------------------------------------------------+\n");
 
+        gotoxy(25,3+j);
+
         if (j == 1) {
+            ClearConsole();
             key = -1;
-            printf("O aluno ainda não tem locais favoritos definidos\n");
+            noFav();
+            ClearConsole();
         } else {
             scanf("%d", &key);
 
             if (key < 4 && key > 0) {
                 student->InfoInterests.favorite_places[key - 1] = "Not Defined";
-                printf("Local removido com sucesso!!\n");
+                ClearConsole();
+                successPlace();
+                ClearConsole();
             } else
                 printf("Opção invalida\n");
         }

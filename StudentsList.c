@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio_ext.h>
 #include <string.h>
+
 #include "Headers/structs.h"
-#include "Headers/functions.h"
 #include "Headers/StudentsList.h"
 #include "Headers/PlacesList.h"
+#include "Headers/functions.h"
 
 int changeInfomenu() {
     printf("+------------------------------------------------------------+\n");
@@ -30,34 +32,30 @@ void added(void) {
     ClearConsole();
     printf("+------------------------------------------------------------+\n");
     printf("|            A conta foi criada com sucesso!!                |\n");
-    printf("|            Carregue no Enter para continuar...             |\n");
     printf("+------------------------------------------------------------+\n");
-    ConsolePause();
+    ConsolePause(2);
 }
 
 void removed(void) {
     ClearConsole();
     printf("+------------------------------------------------------------+\n");
     printf("|           A conta foi removida com sucesso!!               |\n");
-    printf("|            Carregue no Enter para continuar...             |\n");
     printf("+------------------------------------------------------------+\n");
-    ConsolePause();
+    ConsolePause(2);
 }
 
 void noAccount(void) {
     printf("+------------------------------------------------------------+\n");
-    printf("| O aluno com este número de telemovel não tem conta criada! |\n");
-    printf("|            Carregue no Enter para continuar...             |\n");
+    printf("| O aluno com este número de telemovel não tem conta criada! |\n");;
     printf("+------------------------------------------------------------+\n");
-    ConsolePause();
+    ConsolePause(2);
 }
 
 void hasAccount(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("| O aluno com este número de telemovel já tem conta criada! |\n");
-    printf("|            Carregue no Enter para continuar...            |\n");
     printf("+-----------------------------------------------------------+\n");
-    ConsolePause();
+    ConsolePause(2);
 }
 
 

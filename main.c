@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
+#include <unistd.h>
 #include <stdio_ext.h>
 #include <time.h>
 
@@ -19,7 +20,7 @@ void WelcomeMenu(void) {
     printf("|                      -------------                       |\n");
     printf("|             by João Leitão and Pedro Rodrigues           |\n");
     printf("+----------------------------------------------------------+\n");
-    while ((clock() / CLOCKS_PER_SEC) != 2);
+    ConsolePause(2);
     ClearConsole();
 }
 
@@ -27,6 +28,7 @@ void ByeByeMenu(void) {
     printf("+------------------------------------------------------------+\n");
     printf("|####################### Boa Viagem!! #######################|\n");
     printf("+------------------------------------------------------------+\n");
+    ConsolePause(2);
     ClearConsole();
 }
 
@@ -99,25 +101,25 @@ void whichPlaceMenu(void) {
     printf("|                                                     |\n");
     printf("| Nome do local:                                      |\n");
     printf("+-----------------------------------------------------+\n");
-    gotoxy(25, 13);
+    gotoxy(18,4);
 }
 
 void whichPointOfInterestMenu(void) {
     printf("+------------------------------------------------------------------+\n");
     printf("|  > Insira o nome do ponto de interesse que prentede adicionar <  |\n");
     printf("|                                                                  |\n");
-    printf("| Nome do local:                                                   |\n");
+    printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(25, 13);
+    gotoxy(31,4);
 }
 
 void whichPointOfInterestRemoveMenu(void) {
     printf("+------------------------------------------------------------------+\n");
     printf("|  > Insira o nome do ponto de interesse que prentede remover <    |\n");
     printf("|                                                                  |\n");
-    printf("| Nome do local:                                                   |\n");
+    printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(25, 13);
+    gotoxy(31,4);
 }
 
 
@@ -255,6 +257,7 @@ int UserInterface(void) {
                             whichPlaceMenu();
                             readstring(&place, 15, 5);
                             strip(&place);
+                            ClearConsole();
                             AddPlace(student, places_head, place);
                             break;
                         case 3:
@@ -264,12 +267,14 @@ int UserInterface(void) {
                             whichPointOfInterestMenu();
                             readstring(&point_of_interest, 15, 5);
                             strip(&point_of_interest);
+                            ClearConsole();
                             AddPointOfInterest(student, places_head, point_of_interest);
                             break;
                         case 5:
                             whichPointOfInterestRemoveMenu();
                             readstring(&point_of_interest, 15, 5);
                             strip(&point_of_interest);
+                            ClearConsole();
                             RemovePointOfInterest(student, point_of_interest);
                             break;
                         case 6:
@@ -291,7 +296,6 @@ int UserInterface(void) {
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();
-                ClearConsole();
                 free(key);
                 free(place);
                 free(phone);

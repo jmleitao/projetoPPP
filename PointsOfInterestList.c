@@ -2,12 +2,34 @@
 #include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/PlacesList.h"
 
+
+void noPointOfInterest(void) {
+    printf("+------------------------------------------------------------------------------------------+\n");
+    printf("|   Este ponto de interesse não se encontra na lista de pontos de interesse disponiveis!   |\n");
+    printf("+------------------------------------------------------------------------------------------+\n");
+    ConsolePause(3);
+}
+
+void successPointOfInterest(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|        Ponto de Interesse adicionado com sucesso!!        |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+}
+
+void successremovePointOfInterest(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|        Ponto de Interesse removido com sucesso!!          |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+}
 
 int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -52,8 +74,14 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) 
                 found = 1;
             current = current->next;
         }
-        if (found != 1)
+        if (found != 1) {
             current->next = point_of_interest;
+            successPointOfInterest();
+            ClearConsole();
+        }
+    } else {
+        noPointOfInterest();
+        ClearConsole();
     }
     return 0;
 }
@@ -101,13 +129,20 @@ int RemovePointOfInterest(StudentsList student, char *key) {
     PointsOfInterestList current;
     PointsOfInterestList before;
 
-    if (strcmp(student->InfoInterests.hot, key) == 0)
+    if (strcmp(student->InfoInterests.hot, key) == 0){
         student->InfoInterests.hot = "Not Defined";
-    else {
+        successremovePointOfInterest();
+        ClearConsole();
+    }
+    else{
         FindPointOfInterest(head, &before, &current, key);
         if (current != NULL) {
             before->next = current->next;
             free(current);
+            successremovePointOfInterest();
+        }else{
+            noPointOfInterest();
+            ClearConsole();
         }
     }
     return 0;

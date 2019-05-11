@@ -4,6 +4,7 @@
 #include <locale.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 
 #include "Headers/structs.h"
 #include "Headers/files.h"

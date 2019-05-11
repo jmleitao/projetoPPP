@@ -3,7 +3,7 @@
 
 #define ClearBuffer() __fpurge(stdin)
 #define ClearConsole() system("clear")
-#define ConsolePause() getchar()
+#define ConsolePause(x) sleep(x)
 #define gotoxy(x, y) printf("\033[%d;%dH", (y), (x))
 
 /*
