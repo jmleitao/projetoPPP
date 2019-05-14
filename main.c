@@ -165,6 +165,7 @@ int UserInterface(void) {
     do {
 
         MainMenu();
+        ClearBuffer();
         scanf("%d", &option1);
         ClearBuffer();
         ClearConsole();
@@ -242,7 +243,6 @@ int UserInterface(void) {
 
                     ClearBuffer();
                     scanf("%d", &option2);
-
                     ClearConsole();
 
                     switch (option2) {
@@ -252,6 +252,7 @@ int UserInterface(void) {
                             break;
                         case 2:
                             whichPlaceMenu();
+                            ClearBuffer();
                             readstring(&place, 15, 5);
                             strip(&place);
                             ClearConsole();
@@ -262,8 +263,8 @@ int UserInterface(void) {
                             break;
                         case 4:
                             whichPointOfInterestMenu();
+                            ClearBuffer();
                             readstring(&point_of_interest, 15, 5);
-                            strip(&point_of_interest);
                             ClearConsole();
                             AddPointOfInterest(student, places_head, point_of_interest);
                             break;
@@ -280,15 +281,16 @@ int UserInterface(void) {
                         case 0:
                             ClearConsole();
                             ClearBuffer();
+                            option2 = 0;
                             break;
                         default:
                             printf("Opção Invalida!!\n");
                     }
-                    option2 = -1;
+                    place = NULL;
+                    point_of_interest = NULL;
                 }
+                option2 = -1;
                 break;
-
-
             case 0:
                 LoadStudentsFile(students_head);
                 LoadPlacesFile(places_head);
@@ -304,6 +306,7 @@ int UserInterface(void) {
                 ClearConsole();
                 break;
         }
+        option1 = -1;
     } while (option1 != 0);
     return 0;
 }

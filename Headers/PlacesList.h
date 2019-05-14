@@ -25,6 +25,8 @@ PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2)
 
 PlacesList AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes);
 
+void successAddPlace(void);
+
 #define PROJETO_PLACESLIST_H
 
 #endif //PROJETO_PLACESLIST_H

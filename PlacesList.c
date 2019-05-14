@@ -20,9 +20,16 @@ void yesOrno(void) {
     printf("+------------------------------------------------------------+\n");
 }
 
-void successPlace(void) {
+void successRemovePlace(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("|               Local removido com sucesso!!                |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+}
+
+void successAddPlace(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|               Local adicionado com sucesso!!              |\n");
     printf("+-----------------------------------------------------------+\n");
     ConsolePause(2);
 }
@@ -31,11 +38,12 @@ void justPause(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("|            Carregue no Enter para continuar...            |\n");
     printf("+-----------------------------------------------------------+\n");
+    ClearBuffer();
     getchar();
 }
 
 void noFav(void) {
-    gotoxy(0,0);
+    gotoxy(0, 0);
     printf("+-----------------------------------------------------------------+\n");
     printf("|       O aluno ainda não tem locais favoritos definidos          |\n");
     printf("+-----------------------------------------------------------------+\n");
@@ -200,8 +208,8 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
             if (student != NULL && strcmp(student->InfoInterests.favorite_places[i], "Not Defined") == 0) {
                 student->InfoInterests.favorite_places[i] = place;
                 found = 1;
+                successAddPlace();
             }
-
         }
         if (found == 0 && student != NULL) {
             yesOrno();
@@ -215,6 +223,7 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
                 printf("                  2 - %s\n", student->InfoInterests.favorite_places[1]);
                 printf("                  3 - %s\n", student->InfoInterests.favorite_places[2]);
                 printf("+------------------------------------------------------------+\n");
+                ClearBuffer();
                 scanf("%d", &answer);
                 ClearConsole();
                 if (answer <= 2 && answer >= 1)
@@ -261,7 +270,7 @@ int RemovePlace(StudentsList student) {
         printf("\n                  _____________                             \n");
         printf("+------------------------------------------------------------+\n");
 
-        gotoxy(25,3+j);
+        gotoxy(25, 3 + j);
 
         if (j == 1) {
             ClearConsole();
@@ -274,7 +283,7 @@ int RemovePlace(StudentsList student) {
             if (key < 4 && key > 0) {
                 student->InfoInterests.favorite_places[key - 1] = "Not Defined";
                 ClearConsole();
-                successPlace();
+                successRemovePlace();
                 ClearConsole();
             } else
                 printf("Opção invalida\n");
