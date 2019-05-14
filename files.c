@@ -17,8 +17,8 @@
 // Para ir recuperar a informação dos locais deixei um backup destes na pasta Info que vem com o projeto
 // É so ir la dar copy paste da informação
 
-#define STUDENTSPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Students.txt"
-#define PLACESPATH "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/Places.txt"
+#define STUDENTSPATH "Students.txt"
+#define PLACESPATH "Places.txt"
 
 
 int createfile(char *name, char *extension) {

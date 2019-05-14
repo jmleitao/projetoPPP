@@ -8,23 +8,12 @@ a memória do Infante D. Henrique. Foi fundado em 1496, na altura como Mosteiro 
 encontram sepultados alguns rei portugueses como D. Manuel I e sua mulher, D. João II e sua mulher, e alguns poetas
 como Luís Vaz de Camões e Fernando Pessoa.
 -
-@ Torre de Belém | De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
+@ Torre de Belém| De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
 A Torre de Belém é uma torre fortificada,localizada na freguesia de Santa Maria de Belém. É Património
 Mundial devido ao papel significativo que desempenhou nas descobertas marítimas portuguesas. O edifício foi encomendado
 pelo rei João II para ser parte de um sistema de defesa na foz do rio Tejo e uma porta de entrada para Lisboa.
 Construída em 1515 como uma fortaleza para proteger a entrada do Porto de Lisboa, a torre de Belém foi o ponto de
 partida para muitas das viagens de descoberta, e para muitos os marinheiros foi a última visão da sua pátria.
--
-@ Bairro Alto & Chiado |Horário tranquilo: 10:00 - 21:00 * Horário movimentado: 21:30 - 2:00/3:00 |
-O Bairro Alto é um distrito central da cidade de Lisboa.É um bairro pitoresco que à noite se
-transforma no centro da vida noturna da cidade.Por trás de fachadas coloridas e cheias de grafite existe uma variedade
-de restaurantes tradicionais e internacionais, casas de Fado e uma infinidade de restaurantes, bares e lojas
-alternativas que ficam abertas até tarde da noite.O Chiado, vizinho do Bairro Alto, é o nome de uma praça e seus
-arredores da cidade de Lisboa. É um elegante e sofisticado bairro de teatros, livrarias, cafés de estilo antigo e
-lojas de jóias. É uma zona comercial tradicional que mistura estabelecimentos comerciais antigos e modernos.O mais
-famoso café do Chiado é “A Brasileira”, famoso por ter tido o poeta Fernando Pessoa, entre os seus clientes.
-O Chiado é também um importante espaço cultural, com vários museus e teatros.Não deixe de visitar estes dois lugares
-vizinhos que muito têm para oferecer.
 >
 
 #Paris
@@ -66,7 +55,7 @@ Em 1982, as passarelas foram cobertas e desde então formam parte da exposição
 A visita à exposição da Tower Bridge mostra como funcionava o sistema de elevação da ponte desde a sua construção e
 mostra a importância da Tower Bridge na história da cidade.
 -
-@ Palácio de Westminster|Agosto: Segunda 13:15 - 17:30 Terça a Sexta 9:15 - 17:30 * Setembro: Terça a Sexta, das 9:15 às 16:30 |
+@ Palácio de Westminster| Agosto: Segunda 13:15 - 17:30 Terça a Sexta 9:15 - 17:30 * Setembro: Terça a Sexta, das 9:15 às 16:30 |
 O Palácio de Westminster (Palace of Westminster), também conhecido como Casas do Parlamento, é um edifício gótico
 vitoriano que abriga as duas Câmaras que compõem o Parlamento Britânico.Do antigo palácio pôde se salvar apenas uma
 ínfima parte, composta pelo Westminster Hall, os claustros e a cripta da St Stephen’s Chapel e a Jewel Tower,
@@ -130,7 +119,7 @@ Explica-se, também, a respeito dos tipos de uísques e aromas disponíveis de a
 de idade podem degustar algumas doses. A maior coleção de uísque do mundo se encontra nesse local e conta com 3500
 garrafas.
 -
-@ Royal Mile|Todos os dias: 00:00 - 24:00 |
+@ Royal Mile| Todos os dias: 00:00 - 24:00 |
 Com certeza uma das ruas mais charmosas e belas de toda a Europa. Leva esse nome por possuir um comprimento de uma
 milha escocesa. É a principal via do centro histórico de Edimburgo e liga o Castelo de Edimburgo ao Palácio de Holyrood.
 A cada metro há um edifício gótico espetacular. É impossível caminhar pela rua sem ficar parando a todo instante
