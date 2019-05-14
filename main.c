@@ -288,6 +288,7 @@ int UserInterface(void) {
                 }
                 break;
 
+
             case 0:
                 LoadStudentsFile(students_head);
                 LoadPlacesFile(places_head);
