@@ -1,4 +1,4 @@
-# Lisboa
+#Lisboa
 >
 @ Mosteiro dos Jerónimos| De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
 O Mosteiro dos Jerónimos situa-se perto da costa da freguesia de Belém. O mosteiro é um dos
@@ -27,7 +27,7 @@ O Chiado é também um importante espaço cultural, com vários museus e teatros
 vizinhos que muito têm para oferecer.
 >
 
-# Paris
+#Paris
 >
 @ Torre Eiffel| De Elevador: 9:30 - 23:45/0:45 * Escadas: 9:30 - 18:30/0:45 |
 O imponente monumento criado pelo engenheiro Gustave Eiffel, inaugurado em 31 de março de 1889, é um local de paragem
@@ -55,7 +55,7 @@ Belle Époque de Paris.Localizado no movimentado bairro de Montmartre, o Moulin 
 também foi palco para a performance de grandes nomes da música, como Frank Sinatra, Edith Piaf e Liza Minnelli.
 >
 
-# Londres
+#Londres
 >
 @ Tower Bridge| De Abril a Setembro, 10:00 - 18:00 * De Outubro a Março 9:30 - 17:30 |
 Durante o século XIX houve um grande crescimento na zona leste da London Bridge e se tornou necessária a construção de
@@ -84,7 +84,7 @@ públicas que oferecem entradas com desconto para os lugares que estão na moda.
 da zona, pode ser divertido fazer uma visita ao Trocadero, uma enorme sala de máquinas repleta de todo tipo de jogos.
 >
 
-# Roma
+#Roma
 >
 @ Coliseu| Todos os dias: 08:30 - 19:00 |
 Este belíssimo monumento é um dos principais marcos de Roma e tinha que constar na nossa lista! Símbolo romano com uma
@@ -112,7 +112,7 @@ de 25 metros de altura, foi levado a Roma do Egito em 1586.A forma mais espetacu
 pela Via della Conciliazione, uma longa rua que começa no Castelo de Sant’Angelo.
 >
 
-# Escócia
+#Escócia
 >
 @ Castelo de Edimburgo| Todos os dias: 09:30 - 18:00 |
 Sobre um rochedo basáltico de um vulcão extinto e no meio da capital escocesa encontramos o Castelo de Edimburgo,
@@ -140,7 +140,7 @@ típicos da Escócia, como o kilt (saia usada por homens), a gaita de fole e gar
 vestidos a caráter tocando sua gaita de foles!
 >
 
-# Dublin
+#Dublin
 >
 @ St Stephen´s Green| Segunda a Sábado: 7:30 - 23:00 * Domingos e feriados, das 9:30 - 23:00|
 St Stephen´s Green é o parque central mais bonito de Dublin. Com lagos cheios de cisnes, belas pontes de pedra e muito
@@ -168,7 +168,7 @@ atmosfera maravilhosa, com equipe amigável e música ao vivoEm Temple Bar você
 Irlandes, que conta a história de diversas bandas irlandesas famosas, a exemplo do U2 e Snow Patrol.
 >
 
-# Berlim
+#Berlim
 >
 @ Portão de Brandenburgo|Todos os dias: 00:00 - 24:00 |
 O cartão-postal mais famoso de Berlim, o Portão de Brandenburgo está localizado no bairro Mitte na Pariser Platz, entre

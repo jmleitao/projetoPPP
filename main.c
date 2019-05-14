@@ -92,7 +92,7 @@ void login(void) {
     printf("|                                                |\n");
     printf("| Numero de Telemovel:                           |\n");
     printf("+------------------------------------------------+\n");
-    gotoxy(24,4);
+    gotoxy(24, 4);
 }
 
 void whichPlaceMenu(void) {
@@ -101,7 +101,7 @@ void whichPlaceMenu(void) {
     printf("|                                                     |\n");
     printf("| Nome do local:                                      |\n");
     printf("+-----------------------------------------------------+\n");
-    gotoxy(18,4);
+    gotoxy(18, 4);
 }
 
 void whichPointOfInterestMenu(void) {
@@ -110,7 +110,7 @@ void whichPointOfInterestMenu(void) {
     printf("|                                                                  |\n");
     printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(31,4);
+    gotoxy(31, 4);
 }
 
 void whichPointOfInterestRemoveMenu(void) {
@@ -119,7 +119,7 @@ void whichPointOfInterestRemoveMenu(void) {
     printf("|                                                                  |\n");
     printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(31,4);
+    gotoxy(31, 4);
 }
 
 
@@ -157,6 +157,8 @@ int UserInterface(void) {
     StudentsList students_head = BuildStudentsList();
     PlacesList places_head = BuildPlacesList();
 
+    LoadStudentsList(students_head);
+    LoadPlacesList(places_head);
 
     WelcomeMenu();
 
@@ -169,8 +171,6 @@ int UserInterface(void) {
 
         switch (option1) {
             case 1:
-                if (students_head->next == NULL)
-                    LoadStudentsList(students_head);
                 do {
 
                     StudentAccountsMenu();
@@ -220,10 +220,6 @@ int UserInterface(void) {
                 break;
 
             case 2:
-                if (students_head->next == NULL)
-                    LoadStudentsList(students_head);
-                if (places_head->next == NULL)
-                    LoadPlacesList(places_head);
 
                 login();
                 ClearBuffer();
@@ -243,10 +239,11 @@ int UserInterface(void) {
                 while (option2 != 0) {
 
                     tripsMenu();
+
+                    ClearBuffer();
                     scanf("%d", &option2);
 
                     ClearConsole();
-                    ClearBuffer();
 
                     switch (option2) {
                         case 1:
@@ -272,6 +269,7 @@ int UserInterface(void) {
                             break;
                         case 5:
                             whichPointOfInterestRemoveMenu();
+                            ClearBuffer();
                             readstring(&point_of_interest, 15, 5);
                             strip(&point_of_interest);
                             ClearConsole();
@@ -286,13 +284,13 @@ int UserInterface(void) {
                         default:
                             printf("Opção Invalida!!\n");
                     }
+                    option2 = -1;
                 }
-                option2 = -1;
                 break;
 
             case 0:
-                //LoadStudentsFile(students_head);
-                //LoadPlacesFile(places_head);
+                LoadStudentsFile(students_head);
+                LoadPlacesFile(places_head);
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();
