@@ -33,12 +33,14 @@ typedef struct PointsOfInterest {
     char *name;
     char *info;
     char *WorkingHours;
+    int Popularity;
     PointsOfInterestList next;
 } PointsOfInterest_t;
 
 
 typedef struct Places {
     char *name;
+    int Popularity;
     PointsOfInterestList PointOfInterest;
     PlacesList next;
 } Places_t;

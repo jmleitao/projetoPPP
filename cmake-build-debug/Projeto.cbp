@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/Menus.h">
+			<Option target="Projeto"/>
+		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h">
 			<Option target="Projeto"/>
 		</Unit>
@@ -94,6 +97,9 @@
 			<Option target="Projeto"/>
 		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/structs.h">
+			<Option target="Projeto"/>
+		</Unit>
+		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Menus.c">
 			<Option target="Projeto"/>
 		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/PlacesList.c">

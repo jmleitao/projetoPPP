@@ -12,10 +12,15 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key);
 
 int RemovePointOfInterest(StudentsList student, char *key);
 
+int PrintStudentPointsOfInterest(StudentsList student);
+
+int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head);
+
 PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key);
 
 PointsOfInterestList swapNodes(PointsOfInterestList NodePointer1, PointsOfInterestList NodePointer2);
 
 PointsOfInterestList AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes);
+
 
 #endif //PROJETO_POINTSOFINTERESTLIST_H

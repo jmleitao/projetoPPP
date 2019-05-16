@@ -8,56 +8,8 @@
 #include "Headers/StudentsList.h"
 #include "Headers/PlacesList.h"
 #include "Headers/functions.h"
-
-int changeInfomenu() {
-    printf("+------------------------------------------------------------+\n");
-    printf("|             > Que parametro deseja alterar? <              |\n");
-    printf("|                 1 - Alterar o nome                         |\n");
-    printf("|                                                            |\n");
-    printf("|                 2 - Alterar a morada                       |\n");
-    printf("|                                                            |\n");
-    printf("|                 3 - Alterar a data de nascimento           |\n");
-    printf("|                                                            |\n");
-    printf("|                 4 - Alterar o numero de Telemovel          |\n");
-    printf("|                                                            |\n");
-    printf("|                         0 - Voltar                         |\n");
-    printf("|                                                            |\n");
-    printf("|                        ____________                        |\n");
-    printf("+------------------------------------------------------------+\n");
-    gotoxy(33, 13);
-    return 0;
-}
-
-void added(void) {
-    ClearConsole();
-    printf("+------------------------------------------------------------+\n");
-    printf("|            A conta foi criada com sucesso!!                |\n");
-    printf("+------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void removed(void) {
-    ClearConsole();
-    printf("+------------------------------------------------------------+\n");
-    printf("|           A conta foi removida com sucesso!!               |\n");
-    printf("+------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void noAccount(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("| O aluno com este número de telemovel não tem conta criada! |\n");;
-    printf("+------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void hasAccount(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("| O aluno com este número de telemovel já tem conta criada! |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
+#include "Headers/PointsOfInterestList.h"
+#include "Headers/Menus.h"
 
 int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -278,12 +230,30 @@ int PrintStudentsList(StudentsList head) {
 }
 
 int PrintStudent(StudentsList student) {
+    PointsOfInterestList current;
+    int i;
     if (student != NULL) {
-        printf("--------------------\n");
-        printf("Nome do Aluno: %s\n", student->InfoStudent.name);
-        printf("Morada do Aluno: %s\n", student->InfoStudent.address);
-        printf("Data de nascimento do Aluno: %s\n", student->InfoStudent.date_of_birth);
-        printf("Numero de Telemovel do Aluno: %s\n", student->InfoStudent.phone_number);
+        printf("+------------------------------------------------------------+\n");
+        printf("Nome: %s\n", student->InfoStudent.name);
+        printf("Morada: %s\n", student->InfoStudent.address);
+        printf("Data de nascimento: %s\n", student->InfoStudent.date_of_birth);
+        printf("Numero de Telemovel: %s\n", student->InfoStudent.phone_number);
+        printf("Os meus Locais favoritos:\n");
+        for (i = 0; i < 3; i++) {
+            printf("\t »» %s\n", student->InfoInterests.favorite_places[i]);
+        }
+        printf("O meu Ponto de Interesse Hot: %s\n", student->InfoInterests.hot);
+        printf("Outros Pontos de Interesse:\n");
+        current = student->InfoInterests.other_points_of_interest->next;
+        while (current != NULL) {
+            printf("\t »» %s\n", current->name);
+            current = current->next;
+        }
     }
+    justPause();
+    printf("+------------------------------------------------------------+\n");
+    ClearBuffer();
+    getchar();
+    ClearConsole();
     return 0;
 }

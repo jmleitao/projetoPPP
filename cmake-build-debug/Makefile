@@ -123,6 +123,33 @@ Projeto/fast:
 	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/build
 .PHONY : Projeto/fast
 
+Menus.o: Menus.c.o
+
+.PHONY : Menus.o
+
+# target to build an object file
+Menus.c.o:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Menus.c.o
+.PHONY : Menus.c.o
+
+Menus.i: Menus.c.i
+
+.PHONY : Menus.i
+
+# target to preprocess a source file
+Menus.c.i:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Menus.c.i
+.PHONY : Menus.c.i
+
+Menus.s: Menus.c.s
+
+.PHONY : Menus.s
+
+# target to generate assembly for a file
+Menus.c.s:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/Menus.c.s
+.PHONY : Menus.c.s
+
 PlacesList.o: PlacesList.c.o
 
 .PHONY : PlacesList.o
@@ -321,6 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Projeto"
 	@echo "... edit_cache"
+	@echo "... Menus.o"
+	@echo "... Menus.i"
+	@echo "... Menus.s"
 	@echo "... PlacesList.o"
 	@echo "... PlacesList.i"
 	@echo "... PlacesList.s"

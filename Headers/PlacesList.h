@@ -21,11 +21,15 @@ int AddPlace(StudentsList student, PlacesList head, char *place);
 
 int RemovePlace(StudentsList student);
 
+int PrintPlaces(StudentsList student,PlacesList head);
+
 PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2);
 
 PlacesList AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes);
 
 void successAddPlace(void);
+
+void justPause(void);
 
 #define PROJETO_PLACESLIST_H
 

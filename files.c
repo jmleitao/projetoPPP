@@ -316,23 +316,3 @@ int LoadPlacesFile(PlacesList head) {
     fclose(fp);
     return 0;
 }
-
-int PrintPlaces(void) {
-    FILE *fp;
-    char *line = malloc(sizeof(char) * 256);
-
-    fp = fopen(PLACESPATH, "r");
-
-    if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("Este foi criado!\n");
-        createfile("Places", ".txt");
-    }
-    while ((fgets(line, sizeof(line), fp) != NULL)) {
-        printf("%s", line);
-    }
-
-    free(line);
-    fclose(fp);
-    return 0;
-}

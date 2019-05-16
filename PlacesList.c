@@ -8,61 +8,8 @@
 #include "Headers/functions.h"
 #include "Headers/PlacesList.h"
 #include "Headers/PointsOfInterestList.h"
+#include "Headers/Menus.h"
 
-
-void yesOrno(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("| Locais favoritos totalmente preenchidos deseja substituir  |\n");
-    printf("|        algum dos locais anteriores para colocar este?      |\n");
-    printf("|                                                            |\n");
-    printf("|            1 - Sim                  0 - Não                |\n");
-    printf("|                        =========                           |\n");
-    printf("+------------------------------------------------------------+\n");
-}
-
-void successRemovePlace(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("|               Local removido com sucesso!!                |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void successAddPlace(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("|               Local adicionado com sucesso!!              |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void justPause(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("|            Carregue no Enter para continuar...            |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ClearBuffer();
-    getchar();
-}
-
-void noFav(void) {
-    gotoxy(0, 0);
-    printf("+-----------------------------------------------------------------+\n");
-    printf("|       O aluno ainda não tem locais favoritos definidos          |\n");
-    printf("+-----------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void alreadyFav(void) {
-    printf("+-----------------------------------------------------------------+\n");
-    printf("| Este local já se encontra na lista de locais favoritos do aluno |\n");
-    printf("+-----------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void noPlace(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("| Este local não se encontra na lista de locais disponiveis! |\n");
-    printf("+------------------------------------------------------------+\n");
-    ConsolePause(2);
-}
 
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -180,11 +127,14 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
         printf("\n");
         current_place = current_place->next;
     }
-    printf("+------------------------------------------------------------+\n\n");
     justPause();
+    printf("\n+------------------------------------------------------------+\n\n");
+    ClearBuffer();
+    getchar();
     ClearConsole();
     return 0;
 }
+
 
 int isInFavPlaces(StudentsList student, char **place) {
     int i, found = 0;
@@ -194,6 +144,19 @@ int isInFavPlaces(StudentsList student, char **place) {
             found = 1;
         }
     }
+    return found;
+}
+
+int PrintPlaces(StudentsList student, PlacesList head) {
+    PlacesList current = head->next;
+    printf("+------------------------------------------------------------+\n");
+    printf("Locais:\n");
+    while (current != NULL) {
+        if (isInFavPlaces(student, &current->name) != 1)
+            printf("\t-> %s\n", current->name);
+        current = current->next;
+    }
+    printf("+------------------------------------------------------------+\n");
     return 0;
 }
 
@@ -201,7 +164,7 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
     int i, answer, found = 0;
     isInFavPlaces(student, &place);
     if (strcmp(place, "Already Added") == 0) {
-        alreadyFav();
+        alreadyFavPlace();
         ClearConsole();
     } else if (SearchPlace(head, place) != NULL) {
         for (i = 0; i < 3 && found == 0; i++) {
@@ -254,7 +217,7 @@ int sortFavPlacesArray(char **strings) {
 }
 
 int RemovePlace(StudentsList student) {
-    int i, j, count = 0, key;
+    int i, j, key;
     do {
         ClearBuffer();
         ClearConsole();

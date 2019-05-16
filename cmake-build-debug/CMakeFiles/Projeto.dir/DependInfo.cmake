@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/pedro/CLionProjects/projetoPPP/Menus.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/Menus.c.o"
   "/home/pedro/CLionProjects/projetoPPP/PlacesList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/PlacesList.c.o"
   "/home/pedro/CLionProjects/projetoPPP/PointsOfInterestList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/PointsOfInterestList.c.o"
   "/home/pedro/CLionProjects/projetoPPP/StudentsList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/StudentsList.c.o"

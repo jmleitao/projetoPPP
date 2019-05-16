@@ -12,141 +12,7 @@
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/PlacesList.h"
 #include "Headers/StudentsList.h"
-
-
-void WelcomeMenu(void) {
-    printf("+----------------------------------------------------------+\n");
-    printf("|          »»»  Bem-Vindo ao Gestor de Viagens!! «««       |\n");
-    printf("|                      -------------                       |\n");
-    printf("|             by João Leitão and Pedro Rodrigues           |\n");
-    printf("+----------------------------------------------------------+\n");
-    ConsolePause(2);
-    ClearConsole();
-}
-
-void ByeByeMenu(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("|####################### Boa Viagem!! #######################|\n");
-    printf("+------------------------------------------------------------+\n");
-    ConsolePause(2);
-    ClearConsole();
-}
-
-void MainMenu(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("|            > Escolha uma das seguintes opções <            |\n");
-    printf("|                                                            |\n");
-    printf("|                1 - Contas de Alunos                        |\n");
-    printf("|                                                            |\n");
-    printf("|                2 - Viagens e Pontos de Interesse           |\n");
-    printf("|                                                            |\n");
-    printf("|                        0 - Sair                            |\n");
-    printf("|                                                            |\n");
-    printf("|                       ___________                          |\n");
-    printf("+------------------------------------------------------------+\n");
-    gotoxy(30, 10);
-}
-
-void StudentAccountsMenu(void) {
-    printf("+------------------------------------------------------------+\n");
-    printf("|                        > Pretende <                        |\n");
-    printf("|                                                            |\n");
-    printf("|                 1 - Criar uma nova conta                   |\n");
-    printf("|                                                            |\n");
-    printf("|                 2 - Alterar dados de uma conta             |\n");
-    printf("|                                                            |\n");
-    printf("|                 3 - Eliminar uma conta                     |\n");
-    printf("|                                                            |\n");
-    printf("|                    0 - Menu Principal                      |\n");
-    printf("|                                                            |\n");
-    printf("|                        ___________                         |\n");
-    printf("+------------------------------------------------------------+\n");
-    gotoxy(31, 12);
-}
-
-void StudentLoginMenu(void) {
-    printf("+------------------------------------------------+\n");
-    printf("|           Alteração de dados da conta!         |\n");
-    printf("|      Insira o numero de telemovel da conta     |\n");
-    printf("|          que vai ser sujeita a alteração.      |\n");
-    printf("|                                                |\n");
-    printf("| Numero de Telemovel:                           |\n");
-    printf("+------------------------------------------------+\n");
-    gotoxy(24, 6);
-}
-
-void removeStudentMenu(void) {
-    printf("+------------------------------------------------+\n");
-    printf("|           Remoção de uma conta de um aluno     |\n");
-    printf("|      Insira o numero de telemovel da conta     |\n");
-    printf("|              que vai ser removida.             |\n");
-    printf("|                                                |\n");
-    printf("| Numero de Telemovel:                           |\n");
-    printf("+------------------------------------------------+\n");
-    gotoxy(24, 6);
-}
-
-void login(void) {
-    printf("+------------------------------------------------+\n");
-    printf("|                >>>   LOGIN  <<<                |\n");
-    printf("|                                                |\n");
-    printf("| Numero de Telemovel:                           |\n");
-    printf("+------------------------------------------------+\n");
-    gotoxy(24, 4);
-}
-
-void whichPlaceMenu(void) {
-    printf("+-----------------------------------------------------+\n");
-    printf("|  > Insira o nome do local que prentede adicionar <  |\n");
-    printf("|                                                     |\n");
-    printf("| Nome do local:                                      |\n");
-    printf("+-----------------------------------------------------+\n");
-    gotoxy(18, 4);
-}
-
-void whichPointOfInterestMenu(void) {
-    printf("+------------------------------------------------------------------+\n");
-    printf("|  > Insira o nome do ponto de interesse que prentede adicionar <  |\n");
-    printf("|                                                                  |\n");
-    printf("| Nome do ponto de interesse:                                      |\n");
-    printf("+------------------------------------------------------------------+\n");
-    gotoxy(31, 4);
-}
-
-void whichPointOfInterestRemoveMenu(void) {
-    printf("+------------------------------------------------------------------+\n");
-    printf("|  > Insira o nome do ponto de interesse que prentede remover <    |\n");
-    printf("|                                                                  |\n");
-    printf("| Nome do ponto de interesse:                                      |\n");
-    printf("+------------------------------------------------------------------+\n");
-    gotoxy(31, 4);
-}
-
-
-void tripsMenu(void) {
-    printf("+----------------------------------------------------------------------+\n");
-    printf("|                             > Pretende <                             |\n");
-    printf("|                                                                      |\n");
-    printf("|      1 - Listar Locais e Pontos de Interesse disponiveis             |\n");
-    printf("|                                                                      |\n");
-    printf("|      2 - Adicionar um Local                                          |\n");
-    printf("|                                                                      |\n");
-    printf("|      3 - Remover um Local                                            |\n");
-    printf("|                                                                      |\n");
-    printf("|      4 - Adicionar um Ponto de Interesse                             |\n");
-    printf("|                                                                      |\n");
-    printf("|      5 - Remover um Ponto de Interesse                               |\n");
-    printf("|                                                                      |\n");
-    printf("|      6 - Construir uma Viagem (Necessário ter 3 Locais favoritos!)   |\n");
-    printf("|                                                                      |\n");
-    printf("|                                                                      |\n");
-    printf("|                          0 - Menu Principal                          |\n");
-    printf("|                               (LOGOUT)                               |\n");
-    printf("|                                                                      |\n");
-    printf("|                              ___________                             |\n");
-    printf("+----------------------------------------------------------------------+\n");
-    gotoxy(37, 20);
-}
+#include "Headers/Menus.h"
 
 
 int UserInterface(void) {
@@ -242,7 +108,8 @@ int UserInterface(void) {
                     tripsMenu();
 
                     ClearBuffer();
-                    scanf("%d", &option2);
+                    if (scanf("%d", &option2) == 0)
+                        option2 = -1;
                     ClearConsole();
 
                     switch (option2) {
@@ -251,6 +118,7 @@ int UserInterface(void) {
                             DisplayPlacesAndPointsOfInterest(places_head);
                             break;
                         case 2:
+                            PrintPlaces(student, places_head);
                             whichPlaceMenu();
                             ClearBuffer();
                             readstring(&place, 15, 5);
@@ -262,6 +130,7 @@ int UserInterface(void) {
                             RemovePlace(student);
                             break;
                         case 4:
+                            PrintandCheckPointsOfInterestList(student, places_head);
                             whichPointOfInterestMenu();
                             ClearBuffer();
                             readstring(&point_of_interest, 15, 5);
@@ -269,6 +138,7 @@ int UserInterface(void) {
                             AddPointOfInterest(student, places_head, point_of_interest);
                             break;
                         case 5:
+                            PrintStudentPointsOfInterest(student);
                             whichPointOfInterestRemoveMenu();
                             ClearBuffer();
                             readstring(&point_of_interest, 15, 5);
@@ -277,6 +147,9 @@ int UserInterface(void) {
                             RemovePointOfInterest(student, point_of_interest);
                             break;
                         case 6:
+                            break;
+                        case 7:
+                            PrintStudent(student);
                             break;
                         case 0:
                             ClearConsole();
@@ -292,8 +165,8 @@ int UserInterface(void) {
                 option2 = -1;
                 break;
             case 0:
-                LoadStudentsFile(students_head);
-                LoadPlacesFile(places_head);
+                //LoadStudentsFile(students_head);
+                //LoadPlacesFile(places_head);
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();

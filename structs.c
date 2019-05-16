@@ -43,6 +43,7 @@ PointsOfInterestList BuildPointsOfInterestList(void) {
     point_of_interest_data.name = "Name";
     point_of_interest_data.info = "Info";
     point_of_interest_data.WorkingHours = "Working Hours";
+    point_of_interest_data.Popularity = -1;
 
     if (head != NULL) {
         head->info = point_of_interest_data.info;
@@ -59,6 +60,7 @@ PlacesList BuildPlacesList(void) {
     Places_t place_data;
 
     place_data.name = "City Name";
+    place_data.Popularity = -1;
     if (head != NULL) {
         head->PointOfInterest = BuildPointsOfInterestList();
         head->name = place_data.name;

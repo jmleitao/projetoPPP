@@ -8,28 +8,8 @@
 #include "Headers/functions.h"
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/PlacesList.h"
+#include "Headers/Menus.h"
 
-
-void noPointOfInterest(void) {
-    printf("+------------------------------------------------------------------------------------------+\n");
-    printf("|   Este ponto de interesse não se encontra na lista de pontos de interesse disponiveis!   |\n");
-    printf("+------------------------------------------------------------------------------------------+\n");
-    ConsolePause(3);
-}
-
-void successPointOfInterest(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("|        Ponto de Interesse adicionado com sucesso!!        |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ConsolePause(2);
-}
-
-void successremovePointOfInterest(void) {
-    printf("+-----------------------------------------------------------+\n");
-    printf("|        Ponto de Interesse removido com sucesso!!          |\n");
-    printf("+-----------------------------------------------------------+\n");
-    ConsolePause(2);
-}
 
 int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -56,33 +36,58 @@ PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key)
     return current;
 }
 
+int FavPointOfInterest(StudentsList student, char *key) {
+    int answer = 1;
+    if (SearchPointOfInterest(student->InfoInterests.other_points_of_interest, key) != NULL ||
+        strcmp(student->InfoInterests.hot, key) == 0)
+        answer = 0;
+    return answer;
+}
+
 int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) {
     PlacesList current_place = places_head->next;
     PointsOfInterestList current = student->InfoInterests.other_points_of_interest->next;
     PointsOfInterestList point_of_interest = NULL;
     int found = 0;
 
-    while (current_place != NULL && point_of_interest == NULL) {
-        point_of_interest = SearchPointOfInterest(current_place->PointOfInterest, key);
-        current_place = current_place->next;
-    }
-    if (point_of_interest != NULL) {
-        point_of_interest->next = NULL;
-
-        while (current->next != NULL && found != 1) {
-            if (strcmp(current->name, point_of_interest->name) == 0)
-                found = 1;
-            current = current->next;
-        }
-        if (found != 1) {
-            current->next = point_of_interest;
-            successPointOfInterest();
-            ClearConsole();
-        }
-    } else {
+    if (strncmp(key, "\n", 1) != 0) {
         noPointOfInterest();
-        ClearConsole();
+        ClearBuffer();
+    } else {
+        if (FavPointOfInterest(student, key) != 0) {
+
+            if (strcmp(student->InfoInterests.hot, key) == 0)
+                point_of_interest = SearchPointOfInterest(current_place->PointOfInterest, key);
+
+            while (current_place != NULL && point_of_interest == NULL) {
+                point_of_interest = SearchPointOfInterest(current_place->PointOfInterest, key);
+                current_place = current_place->next;
+            }
+
+            if (point_of_interest != NULL) {
+                point_of_interest->next = NULL;
+
+                while (current->next != NULL && found != 1) {
+                    if (strcmp(current->name, point_of_interest->name) == 0)
+                        found = 1;
+                    current = current->next;
+                }
+                if (found != 1) {
+                    current->next = point_of_interest;
+                    successPointOfInterest();
+                    ClearConsole();
+                }
+            } else {
+                noPointOfInterest();
+                ClearConsole();
+            }
+        } else {
+            alreadyFavPointOfInterest();
+        }
+
     }
+
+
     return 0;
 }
 
@@ -129,21 +134,51 @@ int RemovePointOfInterest(StudentsList student, char *key) {
     PointsOfInterestList current;
     PointsOfInterestList before;
 
-    if (strcmp(student->InfoInterests.hot, key) == 0){
+    if (strcmp(student->InfoInterests.hot, key) == 0) {
         student->InfoInterests.hot = "Not Defined";
         successremovePointOfInterest();
         ClearConsole();
-    }
-    else{
+    } else {
         FindPointOfInterest(head, &before, &current, key);
         if (current != NULL) {
             before->next = current->next;
             free(current);
             successremovePointOfInterest();
-        }else{
-            noPointOfInterest();
+        } else {
+            notFavPointOfInterest();
             ClearConsole();
         }
     }
+    return 0;
+}
+
+int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head) {
+    PlacesList current_place = head->next;
+    PointsOfInterestList current_point_of_interest;
+    printf("+------------------------------------------------------------+\n");
+    while (current_place != NULL) {
+        current_point_of_interest = current_place->PointOfInterest->next;
+        while (current_point_of_interest != NULL) {
+            if (SearchPointOfInterest(student->InfoInterests.other_points_of_interest,
+                                      current_point_of_interest->name) == NULL) {
+                printf("\t »» %s\n", current_point_of_interest->name);
+            }
+
+            current_point_of_interest = current_point_of_interest->next;
+        }
+        current_place = current_place->next;
+    }
+    printf("+------------------------------------------------------------+\n");
+    return 0;
+}
+
+int PrintStudentPointsOfInterest(StudentsList student) {
+    PointsOfInterestList current = student->InfoInterests.other_points_of_interest->next;
+    printf("+------------------------------------------------------------+\n");
+    while (current != NULL) {
+        printf(" »» %s\n", current->name);
+        current = current->next;
+    }
+    printf("+------------------------------------------------------------+\n");
     return 0;
 }

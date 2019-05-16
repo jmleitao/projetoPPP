@@ -3,8 +3,6 @@
 
 int createfile(char *name, char *extension);
 
-int PrintPlaces();
-
 int LoadStudentsList(StudentsList node);
 
 int LoadPlacesList(PlacesList head);
