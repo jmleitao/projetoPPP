@@ -23,7 +23,7 @@ StudentsList BuildStudentsList(void) {
     student_interests.favorite_places[0] = "Place1";
     student_interests.favorite_places[1] = "Place2";
     student_interests.favorite_places[2] = "Place3";
-    points_of_interest_head->name ="Hot / Other Points of Interest";
+    points_of_interest_head->name = "Hot / Other Points of Interest";
     points_of_interest_head->WorkingHours = NULL;
     points_of_interest_head->info = NULL;
 
@@ -43,7 +43,7 @@ PointsOfInterestList BuildPointsOfInterestList(void) {
     point_of_interest_data.name = "Name";
     point_of_interest_data.info = "Info";
     point_of_interest_data.WorkingHours = "Working Hours";
-    point_of_interest_data.Popularity = -1;
+    point_of_interest_data.Popularity = 0;
 
     if (head != NULL) {
         head->info = point_of_interest_data.info;
@@ -60,13 +60,22 @@ PlacesList BuildPlacesList(void) {
     Places_t place_data;
 
     place_data.name = "City Name";
-    place_data.Popularity = -1;
+    place_data.Popularity = 0;
     if (head != NULL) {
         head->PointOfInterest = BuildPointsOfInterestList();
         head->name = place_data.name;
         head->next = NULL;
+        head->Popularity = place_data.Popularity;
     }
     return head;
 }
+
+TripList BuildTripList(void) {
+    TripList head = (TripList) malloc(sizeof(Trip_t));
+    if(head != NULL)
+        head->places = BuildPlacesList();
+    return head;
+}
+
 
 

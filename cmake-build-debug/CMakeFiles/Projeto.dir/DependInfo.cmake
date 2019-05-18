@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/pedro/CLionProjects/projetoPPP/PlacesList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/PlacesList.c.o"
   "/home/pedro/CLionProjects/projetoPPP/PointsOfInterestList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/PointsOfInterestList.c.o"
   "/home/pedro/CLionProjects/projetoPPP/StudentsList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/StudentsList.c.o"
+  "/home/pedro/CLionProjects/projetoPPP/TripList.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/TripList.c.o"
   "/home/pedro/CLionProjects/projetoPPP/files.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/files.c.o"
   "/home/pedro/CLionProjects/projetoPPP/functions.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/functions.c.o"
   "/home/pedro/CLionProjects/projetoPPP/main.c" "/home/pedro/CLionProjects/projetoPPP/cmake-build-debug/CMakeFiles/Projeto.dir/main.c.o"

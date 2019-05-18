@@ -9,6 +9,7 @@ CMakeFiles/Projeto.dir/PlacesList.c.o
  /home/pedro/CLionProjects/projetoPPP/Headers/Menus.h
  /home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/PointsOfInterestList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
  /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
  /home/pedro/CLionProjects/projetoPPP/PlacesList.c
@@ -16,6 +17,7 @@ CMakeFiles/Projeto.dir/PointsOfInterestList.c.o
  /home/pedro/CLionProjects/projetoPPP/Headers/Menus.h
  /home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/PointsOfInterestList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
  /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
  /home/pedro/CLionProjects/projetoPPP/PointsOfInterestList.c
@@ -27,6 +29,14 @@ CMakeFiles/Projeto.dir/StudentsList.c.o
  /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
  /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
  /home/pedro/CLionProjects/projetoPPP/StudentsList.c
+CMakeFiles/Projeto.dir/TripList.c.o
+ /home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/PointsOfInterestList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/TripList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/files.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
+ /home/pedro/CLionProjects/projetoPPP/TripList.c
 CMakeFiles/Projeto.dir/files.c.o
  /home/pedro/CLionProjects/projetoPPP/Headers/files.h
  /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
@@ -43,6 +53,7 @@ CMakeFiles/Projeto.dir/main.c.o
  /home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/PointsOfInterestList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
+ /home/pedro/CLionProjects/projetoPPP/Headers/TripList.h
  /home/pedro/CLionProjects/projetoPPP/Headers/files.h
  /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
  /home/pedro/CLionProjects/projetoPPP/Headers/structs.h

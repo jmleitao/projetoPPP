@@ -8,6 +8,7 @@ CMakeFiles/Projeto.dir/Menus.c.o: ../Menus.c
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/Menus.h
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/PlacesList.h
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/PointsOfInterestList.h
+CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/StudentsList.h
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/PlacesList.c.o: ../PlacesList.c
@@ -15,6 +16,7 @@ CMakeFiles/Projeto.dir/PlacesList.c.o: ../PlacesList.c
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/Menus.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/PlacesList.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/PointsOfInterestList.h
+CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/StudentsList.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../PointsOfInterestList.c
@@ -26,6 +28,14 @@ CMakeFiles/Projeto.dir/StudentsList.c.o: ../Headers/StudentsList.h
 CMakeFiles/Projeto.dir/StudentsList.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/StudentsList.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/StudentsList.c.o: ../StudentsList.c
+
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/PlacesList.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/PointsOfInterestList.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/StudentsList.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/TripList.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/files.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/structs.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../TripList.c
 
 CMakeFiles/Projeto.dir/files.c.o: ../Headers/files.h
 CMakeFiles/Projeto.dir/files.c.o: ../Headers/functions.h
@@ -42,6 +52,7 @@ CMakeFiles/Projeto.dir/main.c.o: ../Headers/Menus.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/PlacesList.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/PointsOfInterestList.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/StudentsList.h
+CMakeFiles/Projeto.dir/main.c.o: ../Headers/TripList.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/files.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/structs.h

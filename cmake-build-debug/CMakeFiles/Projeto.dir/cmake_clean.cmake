@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Projeto.dir/PlacesList.c.o"
   "CMakeFiles/Projeto.dir/PointsOfInterestList.c.o"
   "CMakeFiles/Projeto.dir/Menus.c.o"
+  "CMakeFiles/Projeto.dir/TripList.c.o"
   "Projeto.pdb"
   "Projeto"
 )

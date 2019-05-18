@@ -231,6 +231,33 @@ StudentsList.c.s:
 	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/StudentsList.c.s
 .PHONY : StudentsList.c.s
 
+TripList.o: TripList.c.o
+
+.PHONY : TripList.o
+
+# target to build an object file
+TripList.c.o:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/TripList.c.o
+.PHONY : TripList.c.o
+
+TripList.i: TripList.c.i
+
+.PHONY : TripList.i
+
+# target to preprocess a source file
+TripList.c.i:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/TripList.c.i
+.PHONY : TripList.c.i
+
+TripList.s: TripList.c.s
+
+.PHONY : TripList.s
+
+# target to generate assembly for a file
+TripList.c.s:
+	$(MAKE) -f CMakeFiles/Projeto.dir/build.make CMakeFiles/Projeto.dir/TripList.c.s
+.PHONY : TripList.c.s
+
 files.o: files.c.o
 
 .PHONY : files.o
@@ -360,6 +387,9 @@ help:
 	@echo "... StudentsList.o"
 	@echo "... StudentsList.i"
 	@echo "... StudentsList.s"
+	@echo "... TripList.o"
+	@echo "... TripList.i"
+	@echo "... TripList.s"
 	@echo "... files.o"
 	@echo "... files.i"
 	@echo "... files.s"

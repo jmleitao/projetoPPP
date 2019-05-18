@@ -90,6 +90,9 @@
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h">
 			<Option target="Projeto"/>
 		</Unit>
+		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/TripList.h">
+			<Option target="Projeto"/>
+		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/Headers/files.h">
 			<Option target="Projeto"/>
 		</Unit>
@@ -109,6 +112,9 @@
 			<Option target="Projeto"/>
 		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/StudentsList.c">
+			<Option target="Projeto"/>
+		</Unit>
+		<Unit filename="/home/pedro/CLionProjects/projetoPPP/TripList.c">
 			<Option target="Projeto"/>
 		</Unit>
 		<Unit filename="/home/pedro/CLionProjects/projetoPPP/files.c">

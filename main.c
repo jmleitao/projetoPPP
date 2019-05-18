@@ -13,6 +13,7 @@
 #include "Headers/PlacesList.h"
 #include "Headers/StudentsList.h"
 #include "Headers/Menus.h"
+#include "Headers/TripList.h"
 
 
 int UserInterface(void) {
@@ -53,7 +54,6 @@ int UserInterface(void) {
                             ClearConsole();
                             ClearBuffer();
                             break;
-
                         case 2:
                             StudentLoginMenu();
                             readstring(&key, 9, 5);
@@ -165,8 +165,8 @@ int UserInterface(void) {
                 option2 = -1;
                 break;
             case 0:
-                //LoadStudentsFile(students_head);
-                //LoadPlacesFile(places_head);
+                LoadStudentsFile(students_head);
+                LoadPlacesFile(places_head);
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();
@@ -174,7 +174,6 @@ int UserInterface(void) {
                 free(place);
                 free(phone);
                 exit(0);
-
             default:
                 ClearConsole();
                 break;
@@ -187,5 +186,36 @@ int UserInterface(void) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     UserInterface();
+
+    // Falta proteger a data o CLS e fazer a função para adicionar e remover o pdi Hot -->> Amanhã
+    // Depois é fazer menus e deixar a cena bonita;
+
+    /*
+         Teste das funcionalidades Individualmente
+    StudentsList students_head = BuildStudentsList();
+    PlacesList places_head = BuildPlacesList();
+    TripList trip_head = BuildTripList();
+    StudentsList student;
+
+
+    LoadPlacesList(places_head);
+    LoadStudentsList(students_head);
+    student = students_head->next->next;
+
+    PlacesPopularity(places_head, students_head);
+    PointsOfInterestPopularity(places_head, students_head);
+    HotPointOfInterestPopularity(places_head,students_head);
+
+    PopSortPlacesAndPointsOfInterest(&places_head,PlacesCount(places_head));
+    DisplayPlacesAndPointsOfInterestWithPopularity(places_head);
+
+    BuildTrip(trip_head,places_head,student);
+    DisplayPlacesAndPointsOfInterest(trip_head->places);
+    printf("Taxa de Popularidade: %.2lf %%",EvaluateTrip(trip_head,students_head,places_head));
+
+    DeleteStudentsList(students_head);
+    DeletePlacesList(places_head);
+    DeletePlacesList(trip_head->places);*/
+
     return 0;
 }

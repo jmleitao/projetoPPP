@@ -104,7 +104,7 @@ void whichPointOfInterestMenu(void) {
     printf("|                                                                  |\n");
     printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(31,21);
+    gotoxy(31,22);
 }
 
 void whichPointOfInterestRemoveMenu(void) {

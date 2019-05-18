@@ -7,6 +7,7 @@
 typedef struct Student *StudentsList;
 typedef struct Places *PlacesList;
 typedef struct PointsOfInterest *PointsOfInterestList;
+typedef struct Trip* TripList;
 
 typedef struct StudentData {
     char *name;
@@ -45,12 +46,17 @@ typedef struct Places {
     PlacesList next;
 } Places_t;
 
+typedef struct Trip{
+    PlacesList places;
+}Trip_t;
 
 StudentsList BuildStudentsList(void);
 
 PlacesList BuildPlacesList(void);
 
 PointsOfInterestList BuildPointsOfInterestList(void);
+
+TripList BuildTripList(void);
 
 #endif //PROJECT_STRUCTURES_H
 

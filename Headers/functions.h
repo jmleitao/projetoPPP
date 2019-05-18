@@ -1,9 +1,8 @@
 #ifndef PROJECT_FUNCTIONS_H
 #define PROJECT_FUNCTIONS_H
 
-#define ClearBuffer() __fpurge(stdin)
+#define ClearBuffer() stdin = freopen(NULL,"r",stdin)
 #define ClearConsole() system("clear")
-#define ConsolePause(x) sleep(x)
 #define gotoxy(x, y) printf("\033[%d;%dH", (y), (x))
 
 /*
@@ -19,5 +18,7 @@ int getDateOfBirth(char **date);
 int readstring(char **string, int init_size, int chunk);
 
 int strip(char **string);
+
+void ConsolePause(double x);
 
 #endif //PROJECT_FUNCTIONS_H

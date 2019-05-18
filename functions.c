@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio_ext.h>
 #include <ctype.h>
+#include <time.h>
 
 #include "Headers/structs.h"
 #include "Headers/files.h"
@@ -55,6 +56,11 @@ int getPhoneNumber(char **phone) {
     return 0;
 }
 
+int checkDate(int day, int month, int year) {
+    int answer = 1;
+    return answer;
+}
+
 int getDateOfBirth(char **date) {
     int found, day, month, year;
     do {
@@ -71,6 +77,7 @@ int getDateOfBirth(char **date) {
     return 0;
 }
 
+
 int strip(char **string) {
     char *last = *string + strlen(*string) - 1;
 
@@ -84,4 +91,11 @@ int strip(char **string) {
         (*string)++;
     }
     return 0;
+}
+
+void ConsolePause(double amount) {
+    time_t current_time = time(0), start_time = time(NULL);
+    while (difftime(current_time, start_time) < amount) {
+        time(&current_time);
+    }
 }

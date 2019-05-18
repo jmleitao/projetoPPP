@@ -9,6 +9,7 @@
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/PlacesList.h"
 #include "Headers/Menus.h"
+#include "Headers/StudentsList.h"
 
 
 int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
@@ -50,7 +51,7 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) 
     PointsOfInterestList point_of_interest = NULL;
     int found = 0;
 
-    if (strncmp(key, "\n", 1) != 0) {
+    if (strncmp(key, "\n", 1) == 0) {
         noPointOfInterest();
         ClearBuffer();
     } else {
@@ -99,7 +100,7 @@ PointsOfInterestList swapNodes(PointsOfInterestList NodePointer1, PointsOfIntere
 }
 
 
-PointsOfInterestList AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes) {
+int AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes) {
     head = &((*head)->next);
     PointsOfInterestList *start, node1;
     int i, j, sorted;
@@ -118,6 +119,27 @@ PointsOfInterestList AlphaSortPointsOfInterestList(PointsOfInterestList *head, i
     }
     return 0;
 }
+
+int PopSortPointsOfInterestList(PointsOfInterestList *head, int numNodes) {
+    head = &((*head)->next);
+    PointsOfInterestList *start, node1;
+    int i, j, sorted;
+
+    for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
+        start = head;
+        sorted = 0;
+        for (j = 0; j < numNodes - 1 - i; j++) {
+            node1 = *start;
+            if (node1->Popularity < node1->next->Popularity) {
+                *start = swapNodes(node1, node1->next);
+                sorted = 1;
+            }
+            start = &((*start)->next);
+        }
+    }
+    return 0;
+}
+
 
 int PointsOfInterestCount(PointsOfInterestList head) {
     int counter = 0;
@@ -182,3 +204,60 @@ int PrintStudentPointsOfInterest(StudentsList student) {
     printf("+------------------------------------------------------------+\n");
     return 0;
 }
+
+int PointsOfInterestPopularity(PlacesList head, StudentsList students_head) {
+    int found;
+    PlacesList places_head;
+    PointsOfInterestList student_interests, point_of_interest, points_of_interest_list_head;
+    StudentsList current_student = students_head->next;
+
+    while (current_student != NULL) {
+        student_interests = current_student->InfoInterests.other_points_of_interest->next;
+        while (student_interests != NULL) {
+            found = 0;
+            places_head = head->next;
+            while (places_head != NULL) {
+                points_of_interest_list_head = places_head->PointOfInterest;
+                if ((point_of_interest = SearchPointOfInterest(points_of_interest_list_head,
+                                                               student_interests->name)) != NULL) {
+                    point_of_interest->Popularity += 1;
+                    found = 1;
+                }
+                if (found == 1)
+                    places_head = NULL;
+                else
+                    places_head = places_head->next;
+            }
+            student_interests = student_interests->next;
+        }
+        current_student = current_student->next;
+    }
+    return 0;
+}
+
+int HotPointOfInterestPopularity(PlacesList head, StudentsList students_head) {
+    int found;
+    char *student_interest;
+    PlacesList places_head;
+    StudentsList current_student = students_head->next;
+    PointsOfInterestList point_of_interest, points_of_interest_list_head;
+    while (current_student != NULL) {
+        found = 0;
+        places_head = head->next;
+        student_interest = current_student->InfoInterests.hot;
+        while (places_head != NULL) {
+            points_of_interest_list_head = places_head->PointOfInterest;
+            if ((point_of_interest = SearchPointOfInterest(points_of_interest_list_head, student_interest)) != NULL) {
+                point_of_interest->Popularity += 1;
+                found = 1;
+            }
+            if (found == 1)
+                places_head = NULL;
+            else
+                places_head = places_head->next;
+        }
+        current_student = current_student->next;
+    }
+    return 0;
+}
+

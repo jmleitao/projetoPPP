@@ -58,6 +58,7 @@ int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList
     newPointOfInterest->name = point_of_interest_data->name;
     newPointOfInterest->WorkingHours = point_of_interest_data->WorkingHours;
     newPointOfInterest->info = point_of_interest_data->info;
+    newPointOfInterest->Popularity = point_of_interest_data->Popularity;
 
     newPointOfInterest->next = NULL;
 
