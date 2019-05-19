@@ -2,7 +2,13 @@
 #define PROJECT_FUNCTIONS_H
 
 #define ClearBuffer() stdin = freopen(NULL,"r",stdin)
-#define ClearConsole() system("clear")
+
+#if defined(__WIN32__) || defined(__WIN64__)
+    #define ClearConsole() system("cls")
+#elif defined(__APPLE__) || defined(__unix__) || defined(__linux__)
+    #define ClearConsole() system("clear")
+#endif
+
 #define gotoxy(x, y) printf("\033[%d;%dH", (y), (x))
 
 /*

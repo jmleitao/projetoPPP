@@ -12,7 +12,6 @@
 #include "Headers/StudentsList.h"
 
 
-
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
 
@@ -56,7 +55,6 @@ int DeletePlacesList(PlacesList head) {
     while (!isEmptyPlaces(head)) {
         current = head;
         head = head->next;
-        DeletePointsOfInterestList(current->PointOfInterest);
         free(current);
     }
     free(head);
@@ -98,10 +96,12 @@ int AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
             AlphaSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
             start = &((*start)->next);
         }
+        AlphaSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
     }
     return 0;
 }
-int PopSortPlacesAndPointsOfInterest(PlacesList *head,int numNodes){
+
+int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     head = &(*head)->next;
     PlacesList *start, node1;
     int i, j, sorted;
@@ -118,11 +118,10 @@ int PopSortPlacesAndPointsOfInterest(PlacesList *head,int numNodes){
             PopSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
             start = &((*start)->next);
         }
+        PopSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
     }
     return 0;
 }
-
-
 
 
 int PlacesCount(PlacesList head) {
@@ -169,9 +168,9 @@ int DisplayPlacesAndPointsOfInterestWithPopularity(PlacesList head) {
 
     while (current_place != NULL) {
         current_point_of_interest = current_place->PointOfInterest->next;
-        printf("   %s: \n", current_place->name);
+        printf("   %s (Popularidade %d): \n\n", current_place->name, current_place->Popularity);
         while (current_point_of_interest != NULL) {
-            printf("   -> %s (Popularidade %d)\n", current_point_of_interest->name,
+            printf("   -> %s   (Popularidade %d)\n", current_point_of_interest->name,
                    current_point_of_interest->Popularity);
             current_point_of_interest = current_point_of_interest->next;
         }
@@ -197,16 +196,19 @@ int isInFavPlaces(StudentsList student, char *place) {
 }
 
 int PrintPlaces(StudentsList student, PlacesList head) {
+    int lines = 7;
     PlacesList current = head->next;
     printf("+------------------------------------------------------------+\n");
     printf("Locais:\n");
     while (current != NULL) {
-        if (isInFavPlaces(student, current->name) != 1)
+        if (isInFavPlaces(student, current->name) != 1){
             printf("\t-> %s\n", current->name);
+            lines++;
+        }
         current = current->next;
     }
     printf("+------------------------------------------------------------+\n");
-    return 0;
+    return lines;
 }
 
 int AddPlace(StudentsList student, PlacesList head, char *place) {
@@ -247,6 +249,7 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
         noPlace();
         ClearConsole();
     }
+    ClearConsole();
     return 0;
 }
 

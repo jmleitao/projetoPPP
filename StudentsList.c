@@ -195,10 +195,10 @@ int RemoveStudent(StudentsList head, char *key) {
 }
 
 int Has3FavoritePlaces(StudentsList student) {
-    int i, answer = 1;
-    for (i = 0; i < 3 && answer != 0; i++) {
-        if (strcmp(student->InfoInterests.favorite_places[i], "Not defined") == 0)
-            answer = 0;
+    int i, answer = 0;
+    for (i = 0; i < 3 && answer != 1; i++) {
+        if (strcmp(student->InfoInterests.favorite_places[i], "Not Defined") == 0)
+            answer = 1;
     }
     return answer;
 }

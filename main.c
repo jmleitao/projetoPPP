@@ -17,7 +17,8 @@
 
 
 int UserInterface(void) {
-    int option1 = -1, option2 = -1, option3 = -1;
+    int lines, option1 = -1, option2 = -1, option3 = -1;
+    double popularity;
     char *phone = NULL, *key = NULL, *place = NULL, *point_of_interest = NULL;
     StudentsList student = NULL;
 
@@ -75,17 +76,16 @@ int UserInterface(void) {
                         case 0:
                             option2 = 0;
                             ClearBuffer();
-                            ClearBuffer();
                             break;
 
                         default:
-                            printf("Opção Invalida!!\n");
+                            ClearConsole();
+                            invalidOption();
                             break;
                     }
                 } while (option2 != 0);
                 option2 = -1;
                 break;
-
             case 2:
 
                 login();
@@ -105,6 +105,12 @@ int UserInterface(void) {
 
                 while (option2 != 0) {
 
+                    ResetPopularity(places_head);
+
+                    PlacesPopularity(places_head, students_head);
+                    PointsOfInterestPopularity(places_head, students_head);
+                    HotPointOfInterestPopularity(places_head, students_head);
+
                     tripsMenu();
 
                     ClearBuffer();
@@ -113,42 +119,186 @@ int UserInterface(void) {
                     ClearConsole();
 
                     switch (option2) {
+
                         case 1:
-                            AlphaSortPlacesAndPointsOfInterest(&places_head, PlacesCount(places_head));
-                            DisplayPlacesAndPointsOfInterest(places_head);
+                            while (option3 != 0) {
+
+                                whichListingMenu();
+
+                                ClearBuffer();
+                                if (scanf("%d", &option3) == 0)
+                                    option3 = -1;
+                                ClearConsole();
+
+                                switch (option3) {
+                                    case 1:
+                                        AlphaSortPlacesAndPointsOfInterest(&places_head, PlacesCount(places_head));
+                                        DisplayPlacesAndPointsOfInterest(places_head);
+                                        break;
+                                    case 2:
+                                        PopSortPlacesAndPointsOfInterest(&places_head, PlacesCount(places_head));
+                                        DisplayPlacesAndPointsOfInterestWithPopularity(places_head);
+                                        break;
+                                    case 0:
+                                        ClearBuffer();
+                                        option3 = 0;
+                                        break;
+                                    default:
+                                        ClearConsole();
+                                        invalidOption();
+                                        break;
+                                }
+                            }
+                            option3 = -1;
                             break;
+
                         case 2:
-                            PrintPlaces(student, places_head);
-                            whichPlaceMenu();
-                            ClearBuffer();
-                            readstring(&place, 15, 5);
-                            strip(&place);
-                            ClearConsole();
-                            AddPlace(student, places_head, place);
+                            while (option3 != 0) {
+
+                                whichPlaceMenu();
+
+                                ClearBuffer();
+                                if (scanf("%d", &option3) == 0)
+                                    option3 = -1;
+                                ClearConsole();
+
+                                switch (option3) {
+                                    case 1:
+                                        lines = PrintPlaces(student, places_head);
+                                        addPlaceMenu(lines);
+                                        ClearBuffer();
+                                        readstring(&place, 15, 5);
+                                        strip(&place);
+                                        ClearConsole();
+                                        AddPlace(student, places_head, place);
+                                        break;
+                                    case 2:
+                                        RemovePlace(student);
+                                        break;
+                                    case 0:
+                                        ClearBuffer();
+                                        option3 = 0;
+                                        break;
+                                    default:
+                                        ClearConsole();
+                                        invalidOption();
+                                        break;
+                                }
+                            }
+                            option3 = -1;
                             break;
+
                         case 3:
-                            RemovePlace(student);
+
+                            while (option3 != 0) {
+
+                                whichPointOfInterestMenu();
+
+                                ClearBuffer();
+                                if (scanf("%d", &option3) == 0)
+                                    option3 = -1;
+                                ClearConsole();
+
+                                switch (option3) {
+                                    case 1:
+                                        PrintandCheckPointsOfInterestList(student, places_head);
+                                        addPointOfInterestMenu();
+                                        ClearBuffer();
+                                        readstring(&point_of_interest, 15, 5);
+                                        ClearConsole();
+                                        AddPointOfInterest(student, places_head, point_of_interest);
+                                        break;
+                                    case 2:
+                                        PrintandCheckPointsOfInterestList(student, places_head);
+                                        addPointOfInterestMenu();
+                                        ClearBuffer();
+                                        readstring(&point_of_interest, 15, 5);
+                                        ClearConsole();
+                                        AddHotPointOfInterest(student, point_of_interest);
+                                        break;
+                                    case 3:
+                                        RemoveHotPointOfInterest(student);
+                                        break;
+                                    case 4:
+                                        lines = PrintStudentPointsOfInterest(student);
+                                        removePointOfInterestMenu(lines);
+                                        ClearBuffer();
+                                        readstring(&point_of_interest, 15, 5);
+                                        strip(&point_of_interest);
+                                        ClearConsole();
+                                        RemovePointOfInterest(student, point_of_interest);
+                                        break;
+                                    case 0:
+                                        ClearBuffer();
+                                        option3 = 0;
+                                        break;
+                                    default:
+                                        ClearConsole();
+                                        invalidOption();
+                                        break;
+                                }
+                            }
+                            option3 = -1;
                             break;
+
                         case 4:
-                            PrintandCheckPointsOfInterestList(student, places_head);
-                            whichPointOfInterestMenu();
-                            ClearBuffer();
-                            readstring(&point_of_interest, 15, 5);
-                            ClearConsole();
-                            AddPointOfInterest(student, places_head, point_of_interest);
+                            if (Has3FavoritePlaces(student))
+                                morePlacesNeeded();
+                            else {
+                                TripList trip_head = BuildTripList();
+                                PopSortPlacesAndPointsOfInterest(&places_head, PlacesCount(places_head));
+
+                                while (option3 != 0) {
+
+                                    TripMenu();
+
+                                    ClearBuffer();
+                                    if (scanf("%d", &option3) == 0)
+                                        option3 = -1;
+                                    ClearConsole();
+
+                                    switch (option3) {
+                                        case 1:
+                                            BuildTrip(trip_head, places_head, student);
+                                            successBuildTrip();
+                                            break;
+                                        case 2:
+                                            if (isEmptyPlaces(trip_head->places))
+                                                buildTripFirst();
+                                            else {
+                                                myTrip();
+                                                DisplayPlacesAndPointsOfInterest(trip_head->places);
+                                                justPause();
+                                                ClearConsole();
+                                            }
+                                            break;
+                                        case 3:
+                                            if (isEmptyPlaces(trip_head->places))
+                                                buildTripFirst();
+                                            else {
+                                                popularity = EvaluateTrip(trip_head, students_head, places_head);
+                                                popularityDisplay(popularity);
+                                                justPause();
+                                                ClearBuffer();
+                                                getchar();
+                                                ClearConsole();
+                                            }break;
+                                        case 0:
+                                            ClearBuffer();
+                                            option3 = 0;
+                                            break;
+                                        default:
+                                            ClearConsole();
+                                            invalidOption();
+                                            break;
+                                    }
+                                }
+                                DeletePlacesList(trip_head->places);
+                                option3 = -1;
+                                break;
+                            }
                             break;
                         case 5:
-                            PrintStudentPointsOfInterest(student);
-                            whichPointOfInterestRemoveMenu();
-                            ClearBuffer();
-                            readstring(&point_of_interest, 15, 5);
-                            strip(&point_of_interest);
-                            ClearConsole();
-                            RemovePointOfInterest(student, point_of_interest);
-                            break;
-                        case 6:
-                            break;
-                        case 7:
                             PrintStudent(student);
                             break;
                         case 0:
@@ -157,13 +307,16 @@ int UserInterface(void) {
                             option2 = 0;
                             break;
                         default:
-                            printf("Opção Invalida!!\n");
+                            ClearConsole();
+                            invalidOption();
+                            break;
                     }
                     place = NULL;
                     point_of_interest = NULL;
                 }
                 option2 = -1;
                 break;
+
             case 0:
                 LoadStudentsFile(students_head);
                 LoadPlacesFile(places_head);
@@ -173,12 +326,14 @@ int UserInterface(void) {
                 free(key);
                 free(place);
                 free(phone);
-                exit(0);
+                free(point_of_interest);
+                option1 = 0;
+                break;
             default:
                 ClearConsole();
+                invalidOption();
                 break;
         }
-        option1 = -1;
     } while (option1 != 0);
     return 0;
 }
@@ -186,36 +341,5 @@ int UserInterface(void) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
     UserInterface();
-
-    // Falta proteger a data o CLS e fazer a função para adicionar e remover o pdi Hot -->> Amanhã
-    // Depois é fazer menus e deixar a cena bonita;
-
-    /*
-         Teste das funcionalidades Individualmente
-    StudentsList students_head = BuildStudentsList();
-    PlacesList places_head = BuildPlacesList();
-    TripList trip_head = BuildTripList();
-    StudentsList student;
-
-
-    LoadPlacesList(places_head);
-    LoadStudentsList(students_head);
-    student = students_head->next->next;
-
-    PlacesPopularity(places_head, students_head);
-    PointsOfInterestPopularity(places_head, students_head);
-    HotPointOfInterestPopularity(places_head,students_head);
-
-    PopSortPlacesAndPointsOfInterest(&places_head,PlacesCount(places_head));
-    DisplayPlacesAndPointsOfInterestWithPopularity(places_head);
-
-    BuildTrip(trip_head,places_head,student);
-    DisplayPlacesAndPointsOfInterest(trip_head->places);
-    printf("Taxa de Popularidade: %.2lf %%",EvaluateTrip(trip_head,students_head,places_head));
-
-    DeleteStudentsList(students_head);
-    DeletePlacesList(places_head);
-    DeletePlacesList(trip_head->places);*/
-
     return 0;
 }

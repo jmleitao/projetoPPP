@@ -20,13 +20,16 @@ int HotPointOfInterestPopularity(PlacesList head, StudentsList students_head);
 
 int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head);
 
-PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key);
+int RemoveHotPointOfInterest(StudentsList student);
 
-PointsOfInterestList swapNodes(PointsOfInterestList NodePointer1, PointsOfInterestList NodePointer2);
+int AddHotPointOfInterest(StudentsList student, char *key);
 
 int AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes);
 
 int PopSortPointsOfInterestList(PointsOfInterestList *head, int numNodes);
 
+PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key);
+
+PointsOfInterestList swapNodes(PointsOfInterestList NodePointer1, PointsOfInterestList NodePointer2);
 
 #endif //PROJETO_POINTSOFINTERESTLIST_H

@@ -89,59 +89,110 @@ void login(void) {
 }
 
 
-void whichPlaceMenu(void) {
+void addPlaceMenu(int lines) {
     printf("+-----------------------------------------------------+\n");
     printf("|  > Insira o nome do local que prentede adicionar <  |\n");
     printf("|                                                     |\n");
     printf("| Nome do local:                                      |\n");
     printf("+-----------------------------------------------------+\n");
-    gotoxy(18, 14);
+    gotoxy(18, lines);
 }
 
-void whichPointOfInterestMenu(void) {
+void addPointOfInterestMenu() {
+    printf("+--------------------------------------------------------------------+\n");
+    printf("| Carregue no Enter para continuar e selecionar o Ponto de Interesse |\n");
+    printf("+--------------------------------------------------------------------+\n");
+    ClearBuffer();
+    getchar();
+    ClearConsole();
     printf("+------------------------------------------------------------------+\n");
     printf("|  > Insira o nome do ponto de interesse que prentede adicionar <  |\n");
     printf("|                                                                  |\n");
     printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(31,22);
+    gotoxy(31, 4);
 }
 
-void whichPointOfInterestRemoveMenu(void) {
+void removePointOfInterestMenu(int lines) {
     printf("+------------------------------------------------------------------+\n");
     printf("|  > Insira o nome do ponto de interesse que prentede remover <    |\n");
     printf("|                                                                  |\n");
     printf("| Nome do ponto de interesse:                                      |\n");
     printf("+------------------------------------------------------------------+\n");
-    gotoxy(31,28);
+    gotoxy(31, lines + 3);
 }
-
 
 void tripsMenu(void) {
     printf("+----------------------------------------------------------------------+\n");
-    printf("|                             > Pretende <                             |\n");
+    printf("|                 > Escolha uma das seguintes opções <                 |\n");
     printf("|                                                                      |\n");
-    printf("|      1 - Listar Locais e Pontos de Interesse disponiveis             |\n");
+    printf("|             1 - Listagem dos Locais e Pontos de interesse            |\n");
     printf("|                                                                      |\n");
-    printf("|      2 - Adicionar um Local                                          |\n");
+    printf("|             2 - Locais                                               |\n");
     printf("|                                                                      |\n");
-    printf("|      3 - Remover um Local                                            |\n");
+    printf("|             3 - Pontos de Interesse                                  |\n");
     printf("|                                                                      |\n");
-    printf("|      4 - Adicionar um Ponto de Interesse                             |\n");
+    printf("|             4 - Viagem                                               |\n");
     printf("|                                                                      |\n");
-    printf("|      5 - Remover um Ponto de Interesse                               |\n");
-    printf("|                                                                      |\n");
-    printf("|      6 - Construir uma Viagem (Necessário ter 3 Locais favoritos!)   |\n");
-    printf("|                                                                      |\n");
-    printf("|      7 - Os meus dados e preferencias                                |\n");
+    printf("|             5 - Os meus dados e preferencias                         |\n");
     printf("|                                                                      |\n");
     printf("|                                                                      |\n");
-    printf("|                          0 - Menu Principal                          |\n");
-    printf("|                               (LOGOUT)                               |\n");
+    printf("|                        0 - Menu Principal                            |\n");
+    printf("|                            (LOGOUT)                                  |\n");
     printf("|                                                                      |\n");
-    printf("|                              ___________                             |\n");
+    printf("|                           ___________                                |\n");
     printf("+----------------------------------------------------------------------+\n");
-    gotoxy(37, 22);
+    gotoxy(34, 18);
+}
+
+void whichListingMenu(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("|            > Escolha uma das seguintes opções <            |\n");
+    printf("|                                                            |\n");
+    printf("|               1 - Listagem por ordem alfabética            |\n");
+    printf("|                                                            |\n");
+    printf("|               2 - Listagem por popularidade                |\n");
+    printf("|                                                            |\n");
+    printf("|                         0 - Voltar                         |\n");
+    printf("|                                                            |\n");
+    printf("|                         __________                         |\n");
+    printf("+------------------------------------------------------------+\n");
+    gotoxy(32, 10);
+}
+
+void whichPlaceMenu(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("|            > Escolha uma das seguintes opções <            |\n");
+    printf("|                                                            |\n");
+    printf("|                  1 - Adicionar um Local                    |\n");
+    printf("|                                                            |\n");
+    printf("|                  2 - Remover um Local                      |\n");
+    printf("|                                                            |\n");
+    printf("|                       0 - Voltar                           |\n");
+    printf("|                                                            |\n");
+    printf("|                       __________                           |\n");
+    printf("+------------------------------------------------------------+\n");
+    gotoxy(30, 10);
+
+}
+
+void whichPointOfInterestMenu(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("|            > Escolha uma das seguintes opções <            |\n");
+    printf("|                                                            |\n");
+    printf("|             1 - Adicionar um Ponto de Interesse            |\n");
+    printf("|                                                            |\n");
+    printf("|             2 - Marcar um Ponto de Interesse como Hot      |\n");
+    printf("|                                                            |\n");
+    printf("|             3 - Remover o Ponto de Interesse Hot           |\n");
+    printf("|                                                            |\n");
+    printf("|             4 - Remover um Ponto de Interesse              |\n");
+    printf("|                                                            |\n");
+    printf("|                       0 - Voltar                           |\n");
+    printf("|                                                            |\n");
+    printf("|                       __________                           |\n");
+    printf("+------------------------------------------------------------+\n");
+    gotoxy(30, 14);
 }
 
 void yesOrno(void) {
@@ -150,8 +201,9 @@ void yesOrno(void) {
     printf("|        algum dos locais anteriores para colocar este?      |\n");
     printf("|                                                            |\n");
     printf("|            1 - Sim                  0 - Não                |\n");
-    printf("|                        =========                           |\n");
+    printf("|                        _________                           |\n");
     printf("+------------------------------------------------------------+\n");
+    gotoxy(30, 6);
 }
 
 void successRemovePlace(void) {
@@ -203,6 +255,7 @@ void noPointOfInterest(void) {
     printf("+------------------------------------------------------------------------------------------+\n");
     ConsolePause(3);
 }
+
 void notFavPointOfInterest(void) {
     printf("+------------------------------------------------------------------------------------------+\n");
     printf("|   Este ponto de interesse não se encontra na lista de pontos de interesse favoritos!     |\n");
@@ -214,7 +267,7 @@ void alreadyFavPointOfInterest(void) {
     printf("+-------------------------------------------------------------------------------------------+\n");
     printf("| Este ponto de interesse já se encontra na lista de pontos de interesse favoritos do aluno |\n");
     printf("+-------------------------------------------------------------------------------------------+\n");
-    ConsolePause(2);
+    ConsolePause(2.5);
 }
 
 void successPointOfInterest(void) {
@@ -267,7 +320,7 @@ void removed(void) {
 
 void noAccount(void) {
     printf("+------------------------------------------------------------+\n");
-    printf("| O aluno com este número de telemovel não tem conta criada! |\n");;
+    printf("| O aluno com este número de telemovel não tem conta criada! |\n");
     printf("+------------------------------------------------------------+\n");
     ConsolePause(2);
 }
@@ -279,11 +332,61 @@ void hasAccount(void) {
     ConsolePause(2);
 }
 
-void invalidOption(void){
+void invalidOption(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("|                       Opção Invalida                      |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(1.5);
+    ClearConsole();
+}
+
+void TripMenu(void) {
+    printf("+------------------------------------------------------------+\n");
+    printf("|                        > Pretende <                        |\n");
+    printf("|                                                            |\n");
+    printf("|                 1 - Construir uma viagem                   |\n");
+    printf("|                                                            |\n");
+    printf("|                 2 - Mostrar a Viagem                       |\n");
+    printf("|                                                            |\n");
+    printf("|                 3 - Classificar a Viagem                   |\n");
+    printf("|                                                            |\n");
+    printf("|                        0 - Voltar                          |\n");
+    printf("|                                                            |\n");
+    printf("|                        ___________                         |\n");
+    printf("+------------------------------------------------------------+\n");
+    gotoxy(31, 12);
+}
+
+void morePlacesNeeded(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|       É necessário ter 3 locais favoritos definidos       |\n");
+    printf("|                 para usufruir desta opção!                |\n");
     printf("+-----------------------------------------------------------+\n");
     ConsolePause(2);
     ClearConsole();
 }
 
+void buildTripFirst(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|             A viagem ainda não foi construida!!           |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+    ClearConsole();
+}
+
+void successBuildTrip(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|             A viagem foi construida com sucesso!!         |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+    ClearConsole();
+}
+void popularityDisplay(double pop){
+    printf("+-------------------------------------+\n");
+    printf("|     Taxa de Popularidade : %.2lf    |\n",pop);
+    printf("+-------------------------------------+\n");
+}
+void myTrip(void){
+    printf("+------------------------------------------------------------+\n");
+    printf("                     A minha Viagem\n");
+}

@@ -9,6 +9,8 @@ void MainMenu(void);
 
 void StudentAccountsMenu(void);
 
+void whichListingMenu(void);
+
 void StudentLoginMenu(void);
 
 void removeStudentMenu(void);
@@ -17,11 +19,21 @@ void login(void);
 
 void whichPlaceMenu(void);
 
+void addPlaceMenu(int lines);
+
+void addPointOfInterestMenu(void);
+
+void removePointOfInterestMenu(int lines);
+
 void whichPointOfInterestMenu(void);
 
-void whichPointOfInterestRemoveMenu(void);
+void TripMenu(void);
 
 void tripsMenu(void);
+
+void morePlacesNeeded(void);
+
+void buildTripFirst(void);
 
 void yesOrno(void);
 
@@ -52,5 +64,11 @@ void hasAccount(void);
 void invalidOption(void);
 
 void notFavPointOfInterest(void);
+
+void successBuildTrip(void);
+
+void popularityDisplay(double pop);
+
+void myTrip(void);
 
 #endif //PROJETO_MENUS_H

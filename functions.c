@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-#include <stdio_ext.h>
 #include <ctype.h>
 #include <time.h>
 
@@ -56,8 +55,30 @@ int getPhoneNumber(char **phone) {
     return 0;
 }
 
-int checkDate(int day, int month, int year) {
-    int answer = 1;
+int isLeapYear(int year) {
+    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 0 : 1;
+}
+
+int isDateValid(int day, int month, int year) {
+    int answer = 0, min = 1900, max = 9999;
+
+    if (year > max || year < min)
+        answer = 1;
+    if ((month > 12 || month < 1))
+        answer = 1;
+    if (day < 1 || day > 31)
+        answer = 1;
+    if (month == 2) {
+        if (!isLeapYear(year)) {
+            if (day > 29)
+                answer = 1;
+        } else if (day > 28)
+            answer = 1;
+    }
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        if (day > 30)
+            answer = 1;
+    }
     return answer;
 }
 
@@ -67,8 +88,7 @@ int getDateOfBirth(char **date) {
         found = 1;
         readstring(date, 9, 3);
         sscanf(*date, "%d/%d/%d", &day, &month, &year);
-        if (day < 0 || day > 31 || month < 0 || month > 12 || year < 1900 ||
-            year > 2030) { // tolerancia entre 1900 - 2030
+        if (isDateValid(day, month, year)) {
             printf("Data Invalida! (dd/mm/yyyy)\n");
             printf("Insira a sua data de nascimento: ");
             found = 0;

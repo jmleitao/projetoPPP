@@ -109,8 +109,8 @@ double UsersWithHotPointOfInterestInTrip(TripList trip_head, StudentsList studen
     return answer;
 }
 
-double PointsOfInterestPreference(TripList trip_head,PlacesList places_head) {
-    double total_popularity_points_count = 0,trip_popularity_points_count = 0;
+double PointsOfInterestPreference(TripList trip_head, PlacesList places_head) {
+    double total_popularity_points_count = 0, trip_popularity_points_count = 0;
     double answer = 0;
     PlacesList current_place = places_head->next;
     PointsOfInterestList current_point_of_interest;
@@ -140,10 +140,26 @@ double PointsOfInterestPreference(TripList trip_head,PlacesList places_head) {
     return answer;
 }
 
-double EvaluateTrip(TripList trips_head, StudentsList students_head,PlacesList places_head) {
+double EvaluateTrip(TripList trips_head, StudentsList students_head, PlacesList places_head) {
     double value1 = UsersWithOneFavPlaceInTrip(trips_head, students_head);
     double value2 = UsersWithHotPointOfInterestInTrip(trips_head, students_head);
-    double value3 = PointsOfInterestPreference(trips_head,places_head);
+    double value3 = PointsOfInterestPreference(trips_head, places_head);
     double average = (value1 + value2 + value3) / 3;
     return average;
+}
+
+int ResetPopularity(PlacesList head) {
+    PlacesList current_place = head->next;
+    PointsOfInterestList current_point_of_interest;
+
+    while (current_place != NULL) {
+        current_place->Popularity = 0;
+        current_point_of_interest = current_place->PointOfInterest;
+        while (current_point_of_interest != NULL) {
+            current_point_of_interest->Popularity = 0;
+            current_point_of_interest = current_point_of_interest->next;
+        }
+        current_place = current_place->next;
+    }
+    return 0;
 }
