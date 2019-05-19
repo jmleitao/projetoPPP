@@ -125,23 +125,6 @@ StudentsList SearchStudent(StudentsList head, char *key) {
     return current;
 }
 
-int InsertStudent(StudentsList head, char *key) {
-    StudentData_t student_data;
-    StudentsList student;
-    StudentsList Newstudent = (StudentsList) malloc(sizeof(Student_t));
-
-    student = SearchStudent(head, key);
-
-    if (Newstudent != NULL && student != NULL) {
-        getInfoStudent(&student_data);
-        Newstudent->InfoStudent = student_data;
-
-        Newstudent->next = student->next;
-        student->next = Newstudent;
-    }
-    return 0;
-}
-
 int AddStudent(StudentsList head) {
     StudentData_t student_data;
     StudentsList current = head;
@@ -213,19 +196,6 @@ int DeleteStudentsList(StudentsList head) {
         free(current);
     }
     free(head);
-    return 0;
-}
-
-int PrintStudentsList(StudentsList head) {
-    StudentsList current = head->next;
-    while (current != NULL) {
-        printf("--------------------\n");
-        printf("Nome do Aluno: %s\n", current->InfoStudent.name);
-        printf("Morada do Aluno: %s\n", current->InfoStudent.address);
-        printf("Data de nascimento do Aluno: %s\n", current->InfoStudent.date_of_birth);
-        printf("Numero de Telemovel do Aluno: %s\n", current->InfoStudent.phone_number);
-        current = current->next;
-    }
     return 0;
 }
 

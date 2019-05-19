@@ -61,16 +61,6 @@ int DeletePlacesList(PlacesList head) {
     return 0;
 }
 
-int PrintPlacesList(PlacesList head) {
-    PlacesList current = head->next;
-    while (current != NULL) {
-        printf("--------------------\n");
-        printf("Nome do Local: %s\n", current->name);
-        current = current->next;
-    }
-    return 0;
-}
-
 PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2) {
     PlacesList temporary = NodePointer2->next;
     NodePointer2->next = NodePointer1;

@@ -2,7 +2,7 @@ Pedro Miguel Duque Rodrigues|Rua do G.D.R da chã Nº4|15/05/2000|924109520
 @
 Lisboa
 Roma
-Londres
+Not Defined
 -
 Torre de Belém
 Piccadilly Circus
@@ -15,9 +15,18 @@ Berlim
 Escócia
 Paris
 -
+St Stephen´s Green
 Moulin Rouge
 Piccadilly Circus
-St Stephen´s Green
 Reichstag
+@
+
+Peter|none|10/10/2010|925109520
+@
+Not Defined
+Not Defined
+Not Defined
+-
+Not Defined 
 @
 
