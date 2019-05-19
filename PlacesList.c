@@ -133,9 +133,9 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
 
     while (current_place != NULL) {
         current_point_of_interest = current_place->PointOfInterest->next;
-        printf("   %s: \n", current_place->name);
+        printf("   %s: \n\n", current_place->name);
         while (current_point_of_interest != NULL) {
-            printf("   -> %s \n", current_point_of_interest->name);
+            printf("   -> %s  \n", current_point_of_interest->name);
             current_point_of_interest = current_point_of_interest->next;
         }
         printf("\n");
@@ -143,6 +143,55 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     }
     justPause();
     printf("\n+------------------------------------------------------------+\n\n");
+    ClearBuffer();
+    getchar();
+    ClearConsole();
+    return 0;
+}
+
+
+
+int DisplayPlacesAndPointsOfInterestWithInfo(PlacesList head) {
+    int i;
+    PlacesList current_place = head->next;
+    PointsOfInterestList current_point_of_interest;
+
+    printf("+---------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------+\n");
+    printf("\t\t\t\t\t\t\t\t   Locais e Pontos de Interesse\n\n");
+
+    while (current_place != NULL) {
+        current_point_of_interest = current_place->PointOfInterest->next;
+        printf("   %s: \n", current_place->name);
+        while (current_point_of_interest != NULL) {
+            printf("\t -> %s\n", current_point_of_interest->name);
+            printf("\t\t Horário: %s\n", current_point_of_interest->WorkingHours);
+            printf("\t\t Descrição:");
+            i = 0;
+            while (current_point_of_interest->info[i] != '\0') {
+                if (current_point_of_interest->info[i] == '\n') {
+                    printf("%c", current_point_of_interest->info[i]);
+                    printf("\t\t\t\t");
+                } else {
+                    printf("%c", current_point_of_interest->info[i]);
+                }
+                i++;
+            }
+            printf("\n\t\t\t\t\t\t\t\t\t\t--------------------------------\n\r\n");
+            current_point_of_interest = current_point_of_interest->next;
+        }
+        printf("\n");
+        current_place = current_place->next;
+    }
+    printf("+---------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------+\n");
+    justPause();
     ClearBuffer();
     getchar();
     ClearConsole();

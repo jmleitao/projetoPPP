@@ -15,6 +15,8 @@ int PlacesCount(PlacesList head);
 
 int DeletePointsOfInterestList(PointsOfInterestList head);
 
+int DisplayPlacesAndPointsOfInterestWithInfo(PlacesList head);
+
 int DisplayPlacesAndPointsOfInterest(PlacesList head);
 
 int DisplayPlacesAndPointsOfInterestWithPopularity(PlacesList head);

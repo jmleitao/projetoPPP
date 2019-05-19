@@ -48,7 +48,7 @@ int FavPointOfInterest(StudentsList student, char *key) {
 int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) {
     PlacesList current_place = places_head->next;
     PointsOfInterestList current = student->InfoInterests.other_points_of_interest->next;
-    PointsOfInterestList point_of_interest = NULL;
+    PointsOfInterestList new = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t)), point_of_interest = NULL;
     int found = 0;
 
     if (strncmp(key, "\n", 1) == 0) {
@@ -66,15 +66,19 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) 
             }
 
             if (point_of_interest != NULL) {
-                point_of_interest->next = NULL;
+                new->name = point_of_interest->name;
+                new->info = point_of_interest->info;
+                new->WorkingHours = point_of_interest->WorkingHours;
+                new->Popularity = point_of_interest->Popularity;
+                new->next = NULL;
 
                 while (current->next != NULL && found != 1) {
-                    if (strcmp(current->name, point_of_interest->name) == 0)
+                    if (strcmp(current->name, new->name) == 0)
                         found = 1;
                     current = current->next;
                 }
                 if (found != 1) {
-                    current->next = point_of_interest;
+                    current->next = new;
                     successPointOfInterest();
                     ClearConsole();
                 }
@@ -84,6 +88,7 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) 
             }
         } else {
             alreadyFavPointOfInterest();
+            ClearConsole();
         }
 
     }
@@ -157,7 +162,7 @@ int AddHotPointOfInterest(StudentsList student, char *key) {
         student->InfoInterests.hot = strdup(key);
         successPointOfInterest();
         ClearConsole();
-    }else{
+    } else {
         alreadyFavPointOfInterest();
         ClearConsole();
     }
@@ -186,6 +191,7 @@ int RemovePointOfInterest(StudentsList student, char *key) {
             before->next = current->next;
             free(current);
             successremovePointOfInterest();
+            ClearConsole();
         } else {
             notFavPointOfInterest();
             ClearConsole();

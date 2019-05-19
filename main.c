@@ -205,6 +205,7 @@ int UserInterface(void) {
                                         addPointOfInterestMenu();
                                         ClearBuffer();
                                         readstring(&point_of_interest, 15, 5);
+                                        strip(&point_of_interest);
                                         ClearConsole();
                                         AddPointOfInterest(student, places_head, point_of_interest);
                                         break;
@@ -217,6 +218,7 @@ int UserInterface(void) {
                                         AddHotPointOfInterest(student, point_of_interest);
                                         break;
                                     case 3:
+                                        ClearBuffer();
                                         RemoveHotPointOfInterest(student);
                                         break;
                                     case 4:
@@ -267,7 +269,7 @@ int UserInterface(void) {
                                                 buildTripFirst();
                                             else {
                                                 myTrip();
-                                                DisplayPlacesAndPointsOfInterest(trip_head->places);
+                                                DisplayPlacesAndPointsOfInterestWithInfo(trip_head->places);
                                                 justPause();
                                                 ClearConsole();
                                             }
@@ -319,7 +321,7 @@ int UserInterface(void) {
 
             case 0:
                 LoadStudentsFile(students_head);
-                LoadPlacesFile(places_head);
+                //LoadPlacesFile(places_head);
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();

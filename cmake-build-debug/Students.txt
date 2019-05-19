@@ -2,11 +2,19 @@ Pedro Miguel Duque Rodrigues|Rua do G.D.R da chã Nº4|15/05/2000|924109520
 @
 Lisboa
 Roma
-Not Defined
+Berlim
 -
 Torre de Belém
 Piccadilly Circus
+Temple Bar
+Palácio de Westminster
+Casa de Oscar Wilde
+Panteão de Roma
 Coliseu
+Reichstag
+Portão de Brandenburgo
+Tower Bridge
+Moulin Rouge
 @
 
 Catarina Sofia Duque Rodrigues|Rua do G.D.R da chã Nº4|29/03/2005|969245968
@@ -19,14 +27,5 @@ St Stephen´s Green
 Moulin Rouge
 Piccadilly Circus
 Reichstag
-@
-
-Peter|none|10/10/2010|925109520
-@
-Not Defined
-Not Defined
-Not Defined
--
-Not Defined 
 @
 
