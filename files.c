@@ -100,8 +100,12 @@ int LoadStudentsList(StudentsList head) {
     fp = fopen(STUDENTSPATH, "r");
 
     if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("Este foi criado!\n");
+        printf("+-----------------------------------------------------------------------+\n");
+        printf("|         Não existe ficheiro de Dados dos Alunos no disco!!!!          |\n");
+        printf("|                          Este foi criado!                             |\n");
+        printf("+-----------------------------------------------------------------------+\n");
+        ConsolePause(2);
+        ClearConsole();
         createfile("Students", ".txt");
     } else {
         while ((getline(&line1, &len, fp) != EOF)) {
@@ -226,9 +230,13 @@ int LoadPlacesList(PlacesList head) {
     fp = fopen(PLACESPATH, "r");
 
     if (fp == NULL) {
-        printf("Não existe ficheiro de dados no disco!\n");
-        printf("Este foi criado!\n");
-        createfile("Places", ".txt");
+        printf("+-----------------------------------------------------------------------+\n");
+        printf("|         Não existe ficheiro de Dados dos locais no disco!!!!          |\n");
+        printf("| Por favor adicione um ou verifique se o caminho para este é o correto |\n");
+        printf("+-----------------------------------------------------------------------+\n");
+        ConsolePause(2);
+        ClearConsole();
+        exit(0);
     } else {
         while (getline(&line1, &len, fp) != EOF) {
             point_of_interest_head = BuildPointsOfInterestList();

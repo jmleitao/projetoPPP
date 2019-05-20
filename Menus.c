@@ -287,6 +287,7 @@ void successremovePointOfInterest(void) {
 void changeInfomenu(void) {
     printf("+------------------------------------------------------------+\n");
     printf("|             > Que parametro deseja alterar? <              |\n");
+    printf("|                                                            |\n");
     printf("|                 1 - Alterar o nome                         |\n");
     printf("|                                                            |\n");
     printf("|                 2 - Alterar a morada                       |\n");
