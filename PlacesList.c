@@ -71,7 +71,7 @@ PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2)
 
 int AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     head = &(*head)->next;
-    PlacesList *start, node1;
+    PlacesList *start, node1, current;
     int i, j, sorted;
 
     for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
@@ -83,17 +83,21 @@ int AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
                 *start = swapPlacesListNodes(node1, node1->next);
                 sorted = 1;
             }
-            AlphaSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
             start = &((*start)->next);
         }
-        AlphaSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
+
+    }
+    current = *head;
+    while (current != NULL) {
+        AlphaSortPointsOfInterestList(&current->PointOfInterest, PointsOfInterestCount(current->PointOfInterest));
+        current = current->next;
     }
     return 0;
 }
 
 int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     head = &(*head)->next;
-    PlacesList *start, node1;
+    PlacesList *start, node1, current;
     int i, j, sorted;
 
     for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
@@ -109,6 +113,11 @@ int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
             start = &((*start)->next);
         }
         PopSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
+    }
+    current = *head;
+    while (current != NULL) {
+        PopSortPointsOfInterestList(&current->PointOfInterest, PointsOfInterestCount(current->PointOfInterest));
+        current = current->next;
     }
     return 0;
 }
@@ -148,7 +157,6 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     ClearConsole();
     return 0;
 }
-
 
 
 int DisplayPlacesAndPointsOfInterestWithInfo(PlacesList head) {
@@ -240,7 +248,7 @@ int PrintPlaces(StudentsList student, PlacesList head) {
     printf("+------------------------------------------------------------+\n");
     printf("Locais:\n");
     while (current != NULL) {
-        if (isInFavPlaces(student, current->name) != 1){
+        if (isInFavPlaces(student, current->name) != 1) {
             printf("\t-> %s\n", current->name);
             lines++;
         }
