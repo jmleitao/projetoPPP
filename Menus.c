@@ -382,9 +382,9 @@ void successBuildTrip(void) {
     ClearConsole();
 }
 void popularityDisplay(double pop){
-    printf("+-------------------------------------+\n");
-    printf("|     Taxa de Popularidade : %.2lf %% |\n",pop);
-    printf("+-------------------------------------+\n");
+    printf("+--------------------------------------+\n");
+    printf("|     Taxa de Popularidade : %.2lf %%  |\n",pop);
+    printf("+--------------------------------------+\n");
 }
 void myTrip(void){
     printf("+---------------------------------"
