@@ -134,6 +134,7 @@ int PlacesCount(PlacesList head) {
     return counter;
 }
 
+
 int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     PlacesList current_place = head->next;
     PointsOfInterestList current_point_of_interest;
