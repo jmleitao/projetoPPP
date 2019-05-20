@@ -100,28 +100,29 @@ int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     PlacesList *start, node1, current;
     int i, j, sorted;
 
-    for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
-        start = head;
-        sorted = 0;
-        for (j = 0; j < numNodes - 1 - i; j++) {
-            node1 = *start;
-            if (node1->Popularity < node1->next->Popularity) {
-                *start = swapPlacesListNodes(node1, node1->next);
-                sorted = 1;
-            }
-            PopSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
-            start = &((*start)->next);
-        }
-        PopSortPointsOfInterestList(&(*start)->PointOfInterest, PointsOfInterestCount((*start)->PointOfInterest));
-    }
     current = *head;
     while (current != NULL) {
         PopSortPointsOfInterestList(&current->PointOfInterest, PointsOfInterestCount(current->PointOfInterest));
         current = current->next;
     }
+    for (i = 0, sorted = 1; i <= numNodes && sorted != 0; i++) {
+        start = head;
+        sorted = 0;
+        for (j = 0; j < numNodes - 1 - i; j++) {
+            node1 = *start;
+            if (node1->Popularity == node1->next->Popularity &&
+                node1->PointOfInterest->next->Popularity < node1->next->PointOfInterest->next->Popularity) {
+                *start = swapPlacesListNodes(node1, node1->next);
+                sorted = 1;
+            } else if (node1->Popularity < node1->next->Popularity) {
+                *start = swapPlacesListNodes(node1, node1->next);
+                sorted = 1;
+            }
+            start = &((*start)->next);
+        }
+    }
     return 0;
 }
-
 
 int PlacesCount(PlacesList head) {
     int counter = 0;
