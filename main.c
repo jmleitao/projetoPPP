@@ -214,6 +214,7 @@ int UserInterface(void) {
                                         addPointOfInterestMenu();
                                         ClearBuffer();
                                         readstring(&point_of_interest, 15, 5);
+                                        strip(&point_of_interest);
                                         ClearConsole();
                                         AddHotPointOfInterest(student, point_of_interest);
                                         break;
