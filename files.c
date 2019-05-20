@@ -104,7 +104,7 @@ int LoadStudentsList(StudentsList head) {
         printf("|         Não existe ficheiro de Dados dos Alunos no disco!!!!          |\n");
         printf("|                          Este foi criado!                             |\n");
         printf("+-----------------------------------------------------------------------+\n");
-        ConsolePause(2);
+        ConsolePause(4);
         ClearConsole();
         createfile("Students", ".txt");
     } else {
@@ -234,7 +234,7 @@ int LoadPlacesList(PlacesList head) {
         printf("|         Não existe ficheiro de Dados dos locais no disco!!!!          |\n");
         printf("| Por favor adicione um ou verifique se o caminho para este é o correto |\n");
         printf("+-----------------------------------------------------------------------+\n");
-        ConsolePause(2);
+        ConsolePause(4);
         ClearConsole();
         exit(0);
     } else {

@@ -210,20 +210,20 @@ int UserInterface(void) {
                                         AddPointOfInterest(student, places_head, point_of_interest);
                                         break;
                                     case 2:
-                                        PrintandCheckPointsOfInterestList(student, places_head);
-                                        addPointOfInterestMenu();
+                                        lines = PrintStudentPointsOfInterest(student,1);
+                                        addPointOfInterest(lines);
                                         ClearBuffer();
                                         readstring(&point_of_interest, 15, 5);
                                         strip(&point_of_interest);
                                         ClearConsole();
-                                        AddHotPointOfInterest(student, point_of_interest);
+                                        AddHotPointOfInterest(places_head,student, point_of_interest);
                                         break;
                                     case 3:
                                         ClearBuffer();
                                         RemoveHotPointOfInterest(student);
                                         break;
                                     case 4:
-                                        lines = PrintStudentPointsOfInterest(student);
+                                        lines = PrintStudentPointsOfInterest(student,0);
                                         removePointOfInterestMenu(lines);
                                         ClearBuffer();
                                         readstring(&point_of_interest, 15, 5);

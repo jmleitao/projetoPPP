@@ -12,7 +12,7 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key);
 
 int RemovePointOfInterest(StudentsList student, char *key);
 
-int PrintStudentPointsOfInterest(StudentsList student);
+int PrintStudentPointsOfInterest(StudentsList student,int option);
 
 int PointsOfInterestPopularity(PlacesList head, StudentsList students_head);
 
@@ -22,7 +22,7 @@ int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head);
 
 int RemoveHotPointOfInterest(StudentsList student);
 
-int AddHotPointOfInterest(StudentsList student, char *key);
+int AddHotPointOfInterest(PlacesList head,StudentsList student, char *key);
 
 int AlphaSortPointsOfInterestList(PointsOfInterestList *head, int numNodes);
 

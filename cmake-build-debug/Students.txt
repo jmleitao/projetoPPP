@@ -1,12 +1,11 @@
 Pedro Miguel Duque Rodrigues|Rua do G.D.R da chã Nº4|15/05/2000|924109520
 @
-Lisboa
 Roma
 Londres
+Dublin
 -
-Torre Eiffel
-Piccadilly Circus
 Temple Bar
+Piccadilly Circus
 Palácio de Westminster
 Panteão de Roma
 Coliseu
@@ -30,12 +29,22 @@ Piccadilly Circus
 Reichstag
 @
 
-Ana|Monte Olimpo|6/11/6666|915366100
+Ana Mateus|Monte Olimpo|06/11/2000|915366100
 @
 Roma
 Escócia
 Berlim
 -
+Casa de Oscar Wilde
+@
+
+Putty|Putty|12/02/2000|123456789
+@
+Berlim
+Dublin
+Lisboa
+-
+Temple Bar
 Casa de Oscar Wilde
 @
 

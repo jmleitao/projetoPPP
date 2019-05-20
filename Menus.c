@@ -98,6 +98,15 @@ void addPlaceMenu(int lines) {
     gotoxy(18, lines);
 }
 
+void addPointOfInterest(int lines) {
+    printf("+------------------------------------------------------------------+\n");
+    printf("|  > Insira o nome do ponto de interesse que prentede adicionar <  |\n");
+    printf("|                                                                  |\n");
+    printf("| Nome do ponto de interesse:                                      |\n");
+    printf("+------------------------------------------------------------------+\n");
+    gotoxy(31, lines + 3);
+}
+
 void addPointOfInterestMenu() {
     printf("+--------------------------------------------------------------------+\n");
     printf("| Carregue no Enter para continuar e selecionar o Ponto de Interesse |\n");
@@ -188,11 +197,11 @@ void whichPointOfInterestMenu(void) {
     printf("|                                                            |\n");
     printf("|             4 - Remover um Ponto de Interesse              |\n");
     printf("|                                                            |\n");
-    printf("|                       0 - Voltar                           |\n");
+    printf("|                        0 - Voltar                          |\n");
     printf("|                                                            |\n");
-    printf("|                       __________                           |\n");
+    printf("|                        ___________                         |\n");
     printf("+------------------------------------------------------------+\n");
-    gotoxy(30, 14);
+    gotoxy(31, 14);
 }
 
 void yesOrno(void) {
@@ -382,16 +391,31 @@ void successBuildTrip(void) {
     ConsolePause(2);
     ClearConsole();
 }
-void popularityDisplay(double pop){
+
+void popularityDisplay(double pop) {
     printf("+--------------------------------------+\n");
-    printf("|     Taxa de Popularidade : %.2lf %%   |\n",pop);
+    printf("|     Taxa de Popularidade : %.2lf %%   |\n", pop);
     printf("+--------------------------------------+\n");
 }
-void myTrip(void){
+
+void myTrip(void) {
     printf("+---------------------------------"
            "----------------------------------"
            "----------------------------------"
            "----------------------------------"
            "----------------------+\n");
     printf("\t\t\t\t\t\t\t\t\t  A minha Viagem\n");
+}
+
+void removeFirst(void) {
+    printf("+------------------------------------------------------------------------+\n");
+    printf("|    Remova o Ponto de Interesse Hot atual para poder adicionar outro!!  |\n");
+    printf("+------------------------------------------------------------------------+\n");
+    ConsolePause(3);
+}
+void successPointOfInterestHot(void) {
+    printf("+---------------------------------------------------------------+\n");
+    printf("|        Ponto de Interesse Hot adicionado com sucesso!!        |\n");
+    printf("+---------------------------------------------------------------+\n");
+    ConsolePause(2);
 }

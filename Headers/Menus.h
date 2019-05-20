@@ -45,6 +45,8 @@ void alreadyFavPlace(void);
 
 void noPlace(void);
 
+void addPointOfInterest(int lines);
+
 void noPointOfInterest(void);
 
 void alreadyFavPointOfInterest(void);
@@ -70,5 +72,9 @@ void successBuildTrip(void);
 void popularityDisplay(double pop);
 
 void myTrip(void);
+
+void removeFirst(void);
+
+void successPointOfInterestHot(void);
 
 #endif //PROJETO_MENUS_H
