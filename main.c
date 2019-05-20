@@ -322,7 +322,6 @@ int UserInterface(void) {
 
             case 0:
                 LoadStudentsFile(students_head);
-                //LoadPlacesFile(places_head);  // Nem sei para que é que fiz esta função não é necessária
                 DeleteStudentsList(students_head);
                 DeletePlacesList(places_head);
                 ByeByeMenu();

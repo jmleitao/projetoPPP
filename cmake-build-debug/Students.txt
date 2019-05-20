@@ -8,7 +8,6 @@ Torre Eiffel
 Piccadilly Circus
 Temple Bar
 Palácio de Westminster
-Casa de Oscar Wilde
 Panteão de Roma
 Coliseu
 Reichstag
@@ -16,6 +15,7 @@ Portão de Brandenburgo
 Moulin Rouge
 Tower Bridge
 Museu do Louvre
+Casa de Oscar Wilde
 @
 
 Catarina Sofia Duque Rodrigues|Rua do G.D.R da chã Nº4|29/03/2005|969245968
@@ -28,5 +28,14 @@ St Stephen´s Green
 Moulin Rouge
 Piccadilly Circus
 Reichstag
+@
+
+Ana|Monte Olimpo|6/11/6666|915366100
+@
+Roma
+Escócia
+Berlim
+-
+Casa de Oscar Wilde
 @
 

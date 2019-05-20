@@ -13,6 +13,4 @@ int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_
 
 int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList point_of_interest_data);
 
-int LoadPlacesFile(PlacesList head);
-
 #endif //PROJECT_FILES_H

@@ -290,30 +290,3 @@ int LoadPlacesList(PlacesList head) {
     return 0;
 }
 
-
-int LoadPlacesFile(PlacesList head) {
-    FILE *fp;
-    head = head->next;
-    PlacesList place = head;
-
-    fp = fopen(PLACESPATH, "w");
-
-    if (head != NULL) {
-        while (place != NULL) {
-            fprintf(fp, "#%s\n", place->name);
-            fprintf(fp, ">\n");
-            place->PointOfInterest = place->PointOfInterest->next;
-            while (place->PointOfInterest != NULL) {
-                fprintf(fp, "@ %s|%s|\n", place->PointOfInterest->name, place->PointOfInterest->WorkingHours);
-                fprintf(fp, "%s", place->PointOfInterest->info);
-                if (place->PointOfInterest->next != NULL)
-                    fprintf(fp, "-\n");
-                place->PointOfInterest = place->PointOfInterest->next;
-            }
-            fprintf(fp, ">\n\n");
-            place = place->next;
-        }
-    }
-    fclose(fp);
-    return 0;
-}
