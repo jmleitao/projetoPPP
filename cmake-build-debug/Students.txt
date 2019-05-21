@@ -1,19 +1,21 @@
 Pedro Miguel Duque Rodrigues|Rua do G.D.R da chã Nº4|15/05/2000|924109520
 @
+Amesterdão
 Berlim
-Londres
 Dublin
 -
-Coliseu
+Tower Bridge
 Piccadilly Circus
 Palácio de Westminster
 Panteão de Roma
 Reichstag
 Portão de Brandenburgo
 Moulin Rouge
-Tower Bridge
 Museu do Louvre
 Casa de Oscar Wilde
+Heineken Experience
+Estádio Santiago Bernabéu
+Coliseu
 @
 
 Catarina Sofia Duque Rodrigues|Rua do G.D.R da chã Nº4|29/03/2005|969245968
@@ -43,9 +45,7 @@ Berlim
 Dublin
 Lisboa
 -
-Casa de Oscar Wilde
-Temple Bar
-Portão de Brandenburgo
+Not Defined
 @
 
 José Silva Pereira|Rua Pires Antunes|15/04/2000|961316109
@@ -56,5 +56,25 @@ Paris
 -
 Temple Bar
 Casa de Oscar Wilde
+@
+
+padsda|dasdsad|17/02/2000|963565951
+@
+Lisboa
+Roma
+Madrid
+-
+Not Defined
+Palácio De Christiansborg
+Relógio Astronómico
+@
+
+O Pedro é um noob 1|Galãxia dos noobs 1|15/05/2000|123456798
+@
+Not Defined
+Not Defined
+Not Defined
+-
+Not Defined
 @
 

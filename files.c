@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include <stdio_ext.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
 #include <ctype.h>
-#include <unistd.h>
 
 #include "Headers/structs.h"
 #include "Headers/files.h"
@@ -25,6 +23,7 @@ int createfile(char *name, char *extension) {
     FILE *fp;
     int len = strlen(name) + strlen(extension) + 1;
     char *file = malloc(sizeof(char) * len);
+    mallocFail(file);
 
     sprintf(file, "%s%s", name, extension);
 
@@ -39,6 +38,7 @@ int createfile(char *name, char *extension) {
 int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_Interests_t student_interests) {
     StudentsList current = head;
     StudentsList newStudent = (StudentsList) malloc(sizeof(Student_t));
+    mallocFail(newStudent);
 
     newStudent->InfoStudent = student_data;
     newStudent->InfoInterests = student_interests;
@@ -54,6 +54,7 @@ int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_
 int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList point_of_interest_data) {
     PointsOfInterestList current = head;
     PointsOfInterestList newPointOfInterest = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
+    mallocFail(newPointOfInterest);
 
     newPointOfInterest->name = point_of_interest_data->name;
     newPointOfInterest->WorkingHours = point_of_interest_data->WorkingHours;
@@ -72,6 +73,7 @@ int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList
 int AppendToPlacesList(PlacesList places_head, PointsOfInterestList points_of_interest_head, PlacesList place_data) {
     PlacesList current = places_head;
     PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
+    mallocFail(newPlace);
 
     newPlace->name = place_data->name;
     newPlace->PointOfInterest = points_of_interest_head;
@@ -96,6 +98,8 @@ int LoadStudentsList(StudentsList head) {
     new_student->next = NULL;
     points_of_interest->next = NULL;
     points_of_interest->info = NULL;
+    mallocFail(new_student);
+    mallocFail(points_of_interest);
 
     fp = fopen(STUDENTSPATH, "r");
 
@@ -111,6 +115,7 @@ int LoadStudentsList(StudentsList head) {
         while ((getline(&line1, &len, fp) != EOF)) {
             points_of_interest_head = BuildPointsOfInterestList();
             line2 = malloc(sizeof(char) * len);
+            mallocFail(line2);
             strcpy(line2, line1);
             token = strtok(line2, delimiter);
             while (token != NULL && i < 4) {
@@ -137,11 +142,14 @@ int LoadStudentsList(StudentsList head) {
             }
             getline(&line1, &len, fp);
             line3 = malloc(sizeof(char) * len);
+            mallocFail(line3);
+
             strcpy(line3, line1);
             i = 0;
             while (line3[0] != delimiter3[0]) {
                 getline(&line1, &len, fp);
                 line3 = malloc(sizeof(char) * len);
+                mallocFail(line3);
                 strcpy(line3, line1);
                 removeEnter(line3);
                 new_student->InfoInterests.favorite_places[i] = strdup(line3);
@@ -151,9 +159,11 @@ int LoadStudentsList(StudentsList head) {
             while (line3[0] != delimiter2[0]) {
                 getline(&line1, &len, fp);
                 line3 = malloc(sizeof(char) * len);
+                mallocFail(line3);
                 strcpy(line3, line1);
                 if (i == 0 && line3[0] != delimiter2[0]) {
                     removeEnter(line3);
+                    strip(&line3);
                     new_student->InfoInterests.hot = strdup(line3);
                 } else if (i != 0 && line3[0] != delimiter2[0]) {
                     removeEnter(line3);
@@ -217,11 +227,13 @@ int LoadPlacesList(PlacesList head) {
     PointsOfInterestList point_of_interest_head;
 
     PlacesList new_place = (PlacesList) malloc(sizeof(Places_t));
+    mallocFail(new_place);
     new_place->next = NULL;
     new_place->PointOfInterest = NULL;
 
     PointsOfInterestList new_point_of_interest = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
     new_point_of_interest->next = NULL;
+    mallocFail(new_point_of_interest);
 
     char *line1 = NULL, *line2 = NULL, *token = NULL;
     char delimiter1[1] = "-", delimiter2[1] = "|", delimiter3[1] = ">", *info = NULL;
@@ -243,6 +255,7 @@ int LoadPlacesList(PlacesList head) {
             point_of_interest_head->next = NULL;
 
             line2 = malloc(sizeof(char) * len);
+            mallocFail(line2);
             strncpy(line2, line1 + 1, len - 1);
             removeEnter(line2);
             strip(&line2);
@@ -253,11 +266,13 @@ int LoadPlacesList(PlacesList head) {
 
             while (line2[0] != delimiter3[0]) {
                 info = malloc(sizeof(char) * len * 10);
+                mallocFail(info);
                 memset(info, 0, len * 10);
 
                 while (line1[0] != delimiter1[0] && line1[0] != delimiter3[0]) {
                     if (i == 0) {
                         line2 = malloc(sizeof(char) * len);
+                        mallocFail(line2);
                         strncpy(line2, line1 + 2, len - 2);
                         removeEnter(line2);
                         token = strtok(line2, delimiter2);

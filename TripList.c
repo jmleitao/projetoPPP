@@ -8,11 +8,13 @@
 #include "Headers/TripList.h"
 #include "Headers/files.h"
 #include "Headers/StudentsList.h"
+#include "Headers/functions.h"
 
 #define POINTS_OF_INTEREST_PER_PLACE 3
 
 PlacesList CreateNodeForTripList(PlacesList place) {
     PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
+    mallocFail(newPlace);
     newPlace->name = place->name;
     newPlace->Popularity = place->Popularity;
     newPlace->PointOfInterest = BuildPointsOfInterestList();

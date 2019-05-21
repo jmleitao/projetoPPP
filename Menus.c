@@ -1,6 +1,4 @@
 #include "stdio.h"
-#include "stdio_ext.h"
-#include "unistd.h"
 #include "stdlib.h"
 
 #include "Headers/Menus.h"
@@ -14,6 +12,14 @@ void WelcomeMenu(void) {
     printf("|             by João Leitão and Pedro Rodrigues           |\n");
     printf("+----------------------------------------------------------+\n");
     ConsolePause(2);
+    ClearConsole();
+}
+
+void mallocFailMenu(void){
+    printf("+-----------------------------------------------------------------+\n");
+    printf("| Não foi possivel alocar Memoria para o programa (malloc failed) |\n");
+    printf("+-----------------------------------------------------------------+\n");
+    ConsolePause(3);
     ClearConsole();
 }
 
@@ -193,7 +199,7 @@ void whichPointOfInterestMenu(void) {
     printf("|                                                            |\n");
     printf("|             2 - Marcar um Ponto de Interesse como Hot      |\n");
     printf("|                                                            |\n");
-    printf("|             3 - Remover o Ponto de Interesse Hot           |\n");
+    printf("|             3 - Desmarcar o Ponto de Interesse Hot         |\n");
     printf("|                                                            |\n");
     printf("|             4 - Remover um Ponto de Interesse              |\n");
     printf("|                                                            |\n");
@@ -243,6 +249,14 @@ void noFav(void) {
     printf("+-----------------------------------------------------------------+\n");
     ConsolePause(2);
 }
+void noFavPointOfInterest(void) {
+    gotoxy(0, 0);
+    printf("+------------------------------------------------------------------+\n");
+    printf("|  O aluno ainda não tem Pontos de Interesse favoritos definidos   |\n");
+    printf("|   Terá de adicionar pelo menos um para o poder marcar como hot   |\n");
+    printf("+------------------------------------------------------------------+\n");
+    ConsolePause(4);
+}
 
 void alreadyFavPlace(void) {
     printf("+-----------------------------------------------------------------+\n");
@@ -289,6 +303,12 @@ void successPointOfInterest(void) {
 void successremovePointOfInterest(void) {
     printf("+-----------------------------------------------------------+\n");
     printf("|        Ponto de Interesse removido com sucesso!!          |\n");
+    printf("+-----------------------------------------------------------+\n");
+    ConsolePause(2);
+}
+void successUncheckedPointOfInterest(void) {
+    printf("+-----------------------------------------------------------+\n");
+    printf("|        Ponto de Interesse desmarcado com sucesso!!        |\n");
     printf("+-----------------------------------------------------------+\n");
     ConsolePause(2);
 }

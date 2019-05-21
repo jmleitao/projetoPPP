@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <stdio_ext.h>
 #include <string.h>
 
 #include "Headers/structs.h"
@@ -219,7 +217,7 @@ int PrintStudent(StudentsList student) {
             else
                 printf("\t »» %s\n", student->InfoInterests.favorite_places[i]);
         }
-        if (strcmp(student->InfoInterests.hot, "Not Defined") == 0)
+        if (strncmp(student->InfoInterests.hot, "Not Defined",11) == 0)
             printf("O meu Ponto de Interesse Hot: -------\n");
         else
             printf("O meu Ponto de Interesse Hot: %s\n", student->InfoInterests.hot);

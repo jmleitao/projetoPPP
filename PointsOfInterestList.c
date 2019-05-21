@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 #include "Headers/structs.h"
 #include "Headers/functions.h"
@@ -10,6 +8,7 @@
 #include "Headers/PlacesList.h"
 #include "Headers/Menus.h"
 #include "Headers/StudentsList.h"
+#include "Headers/files.h"
 
 
 int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
@@ -49,6 +48,7 @@ int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) 
     PlacesList current_place = places_head->next;
     PointsOfInterestList current = student->InfoInterests.other_points_of_interest;
     PointsOfInterestList new = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t)), point_of_interest = NULL;
+    mallocFail(new);
     int found = 0;
 
     if (strncmp(key, "\n", 1) == 0) {
@@ -173,7 +173,7 @@ int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *ke
         }
         current_head = current_head->next;
     }
-    if (strcmp(student->InfoInterests.hot, "Not Defined") != 0) {
+    if (strncmp(student->InfoInterests.hot, "Not Defined", 11) != 0) {
         if (found == 1) {
             ClearConsole();
             removeFirst();
@@ -193,8 +193,8 @@ int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *ke
             if (current != NULL) {
                 before->next = current->next;
                 free(current);
+                ClearConsole();
             }
-
             student->InfoInterests.hot = strdup(key);
             successPointOfInterestHot();
             ClearConsole();
@@ -212,10 +212,25 @@ int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *ke
 }
 
 
-int RemoveHotPointOfInterest(StudentsList student) {
-    student->InfoInterests.hot = "Not Defined";
-    successremovePointOfInterest();
-    ClearConsole();
+int RemoveHotPointOfInterest(PlacesList places_head, StudentsList student) {
+    int found = 0;
+    PointsOfInterestList new = NULL, point_of_interest_head = student->InfoInterests.other_points_of_interest;
+    PlacesList head = places_head->next;
+
+    while (head != NULL && found != 1) {
+        if ((new = SearchPointOfInterest(head->PointOfInterest, student->InfoInterests.hot)) != NULL)
+            found = 1;
+        head = head->next;
+    }
+    while (point_of_interest_head->next != NULL) {
+        point_of_interest_head = point_of_interest_head->next;
+    }
+    if (new != NULL) {
+        AppendToPointsOfInterestList(point_of_interest_head, new);
+        student->InfoInterests.hot = "Not Defined";
+        successUncheckedPointOfInterest();
+        ClearConsole();
+    }
     return 0;
 }
 

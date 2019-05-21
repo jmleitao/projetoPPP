@@ -4,9 +4,9 @@
 #define ClearBuffer() stdin = freopen(NULL,"r",stdin)
 
 #if defined(__WIN32__) || defined(__WIN64__)
-    #define ClearConsole() system("cls")
+#define ClearConsole() system("cls")
 #elif defined(__APPLE__) || defined(__unix__) || defined(__linux__)
-    #define ClearConsole() system("clear")
+#define ClearConsole() system("clear")
 #endif
 
 #define gotoxy(x, y) printf("\033[%d;%dH", (y), (x))
@@ -26,5 +26,7 @@ int readstring(char **string, int init_size, int chunk);
 int strip(char **string);
 
 void ConsolePause(double x);
+
+void mallocFail(void *pointer);
 
 #endif //PROJECT_FUNCTIONS_H

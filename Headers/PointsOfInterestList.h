@@ -20,7 +20,7 @@ int HotPointOfInterestPopularity(PlacesList head, StudentsList students_head);
 
 int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head);
 
-int RemoveHotPointOfInterest(StudentsList student);
+int RemoveHotPointOfInterest(PlacesList places_head,StudentsList student);
 
 int AddHotPointOfInterest(PlacesList head,StudentsList student, char *key);
 

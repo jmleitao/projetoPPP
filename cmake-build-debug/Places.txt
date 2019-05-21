@@ -1,6 +1,6 @@
 # Lisboa
 >
-@ Mosteiro dos Jerónimos| De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
+@ Mosteiro dos Jerónimos|De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
 O Mosteiro dos Jerónimos situa-se perto da costa da freguesia de Belém. O mosteiro é um dos
 monumentos mais importantes da arquitetura estilo manuelino em Lisboa, considerado Património Mundial pela UNESCO
 em 1983, juntamente com a vizinha torre de Belém.O mosteiro foi mandado construir por D. Manuel I para perpetuar
@@ -8,7 +8,7 @@ a memória do Infante D. Henrique. Foi fundado em 1496, na altura como Mosteiro 
 encontram sepultados alguns rei portugueses como D. Manuel I e sua mulher, D. João II e sua mulher, e alguns poetas
 como Luís Vaz de Camões e Fernando Pessoa.
 -
-@ Torre de Belém| De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
+@ Torre de Belém|De Outubro a Abril: 10:00 - 17:30 * De Maio a Setembro: 10:00 - 18:00 |
 A Torre de Belém é uma torre fortificada,localizada na freguesia de Santa Maria de Belém. É Património
 Mundial devido ao papel significativo que desempenhou nas descobertas marítimas portuguesas. O edifício foi encomendado
 pelo rei João II para ser parte de um sistema de defesa na foz do rio Tejo e uma porta de entrada para Lisboa.
@@ -29,7 +29,7 @@ vizinhos que muito têm para oferecer.
 
 # Paris
 >
-@ Torre Eiffel| De Elevador: 9:30 - 23:45/0:45 * Escadas: 9:30 - 18:30/0:45 |
+@ Torre Eiffel|De Elevador: 9:30 - 23:45/0:45 * Escadas: 9:30 - 18:30/0:45 |
 O imponente monumento criado pelo engenheiro Gustave Eiffel, inaugurado em 31 de março de 1889, é um local de paragem
 obrigatória na capital francesa. A Torre, foi construida para assinalar o centenário da Revolução Francesa.Tem cerca
 de 300 metros de altura, 7,3 mil toneladas de ferro e foi erguida em tempo recorde: dois anos, dois meses e cinco dias.
@@ -39,7 +39,7 @@ admirar uma das melhores vistas de Paris durante o dia e à noite (quando aconte
 cafés e restaurantes, como o famoso Le Jules Verne, além de lojinhas de souvenires, estão instalados no interior do
 monumento.
 -
-@ Museu do Louvre| Segunda,Quinta e Fins de semana: 9:00 - 18:00 * Quarta e Sexta: 9:00 - 21:45 |
+@ Museu do Louvre|Segunda,Quinta e Fins de semana: 9:00 - 18:00 * Quarta e Sexta: 9:00 - 21:45 |
 Em Paris, você vai encontrar um dos museus mais importantes e famosos do mundo: o Louvre. São mais de 30 mil
 preciosidades entre pinturas, esculturas, gravuras e objetos diversos, reunidas em um só lugar.Para conhecer tudo isso
 de perto, você com certeza levaria muitos dias; a boa notícia é que o Louvre mantém um site atualizadíssimo, que pode
@@ -48,7 +48,7 @@ galerias, passagens e escadas.Reserve ao menos uma manhã ou tarde somente para 
 Mona Lisa, de Leonardo da Vinci (ala Denon), e outros quadros importantes como A balsa da Medusa, de Géricault, além
 de esculturas como a Venus de Milo (ala Sully) e Os Escravos, de Michelangelo (ala Denon).
 -
-@ Moulin Rouge| Todos os dias da semana: 9:00 - 1:00 |
+@ Moulin Rouge|Todos os dias da semana: 9:00 - 1:00 |
 O famoso cabaré, aberto em 1889, é um dos grandes símbolos da boemia na capital francesa. O espetáculo, que serve de
 inspiração no mundo inteiro até os dias de hoje e tem como estrelas as belas dançarinas de Cancan, é todo baseado na
 Belle Époque de Paris.Localizado no movimentado bairro de Montmartre, o Moulin Rouge (Moinho Vermelho, em português)
@@ -57,7 +57,7 @@ também foi palco para a performance de grandes nomes da música, como Frank Sin
 
 # Londres
 >
-@ Tower Bridge| De Abril a Setembro, 10:00 - 18:00 * De Outubro a Março 9:30 - 17:30 |
+@ Tower Bridge|De Abril a Setembro, 10:00 - 18:00 * De Outubro a Março 9:30 - 17:30 |
 Durante o século XIX houve um grande crescimento na zona leste da London Bridge e se tornou necessária a construção de
 uma nova passagem. Para não afetar o crescente tráfico fluvial, se tomou a decisão de criar uma ponte levadiça acionada
 por máquinas de vapor. A obra foi finalizada em 1894, depois de 8 anos de construção.Em 1910, as passarelas elevadas
@@ -75,7 +75,7 @@ edifício oferece um belo panorama, enquanto os pináculos dourados e as estátu
 O palácio está flanqueado pela Victoria Tower, uma imponente torre que reúne as cópias de todas as leis do Parlamento
 desde 1497, e também pela carismática torre do Big Ben.
 -
-@ Piccadilly Circus| Todos os dias: 00:00 - 24:00 |
+@ Piccadilly Circus|Todos os dias: 00:00 - 24:00 |
 A praça é conhecida por seus painéis luminosos e pela fonte de Eros situada no centro, que se tornou um dos ícones de
 Londres.A oferta de lazer de Piccadilly Circus é muito extensa, desde uma grande quantidade de lojas, cinemas e
 teatros, até restaurantes para todos os gostos.Piccadilly Circus é um dos lugares mais animados de Londres e é uma
@@ -86,7 +86,7 @@ da zona, pode ser divertido fazer uma visita ao Trocadero, uma enorme sala de m�
 
 # Roma
 >
-@ Coliseu| Todos os dias: 08:30 - 19:00 |
+@ Coliseu|Todos os dias: 08:30 - 19:00 |
 Este belíssimo monumento é um dos principais marcos de Roma e tinha que constar na nossa lista! Símbolo romano com uma
 arena enorme, com capacidade para cerca de 50.000 espectadores onde antigamente se assistiam a confrontos com
 gladiadores, animais e outras atividades. Além da arena em si, pode visitar as passagens subterrâneas e os locais onde
@@ -94,7 +94,7 @@ os animais ficavam presos à espera de entrar em campo.É um dos monumentos mais
 viagem a Roma não estará completa se não o visitar. O Coliseu é facilmente acessível e tem uma estação de metro nas
 proximidades. Maravilhe-se com esta famosa estrutura.
 -
-@ Panteão de Roma| Segunda: 09:00 - 18:00 * Restantes dias da semana: 08:00 - 19:00|
+@ Panteão de Roma|Segunda: 09:00 - 18:00 * Restantes dias da semana: 08:00 - 19:00|
 O Panteão de Roma, é uma das obras-primas da arquitetura da capital italiana.É o edifício melhor conservador da
 Roma antiga.O que mais surpreende da arquitetura do Panteão são as medidas: o edifício circular tem exatamente o
 mesmo diâmetro que a altura: 43,30 metros. A cúpula, com o mesmo diâmetro, é maiorque a da Basílica de São Pedro.
@@ -103,7 +103,7 @@ Os arredores do Panteão costumam estar repletos de gente a qualquer hora, tanto
 jantando em algum dos terraços da Piazza de la Rotonda enquanto curtem um espetáculo oferecido por um dos diversos
 artistas de rua.
 -
-@ Praça de São Pedro| Todos os dias: 00:00 - 24:00 |
+@ Praça de São Pedro|Todos os dias: 00:00 - 24:00 |
 A Praça de São Pedro é uma das maiores e mais bonitas praças do mundo. Está localizada no Vaticano, aos pés da Basílica
 de São Pedro.O mais impressionante da praça, além do seu tamanho, são as 284 colunas e 88 pilastras que circulam a praça
 em um pórtico de quatro filas. No alto das colunas há 140 estátuas de santos feitas em 1670 pelos discípulos de Bernini.
@@ -112,9 +112,9 @@ de 25 metros de altura, foi levado a Roma do Egito em 1586.A forma mais espetacu
 pela Via della Conciliazione, uma longa rua que começa no Castelo de Sant’Angelo.
 >
 
-# Escócia
+# Edinburgo
 >
-@ Castelo de Edimburgo| Todos os dias: 09:30 - 18:00 |
+@ Castelo de Edimburgo|Todos os dias: 09:30 - 18:00 |
 Sobre um rochedo basáltico de um vulcão extinto e no meio da capital escocesa encontramos o Castelo de Edimburgo,
 a atração mais visitada do país. É possível avistá-lo de vários ângulos em torno da cidade.O Castelo é muito amplo e
 há muitas dependências dentro dele, como o Museu da Guerra Nacional da Escócia, que inclui um grande número de
@@ -123,7 +123,7 @@ artefatos militares. Um dos locais mais sinistros para se visitar por lá é a p
 canhões que eram capazes de disparar uma munições de 150kg até uma distância de 3,2km. Definitivamente, um dos
 principais pontos de interesse de Edimburgo e de toda a Escócia.
 -
-@ The Scotch Whisky Experience| Todos os dias: 10:30 - 18:00 |
+@ The Scotch Whisky Experience|Todos os dias: 10:30 - 18:00 |
 Não tem como ir a Escócia e não provar seu uísque. E que tal aprender como a bebida é produzida? A visita ao
 The Scotch Whisky Experience oferece uma aula sobre a história do autêntico uísque escocês e como ele é feito.
 Explica-se, também, a respeito dos tipos de uísques e aromas disponíveis de acordo com cada região. Os maiores
@@ -142,7 +142,7 @@ vestidos a caráter tocando sua gaita de foles!
 
 # Dublin
 >
-@ St Stephen´s Green| Segunda a Sábado: 7:30 - 23:00 * Domingos e feriados, das 9:30 - 23:00|
+@ St Stephen´s Green|Segunda a Sábado: 7:30 - 23:00 * Domingos e feriados, das 9:30 - 23:00|
 St Stephen´s Green é o parque central mais bonito de Dublin. Com lagos cheios de cisnes, belas pontes de pedra e muito
 verde (durante o ano todo), este parque atrai milhares de dubliners (assim são chamados os residentes da cidade) e
 turistas. Se você pegar um dia de sol, seja no inverno ou no verão, com certeza não se arrependerá se decidir passar
@@ -151,14 +151,14 @@ e foi usado por rebeldes que lutavam contra a ocupação britânica no início d
 rebeldes que se instalaram lá, e marcas de balas ainda podem ser vistas na fachada exterior do arco do triunfo que fica
 na entrada do parque, localizada de frente para o shopping centre.
 -
-@ Casa de Oscar Wilde| Todos os dias: 08:00 - 19:00 |
+@ Casa de Oscar Wilde|Todos os dias: 08:00 - 19:00 |
 A casa do filho mais célebre da Irlanda, o escritor e poeta Oscar Wilde, fica de frente para o Merino Square, um belo
 parque no centro de Dublin. Apesar de não ser mais possível visitar a casa (graças a uma escola americana que comprou
 a propriedade e desativou o museu), você poderá ver a residência onde Oscar cresceu com a sua família, que era bastante
 afluente e conhecida na Irlanda e na Inglaterra.No parque do outro lado da rua, se encontra uma estátua do escritor,
 bastante realista, onde voce pode tirar algumas fotos do lado do Oscar Wilde, não deixe de conferir!
 -
-@ Temple Bar| Todos os dias: 10:30 - 02:30 |
+@ Temple Bar|Todos os dias: 10:30 - 02:30 |
 Temple Bar é o bar mais famoso de Dublin, e empresta seu nome à uma parte inteira da cidade, localizada entre o rio
 Liffey e College Green, uma das principais avenidas do centro da cidade. Em Temple Bar você encontra uma infinidade de
 bares espetaculares, cada um com seu próprio estilo e decoração. Mas, além disso, você encontra também muita musicalidade,
@@ -178,7 +178,7 @@ e agora ele é o único destes portões que ainda existe.O portão de Brandenbur
 de grandes comemorações como no Reveillon quando bandas se apresentam e há queima de fogos, ou na época de eventos
 desportivos como o Mundial ou o Euro.
 -
-@ Reichstag| Todos os dias 00:08 - 00:24 |
+@ Reichstag|Todos os dias 00:08 - 00:24 |
 O antigo edifício do Reichstag é a sede do Parlamento Alemão (Deutscher Bundestag). Trata-se de um edifício histórico
 com aspecto de templo clássico, coroado por uma grande cúpula moderna pela qual se pode transitar.Situado ao lado da
 linha que marca o Muro de Berlim, o Reichstag permaneceu quase 29 anos separado do Portão de Brandemburgo, apesar da
@@ -187,7 +187,7 @@ derrubada ou reconstrução. Finalmente, em 1956, optaram por reconstruí-lo, em
 Atualmente é necessário fazer uma reserva de forma antecipada para poder visitar o Parlamento. É possível fazer a
 reserva no site oficial.
 -
-@ Kurfürstendamm| Todos os dias 00:00 - 24:00 |
+@ Kurfürstendamm|Todos os dias 00:00 - 24:00 |
 A Kurfürstendamm ou simplesmente Kudamm é uma das principais e mais famosas avenidas de Berlim. É um centro comercial
 com muitas opções de compra, é o endeço de lojas mais populares e também de lojas de luxo – em um trecho da avenida
 ficam lado a lado as lojas das marcas mais exclusivas e caras. Como continuação da avenida Kudamm, vem a rua
@@ -196,4 +196,189 @@ independente de fazer compras ou não. Entre a avenida Kudamm e a rua Tauentzien
 onde fica a Gedächtniskirche. A Gedächtniskirche, também conhecida como “igreja quebrada”, é uma igreja que foi muito
 danificada na Segunda Guerra Mundial. Na verdade restou muito pouco da igreja, falta um pedaço da única torre que sobrou,
 mas estas ruínas foram mantidas justamente para lembrar os horrores da guerra, a destruição que ela causa.
+>
+
+# Amesterdão
+>
+@ Casa de Anne Frank|Todos os dias: 09:00 - 19:00|
+Anne Frank foi uma dos milhões de judeus que foram perseguidos durante a Segunda Guerra Mundial. No seu diário conta, em
+uma linguagem clara e simples, seus pensamentos e os acontecimentos ocorridos entre julho de 1942 e agosto de 1944.Devido
+ao regime antissemita estabelecido por Hitler, a família Frank tentou se proteger se escondendo na parte de trás do edifício
+onde seu pai tinha um armazém. Pouco tempo depois, outras quatro pessoas passaram a morar com eles.Depois de mais de dois
+anos, alguém os delatou e eles foram enviados a campos de concentração. Apenas o pai de Anne, Otto Frank, sobreviveu.A visita
+à Casa de Anne Frank está muito bem planeada e guiada. Na entrada é possivel adquirir um folheto em espanhol, onde são
+explicados detalhadamente os acontecimentos ocorridos em cada um dos espaços da casa e alguns parágrafos extraídos do
+diário, através dos quais você viajará a outra época ou se sentirá na pele da menina.
+-
+@ Museu Van Gogh|Todos os dias: 09:00 - 17:00 * Sexta-feiras até as 21:00|
+Nas modernas instalações do Museu Van Gogh, você poderá encontrar mais de 200 pinturas, 500 desenhos e centenas de cartas
+do artista.No primeiro andar, você verá cada uma das paredes cheias de história. A história de Vincent Van Gogh é contada
+quadro a quadro.As pinturas estão organizadas cronologicamente, o que faz com que seja possível observar facilmente a
+evolução do artista, com as cenas campestres do início até os tormentosos trabalhos do final de sua vida.No segundo andar
+são expostos alguns trabalhos realizados sobre alguns quadros de Van Gogh e sobre outros que eram atribuídos a ele sem a
+certeza de que fossem do artista.No terceiro e último andar é exibida uma coleção de pinturas do século XIX, onde se observa
+a relação dos artistas contemporâneos de Van Gogh com a sua obra. O Museu Van Gogh é o segundo museu mais visitado de Amsterdão
+e as filas que se formam, especialmente nos feriados, são intermináveis. Para evitá-las, o melhor é chegar logo que o
+museu abre ou pouco antes de fechar. Há uma fila especial para aqueles que têm o cartão I Amsterdam Card.
+-
+@ Heineken Experience|Todos os dias: 10:00 - 21:00 |
+Embora o edifício tenha sofrido importantes reformas para se tornar um museu, cada espaço da antiga fábrica de cerveja
+mantém seu caráter original, onservando inclusive os enormes e antigos fermentadores que faziam parte do processo de
+elaboração da cerveja.Enquanto o passeio segue pelas instalações da cervejaria é possível tocar os ingredientes com os
+quais se elabora a cerveja e inclusive experimentar o longo caminho que as garrafas de cerveja percorrem antes de chegar
+às mãos do consumidor, através de um interessante percurso em 4D.Depois de conhecer todos os segredos sobre a fabricação
+de uma das principais marcas de cerveja a nível mundial, chega a merecida recompensa ao degustar as cervejas Heineken que
+a experiência inclui.
+>
+
+# Madrid
+>
+@ Palácio Real|Horário Inverno : 10:00 -18:00 * Horário de Verão 10:00 - 20:00|
+Residência real desde Carlos III até ao reinado de Alfonso XIII, o Palácio Real de Madrid propõe-nos uma viagem pela
+históriade Espanha.Embora não seja habitado pelos atuais monarcas, o recinto permanece como a residência oficial dos
+reis.O edifício inspira-se nos esboçosrealizados por Bernini para a construção do Palácio do Louvre de Paris, e articula-se
+em volta de um pátio quadrado, contando também com uma galeria e uma Praça de Armas, onde se situa a fachada principal
+do palácio. Tanto a decoração de cada sala como a sua distribuiçãoforam mudando ao longo dos anos, adaptando-se às
+necessidades dos seus reais inquilinos.Entre as mais de 3000 divisões do Palácio Real de Madrid destacam-se a Escadaria
+Principal, desenhada por Sabatini, com mais de 70 degraus e o Salão do Trono,com um teto pintado por Tiépolo.
+-
+@ Porta do Sol|Todos os Dias: 00:00 - 24:00|
+Central e buliçosa, a praça da Porta do Sol é um dos emblemas de Madrid. Na sua planta semicircular convergem várias das
+ruas mais históricas e transitadas da cidade, como Mayor, Arenal, Alcalá ou Preciados, e concentra vários dos elementos
+mais representativos desta urbe.Um deles é o famoso relógio da Casa dos Correios,sede da Comunidade de Madrid, que todos
+os 31 de dezembro assinala as doze badaladas do Ano Novo, perante uma multidão que se aglomera a seus pés, para comer as doze
+passas tradicionais numa cerimónia que é transmitida pela televisão a milhões de espanhóis.No lado oposto, à entrada da
+rua Arenal, encontra-se a estátua de Mariblanca,réplica do original do século XVII que na sua origem coroou uma fonte
+situada no mesmo local, hoje preservada na Casa de La Villa. Muito próximo desta, no centro da praça,situa-se a estátua
+equestre de Carlos III, rei que no século XVIII modernizou Madrid com uma série de melhorias nas infraestruturas da cidade.
+-
+@ Estádio Santiago Bernabéu|Segunda-feira a sábado: 10:00 - 19:30 * Domingos e feriados: 10:30 - 18:30|
+O Real Madrid é uma das três equipas de futebol profissional da cidade de Madrid, junto com o Atlético de Madrid e o
+Rayo Vallecano. Possuidor de vários títuloseuropeus e internacionais, o clube branco abre as suas portas 363 dias por ano
+para que os amantes do futebol e do desporto conheçam as suas históricas instalações,numa das visitas que não podes deixar
+de fazer durante a tua estadia em Madrid.O Tour Bernabéu leva os visitantes através dos lugares mais emblemáticos do clube e
+permite ver o estádio como o vêm as autoridades, da tribuna presidencial; como os jogadores, do campo de jogo; ou como o
+treinador, sentando-se nos assentos ergonómicoscom calefação do banco. O itinerário inclui o vestuário dos jogadores onde
+poucos resistem não fotografar-se junto ao armário de seu jogador preferido.
+>
+
+# Viena
+>
+@ Palácio de Schonbrunn|Todos os Dias: 08:00 - 17:00|
+O Palácio de Schonbrunn é o versão austríaca do Palácio de Versalhes. Uma verdadeira jóia da arquitetura rococó, este
+belíssimo palácio continua encantando multidões desde a sua construção no século XVII. O seu interior é impecável, e de
+uma imponência impressionante. São centenas de salões e aposentos, todos imaculadamente decorados em diferentes estilos,
+e com histórias diferentes.A visita aos jardins do palácio é grátis, em qualquer época do ano. Não deixe de conferir a
+Gloriette, um fenomenal arco do triunfo, localizado no alto da colina que aos fundos deste que é um dos melhores pontos
+turísticos de Viena.
+-
+@ Catedral de Viena|Todos os dias: 06:00 - 22:00|
+A Catedral de Viena parece ser um dos pouquíssimos prédios medievais da cidade a ter sobrevivido o teste do tempo e também
+os bombardeios da Segunda Guerra Mundial.De estilos romanesco e gótico, a catedral que vemos hoje em dia teve sua construção
+iniciada no século XIV, e se destaca muito dentre os prédios que a cercam, tanto por causa da cor da pedra usada na sua construção,
+quanto por causa do seu telhado colorido.A torre do sino da catedral é ainda mais alta que o próprio prédio, e o melhor,
+pode ser escalada de elevador. Lá de cima, você pode ter um panorama de quase 360 graus da cidade, e dá até para ver as montanhas
+que a cercam. Você provavelmente perceberáa predominância de prédios modernos ao redor da catedral, que hoje em dia substituem as
+construções mais antigas destruídas durante a guerra.
+-
+@ Donauturm|Todos os dias: 11:30 - 15:00 <-> 18:00 - 00:00|
+A Donauturm é um ponto turístico de Viena imperdível! Esta torre dos anos 60 tem nada menos que 275 metros de altura, e um restaurante
+rotatório no alto!Construída pertinho do Rio Danúbio (o nome significa Torre do Danúbio), no meio de uma área de muita beleza natural,
+a torre oferece a melhor vista de Viena, e das montanhas que a cercam.A torre fica perto de Donau City (Cidade do Danúbio), uma parte
+bastante moderna da cidade, com vários arranha-céus, alguns deles relacionados às Nações Unidas.A entrada da Donauturm custa apenas 7 euros,
+e vale muito a pena. Se puder, programe sua visita para próximo do por-do-sol, assim você pode ver a cidade inteira ir acendendendo lentamente.
+Não deixa também de conferir o andar superior da torre, onde fica o restaurante rotatório. Dá para sentar e aproveitar uma bebida ou uma refeição
+enquanto o chão gira 360 graus sobre Viena. Pegue a linha 1 do metrô (Vermelha) e desça nas estações Alte Donau ou Kaisermuhlen.
+>
+
+# Praga
+>
+@ Muro John Lennon|Todos os Dias: 00:00 - 24:00|
+Este muro surgiu na década de 80, logo após a morte do cantor John Lennon. O primeiro desenho era apenas uma imagem do
+cantor, mas como o país era comunista, e a liberdade de expressão não existia, a polícia encarou isso como vandalismo,
+e logo cobriu o grafite.No dia seguinte, a polícia encontrou novamente o muro pintado. E todas as vezes que tentava cobrir,
+no dia seguinte ele estava pintado novamente. O muro  tornou-se um local de protesto da população que já estava cansada
+do comunismo. Apesar do muro levar seu nome, John Lennon nunca esteve em Praga, ele apenas representa uma liberdade de expressão do povo.
+-
+@ Ponte Carlos|Todos os Dias: 00:00 - 24:00|
+A Ponte Carlos é um símbolo de Praga e um dos monumentos mais famosos da cidade. Ela liga a Cidade Velha (Staré Město) à Cidade Pequena
+(Malá Strana). Possui 500 metros de comprimento e 10 metros de largura e é exclusiva para pedestres.O nome da ponte é uma homenagem ao seu
+criador, Carlos IV. No local dessa ponte, existiam outras que sempre eram destruídas por enchentes. Em 1357, Carlos IV, colocou a primeira
+pedra que deu início a construção da ponte que permanece até hoje.Ao longo da ponte encontram-se 30 estátuas, dos dois lados. É praticamente
+impossível tirar uma foto da Ponte Carlos sem nenhum turista por perto.
+-
+@ Relógio Astronómico|Todos os dias: 09:00 - 22:00|
+O Relógio Astronómico de Praga é um dos mais famosos do mundo. Foi construído em 1410, pelo mestre relojoeiro Hanus. Diz a lenda que
+para que ele não construísse outros relógios baseados na estrutura do relógio de Praga, os políticos da época, deixaram o mestre
+cego.Ele fica no prédio da antiga Câmara Municipal da cidade, e todas as horas cheias ele faz seu espetáculo. É quando 12 apóstolos
+saem por uma pequena janela, depois 4 estátuas que estão ao lado do relógio, balançam suas cabeças. As estatuas são compostas
+de 4 personagens: o Turco, a Avareza, a Vaidade e a Morte.
+>
+
+# Istambul
+>
+@ Hagia Sofia|Segunda-feira: 09:00 - 19:00 * Restantes dias: 09:00 - 17:00|
+A Basílica de Santa Sofia (Hagia Sophia ou Ayasofya) foi construída em 537 pelo Império Bizantino e foi, durante cerca de mil anos,
+a maior catedral do mundo.Por fora, é visível sua grande cúpula, mudando para sempre a arquitetura da cidade. A basílica foi transformada
+em mesquita e é, desde 1935, um museu. Recheada com pilares de mármore e mosaicos, se tornou um símbolo da arquitetura bizantina.
+O interior da igreja é composto por milhares de mosaicos banhados a ouro que retratam Jesus Cristo, Maria e outros santos. Também a sua
+abóboda central com 31m de diâmetro e 55,6m de altura impressionam os visitantes.
+-
+@ Grande Bazar|Todos os dias: 00:00 - 22:00|
+O Grande Bazar é um dos pontos de interesse de Istambul que ninguém deve perder. Construído em 1450, o Grande Bazar é hoje um paraíso de
+compras. Em meio a centenas de ruas e milhares de lojas, você irá encontrar uma enorme variedade de especiarias, cerâmica, tapetes e joalheria.
+O Bazar é basicamente uma feira com mais de 60 ruas e aproximadamente 5 mil lojas! É um bom lugar para comprar lembranças da viagem, principalmente os
+produtos artesanais. No entanto, é preciso tomar cuidado com as ciladas, pois também há muitos produtos falsos. E não esqueça de negociar! Isso é
+tão comum na Turquia, que parece uma ofensa comprar sem chorar pelo preço antes.
+-
+@ Palácio Topkapi|Segunda-feira: Encerrado! * Restantes dias: 09:00 - 17:00|
+Numa lista de o que fazer em Istambul, não poderíamos deixar de destacar o Palácio Topkapi.Durante séculos o Palácio Topkaki era a residência
+dos sultões, e hoje é um enorme museu que permite a imersão na arquitetura e história da cidade. Os seus museus abrigam algumas das maiores
+relíquias do mundo como o osso da mão esquerda de São João Batista, a espada do Rei David, o cajado de Moisés e outros raríssimos
+objetos da história antiga.Mas uma das maiores atrações do palácio Topkapi são os seus jardins. Aí encontramos vários canteiros de flores
+de diversos tipos, pequenos lagos com pontes e bancos onde os visitantes podem aproveitar alguns momentos de tranquilidade.Há também um
+parque com alguns restaurantes onde é possível apreciar as colinas e o Bósforo.
+>
+
+# Copenhaga
+>
+@ Rua Nyhavn|Todos os dias: 00:00 - 24:00|
+Essa charmosa rua não poderia faltar na lista dos melhores pontos turísticos em Copenhague, sendo considerada um dos principais cartões
+postais da cidade.Ela é composta por antigas construções coloridas onde estão situados hotéis, restaurantes, cafés, bares, lojas etc.O
+cenário fica ainda mais charmoso graças ao canal que atravessa essa rua, onde é possível ver pequenos barcos na água.Durante o dia e
+principalmente à noite, essa rua é o principal ponto de encontro dos turistas de várias partes do mundo que visitam a capital da Dinamarca.
+-
+@ Jardins Tivoli|Todos os dias: 11:00 - 23:00|
+Esse local parece ter saido de um conto de fadas. Harmonizando uma bela arquitetura antiga (ao estilo de palácios) com a presença de brinquedos
+para todas as idades, canteiros, pontes, pequenos lagos etc., ele consiste em um dos pontos turísticos preferidos de quem visita a capital
+da Dinamarca, sobretudo no caso das pessoas que viajam com crianças.É recomendado reservar um dia inteiro exclusivamente para conhecer
+este parque, já que ele é imenso e possui inúmeras atrações.
+-
+@ Palácio De Christiansborg|Todos os dias: 10:00 - 17:00|
+Trata-se de um dos palácios mais bonitos da Dinamarca e até mesmo da Europa.Além da belíssima arquitetura externa, o interior desse palácio possui
+amplos cômodos que parecem cenário de filmes, tamanho luxo e riqueza de detalhes trabalhados em ouro.Também são expostos móveis, objetos, obras de
+arte, carruagem e uma monumental biblioteca. Sem sombra de dúvidas, a visita a esse lugar renderá fotos magníficas.
+>
+
+# Helsínquia
+>
+@ Praça do Senado|Todos os dias: 00:00 - 24:00|
+A Praça do Senado é o principal ponto turístico de Helsínquia. Construída em estilo neoclássico, é uma das mais bonitas da Europa. Os edifícios
+originais que formavam a praça foram incendiados em 1808. Assim quando a Finlândia passou a fazer parte do Império Russo o Czar enviou um de seus
+melhores arquitetos para reconstruir a praça. Foi quando ela recebeu a estátua do Czar Alexander II, o qual nunca foi impopular na Finlândia. Pois
+não forçou a “russificação” dos finlandeses, além de ter dado mais autonomia ao país. Em 1809, ele fez de Helsínquia a capital da Finlândia e o
+centro da cidade foi desenhado ao estilo de São Petersburgo.
+-
+@ Monumento a Sibelius|Todos os dias: 00:00 - 22:00|
+O monumento foi erguido em 1967, uma obra da escultora finlandesa Eila Hiltunen. A escultura abstrata consiste em mais de 600 tubos de aço agrupados
+de forma irregular em várias alturas com o tubo mais alto atingindo mais de 27 metros no ar. O marco foi projetado para incorporar o espírito
+da música de Jean Sibelius (1865-1957), compositor finlandês de música erudita. Mas sua natureza abstrata causou muitas críticas, por não acharem
+que ela honrava diretamente o compositor. Por essa razão, um grande busto do artista foi adicionado próximo ao monumento. A música de Sibelius também
+teve importante papel na formação da identidade nacional finlandesa. Ficamos um bom tempo por ali, pois achamos o parque bem agradável para dar um passeio.
+-
+@ Esplanadi|Todos os dias: 00:00 - 23:00|
+Esplanadi é uma longa avenida com elegantes edifícios em ambos os lados. Com largas calçadas e um grande parque na área central. Muito
+popular entre os locais, fica repleta de pessoas, especialmente nos fins de semana, quando passeiam ou vão às compras. As melhores lojas
+da cidade estão localizadoslá, assim como inúmeros cafés.O Café Kapelli, que é um lugar perfeito para sentar e relaxar. Do mesmo modo como
+faziam os oficiais russos, os intelectuais e artistas do século XIX.
 >

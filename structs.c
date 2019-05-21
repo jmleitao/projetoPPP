@@ -3,6 +3,7 @@
 #include <locale.h>    /*setlocale(LC_ALL,"Portuguese");*/
 #include <string.h>
 #include "Headers/structs.h"
+#include "Headers/functions.h"
 
 /* so funciona se estiver no main*/
 
@@ -11,6 +12,7 @@
 
 StudentsList BuildStudentsList(void) {
     StudentsList head = (StudentsList) malloc(sizeof(Student_t));
+    mallocFail(head);
     PointsOfInterestList points_of_interest_head = BuildPointsOfInterestList();
     StudentData_t student_data;
     Student_Interests_t student_interests;
@@ -38,6 +40,7 @@ StudentsList BuildStudentsList(void) {
 
 PointsOfInterestList BuildPointsOfInterestList(void) {
     PointsOfInterestList head = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
+    mallocFail(head);
     PointsOfInterest_t point_of_interest_data;
 
     point_of_interest_data.name = "Name";
@@ -57,6 +60,7 @@ PointsOfInterestList BuildPointsOfInterestList(void) {
 
 PlacesList BuildPlacesList(void) {
     PlacesList head = (PlacesList) malloc(sizeof(Places_t));
+    mallocFail(head);
     Places_t place_data;
 
     place_data.name = "City Name";
@@ -72,6 +76,7 @@ PlacesList BuildPlacesList(void) {
 
 TripList BuildTripList(void) {
     TripList head = (TripList) malloc(sizeof(Trip_t));
+    mallocFail(head);
     if(head != NULL)
         head->places = BuildPlacesList();
     return head;

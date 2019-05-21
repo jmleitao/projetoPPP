@@ -61,6 +61,8 @@ void added(void);
 
 void removed(void);
 
+void noFavPointOfInterest(void);
+
 void hasAccount(void);
 
 void invalidOption(void);
@@ -73,8 +75,12 @@ void popularityDisplay(double pop);
 
 void myTrip(void);
 
+void mallocFailMenu(void);
+
 void removeFirst(void);
 
 void successPointOfInterestHot(void);
+
+void successUncheckedPointOfInterest(void);
 
 #endif //PROJETO_MENUS_H

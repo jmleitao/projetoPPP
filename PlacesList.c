@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <stdio_ext.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 #include "Headers/structs.h"
 #include "Headers/functions.h"
@@ -54,6 +52,7 @@ int DeletePlacesList(PlacesList head) {
     PlacesList current;
     while (!isEmptyPlaces(head)) {
         current = head;
+        DeletePointsOfInterestList(current->PointOfInterest);
         head = head->next;
         free(current);
     }
@@ -312,6 +311,7 @@ int sortFavPlacesArray(char **strings) {
     for (i = 0; i < 2; i++) {
         if (strcmp(strings[i], "Not Defined") == 0) {
             temp = malloc(sizeof(char) * strlen(strings[i + 1]));
+            mallocFail(temp);
             strcpy(temp, strings[i + 1]);
             strings[i + 1] = strdup(strings[i]);
             strings[i] = strdup(temp);

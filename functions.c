@@ -9,6 +9,7 @@
 #include "Headers/files.h"
 #include "Headers/functions.h"
 #include "Headers/PointsOfInterestList.h"
+#include "Headers/Menus.h"
 
 int removeEnter(char *str) {
     int i = 0;
@@ -22,6 +23,7 @@ int readstring(char **string, int init_size, int chunk) {
     int size = 0, i = 0;
     char c;
     *string = malloc(sizeof(char) * init_size);
+    mallocFail(*string);
 
     while ((c = getc(stdin)) != '\n') {
         if (size <= i) {
@@ -111,6 +113,14 @@ int strip(char **string) {
         (*string)++;
     }
     return 0;
+}
+
+void mallocFail(void *pointer) {
+    if (pointer == NULL) {
+        mallocFailMenu();
+        exit(15);
+    }
+
 }
 
 void ConsolePause(double amount) {

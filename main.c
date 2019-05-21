@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-#include <unistd.h>
-#include <stdio_ext.h>
 #include <time.h>
 
 #include "Headers/structs.h"
@@ -34,7 +32,7 @@ int UserInterface(void) {
 
         MainMenu();
         ClearBuffer();
-        if (scanf("%d", &option1) == 0 )
+        if (scanf("%d", &option1) == 0)
             option1 = -1;
 
         ClearBuffer();
@@ -103,7 +101,6 @@ int UserInterface(void) {
 
                 phone = NULL;
                 ClearBuffer();
-
                 while (option2 != 0) {
 
                     ResetPopularity(places_head);
@@ -211,20 +208,25 @@ int UserInterface(void) {
                                         AddPointOfInterest(student, places_head, point_of_interest);
                                         break;
                                     case 2:
-                                        lines = PrintStudentPointsOfInterest(student,1);
-                                        addPointOfInterest(lines);
-                                        ClearBuffer();
-                                        readstring(&point_of_interest, 15, 5);
-                                        strip(&point_of_interest);
-                                        ClearConsole();
-                                        AddHotPointOfInterest(places_head,student, point_of_interest);
+                                        if (student->InfoInterests.other_points_of_interest->next != NULL) {
+                                            lines = PrintStudentPointsOfInterest(student, 1);
+                                            addPointOfInterest(lines);
+                                            ClearBuffer();
+                                            readstring(&point_of_interest, 15, 5);
+                                            strip(&point_of_interest);
+                                            ClearConsole();
+                                            AddHotPointOfInterest(places_head, student, point_of_interest);
+                                        }else{
+                                            noFavPointOfInterest();
+                                            ClearConsole();
+                                        }
                                         break;
                                     case 3:
                                         ClearBuffer();
-                                        RemoveHotPointOfInterest(student);
+                                        RemoveHotPointOfInterest(places_head, student);
                                         break;
                                     case 4:
-                                        lines = PrintStudentPointsOfInterest(student,0);
+                                        lines = PrintStudentPointsOfInterest(student, 0);
                                         removePointOfInterestMenu(lines);
                                         ClearBuffer();
                                         readstring(&point_of_interest, 15, 5);
@@ -286,7 +288,8 @@ int UserInterface(void) {
                                                 ClearBuffer();
                                                 getchar();
                                                 ClearConsole();
-                                            }break;
+                                            }
+                                            break;
                                         case 0:
                                             ClearBuffer();
                                             option3 = 0;
@@ -321,7 +324,7 @@ int UserInterface(void) {
                     place = NULL;
                     point_of_interest = NULL;
                 }
-                if(student == NULL)
+                if (student == NULL)
                     free(student);
                 option2 = -1;
                 break;
