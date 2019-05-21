@@ -321,6 +321,8 @@ int UserInterface(void) {
                     place = NULL;
                     point_of_interest = NULL;
                 }
+                if(student == NULL)
+                    free(student);
                 option2 = -1;
                 break;
 

@@ -252,7 +252,12 @@ int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head) {
            "----------------------------------"
            "----------------------------------"
            "----------------------+\n");
-    printf("                          Pontos de Interesse\n\n");
+    printf("\t\t\t\t\t\t\t\t\t\tPontos de Interesse\n");
+    printf("+---------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------------------"
+           "----------------------+\n");
     while (current_place != NULL) {
         current_point_of_interest = current_place->PointOfInterest->next;
         while (current_point_of_interest != NULL) {
