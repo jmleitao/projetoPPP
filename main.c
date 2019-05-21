@@ -34,7 +34,9 @@ int UserInterface(void) {
 
         MainMenu();
         ClearBuffer();
-        scanf("%d", &option1);
+        if (scanf("%d", &option1) == 0 )
+            option1 = -1;
+
         ClearBuffer();
         ClearConsole();
 
@@ -77,7 +79,6 @@ int UserInterface(void) {
                             option2 = 0;
                             ClearBuffer();
                             break;
-
                         default:
                             ClearConsole();
                             invalidOption();
@@ -289,6 +290,9 @@ int UserInterface(void) {
                                         case 0:
                                             ClearBuffer();
                                             option3 = 0;
+                                            break;
+                                        case '\n':
+                                            ClearConsole();
                                             break;
                                         default:
                                             ClearConsole();

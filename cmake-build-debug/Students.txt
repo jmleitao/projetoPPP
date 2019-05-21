@@ -1,14 +1,13 @@
 Pedro Miguel Duque Rodrigues|Rua do G.D.R da chã Nº4|15/05/2000|924109520
 @
-Roma
+Berlim
 Londres
 Dublin
 -
-Temple Bar
+Coliseu
 Piccadilly Circus
 Palácio de Westminster
 Panteão de Roma
-Coliseu
 Reichstag
 Portão de Brandenburgo
 Moulin Rouge
@@ -43,6 +42,17 @@ Putty|Putty|12/02/2000|123456789
 Berlim
 Dublin
 Lisboa
+-
+Casa de Oscar Wilde
+Temple Bar
+Portão de Brandenburgo
+@
+
+José Silva Pereira|Rua Pires Antunes|15/04/2000|961316109
+@
+Lisboa
+Dublin
+Paris
 -
 Temple Bar
 Casa de Oscar Wilde

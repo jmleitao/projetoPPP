@@ -309,7 +309,7 @@ void changeInfomenu(void) {
     printf("|                                                            |\n");
     printf("|                        ____________                        |\n");
     printf("+------------------------------------------------------------+\n");
-    gotoxy(33, 13);
+    gotoxy(32, 14);
 }
 
 void added(void) {

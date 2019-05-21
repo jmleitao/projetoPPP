@@ -285,7 +285,10 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
                 printf("                  1 - %s\n", student->InfoInterests.favorite_places[0]);
                 printf("                  2 - %s\n", student->InfoInterests.favorite_places[1]);
                 printf("                  3 - %s\n", student->InfoInterests.favorite_places[2]);
+                printf("                                                              \n");
+                printf("                  ____________                                \n");
                 printf("+------------------------------------------------------------+\n");
+                gotoxy(25,7);
                 ClearBuffer();
                 scanf("%d", &answer);
                 ClearConsole();

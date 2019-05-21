@@ -18,27 +18,27 @@
 
 /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
 
-/home/pedro/CLionProjects/projetoPPP/PointsOfInterestList.c
+/home/pedro/CLionProjects/projetoPPP/StudentsList.c
 stdio.h
--
-stdio_ext.h
 -
 stdlib.h
 -
-string.h
--
 unistd.h
+-
+stdio_ext.h
+-
+string.h
 -
 Headers/structs.h
 /home/pedro/CLionProjects/projetoPPP/Headers/structs.h
+Headers/StudentsList.h
+/home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
+Headers/PlacesList.h
+/home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
 Headers/functions.h
 /home/pedro/CLionProjects/projetoPPP/Headers/functions.h
 Headers/PointsOfInterestList.h
 /home/pedro/CLionProjects/projetoPPP/Headers/PointsOfInterestList.h
-Headers/PlacesList.h
-/home/pedro/CLionProjects/projetoPPP/Headers/PlacesList.h
 Headers/Menus.h
 /home/pedro/CLionProjects/projetoPPP/Headers/Menus.h
-Headers/StudentsList.h
-/home/pedro/CLionProjects/projetoPPP/Headers/StudentsList.h
 

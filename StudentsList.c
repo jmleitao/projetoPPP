@@ -25,6 +25,7 @@ int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
             scanf("%d", &option);
             switch (option) {
                 case 1:
+                    ClearConsole();
                     ClearBuffer();
                     printf("\nNome atual: %s\n", student->InfoStudent.name);
                     printf("Novo nome do aluno: ");
@@ -32,6 +33,7 @@ int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
                     ClearConsole();
                     break;
                 case 2:
+                    ClearConsole();
                     ClearBuffer();
                     printf("\nMorada Atual: %s\n", student->InfoStudent.address);
                     printf("Novo norada do aluno: ");
@@ -39,6 +41,7 @@ int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
                     ClearConsole();
                     break;
                 case 3:
+                    ClearConsole();
                     ClearBuffer();
                     printf("\nData de nascimento atual: %s\n", student->InfoStudent.date_of_birth);
                     printf("Novo data de nascimento do aluno: ");
@@ -46,6 +49,7 @@ int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
                     ClearConsole();
                     break;
                 case 4:
+                    ClearConsole();
                     ClearBuffer();
                     printf("\nNúmero de telemovel atual: %s\n", student->InfoStudent.phone_number);
                     printf("Novo número de telemovel: ");
@@ -210,11 +214,20 @@ int PrintStudent(StudentsList student) {
         printf("Numero de Telemovel: %s\n", student->InfoStudent.phone_number);
         printf("Os meus Locais favoritos:\n");
         for (i = 0; i < 3; i++) {
-            printf("\t »» %s\n", student->InfoInterests.favorite_places[i]);
+            if (strcmp(student->InfoInterests.favorite_places[i], "Not Defined") == 0)
+                printf("\t »» -------\n");
+            else
+                printf("\t »» %s\n", student->InfoInterests.favorite_places[i]);
         }
-        printf("O meu Ponto de Interesse Hot: %s\n", student->InfoInterests.hot);
-        printf("Outros Pontos de Interesse:\n");
+        if (strcmp(student->InfoInterests.hot, "Not Defined") == 0)
+            printf("O meu Ponto de Interesse Hot: -------\n");
+        else
+            printf("O meu Ponto de Interesse Hot: %s\n", student->InfoInterests.hot);
         current = student->InfoInterests.other_points_of_interest->next;
+        if(current == NULL)
+            printf("Outros Pontos de Interesse: --------\n");
+        else
+            printf("Outros Pontos de Interesse:\n");
         while (current != NULL) {
             printf("\t »» %s\n", current->name);
             current = current->next;

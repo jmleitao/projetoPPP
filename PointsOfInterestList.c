@@ -168,17 +168,17 @@ int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *ke
     PlacesList current_head = places_head->next;
 
     while (current_head != NULL && found != 1) {
-        if (SearchPointOfInterest(current_head->PointOfInterest->next, key) != NULL) {
+        if (SearchPointOfInterest(current_head->PointOfInterest, key) != NULL) {
             found = 1;
         }
         current_head = current_head->next;
     }
     if (strcmp(student->InfoInterests.hot, "Not Defined") != 0) {
-        if(found == 1){
+        if (found == 1) {
             ClearConsole();
             removeFirst();
             ClearConsole();
-        }else{
+        } else {
             noPointOfInterest();
             ClearConsole();
         }
