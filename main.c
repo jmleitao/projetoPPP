@@ -216,7 +216,7 @@ int UserInterface(void) {
                                             strip(&point_of_interest);
                                             ClearConsole();
                                             AddHotPointOfInterest(places_head, student, point_of_interest);
-                                        }else{
+                                        } else {
                                             noFavPointOfInterest();
                                             ClearConsole();
                                         }
@@ -226,13 +226,17 @@ int UserInterface(void) {
                                         RemoveHotPointOfInterest(places_head, student);
                                         break;
                                     case 4:
-                                        lines = PrintStudentPointsOfInterest(student, 0);
-                                        removePointOfInterestMenu(lines);
-                                        ClearBuffer();
-                                        readstring(&point_of_interest, 15, 5);
-                                        strip(&point_of_interest);
-                                        ClearConsole();
-                                        RemovePointOfInterest(student, point_of_interest);
+                                        if (student->InfoInterests.other_points_of_interest->next != NULL) {
+                                            lines = PrintStudentPointsOfInterest(student, 0);
+                                            removePointOfInterestMenu(lines);
+                                            ClearBuffer();
+                                            readstring(&point_of_interest, 15, 5);
+                                            strip(&point_of_interest);
+                                            ClearConsole();
+                                            RemovePointOfInterest(student, point_of_interest);
+                                        } else {
+                                            ClearConsole();
+                                        }
                                         break;
                                     case 0:
                                         ClearBuffer();
