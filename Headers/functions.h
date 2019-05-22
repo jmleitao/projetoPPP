@@ -29,4 +29,8 @@ void ConsolePause(double x);
 
 void mallocFail(void *pointer);
 
+int isLeapYear(int year);
+
+int isDateValid(int day, int month, int year);
+
 #endif //PROJECT_FUNCTIONS_H

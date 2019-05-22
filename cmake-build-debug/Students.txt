@@ -58,17 +58,6 @@ Temple Bar
 Casa de Oscar Wilde
 @
 
-padsda|dasdsad|17/02/2000|963565951
-@
-Lisboa
-Roma
-Madrid
--
-Not Defined
-Palácio De Christiansborg
-Relógio Astronómico
-@
-
 O Pedro é um noob 1|Galãxia dos noobs 1|15/05/2000|123456798
 @
 Not Defined
@@ -76,5 +65,17 @@ Not Defined
 Not Defined
 -
 Not Defined
+@
+
+Maria Manuela Moreira Duque|Rua do G.D.R da chã Nº4,Figueira da Foz|01/08/1972|963565951
+@
+Londres
+Praga
+Dublin
+-
+Tower Bridge
+Casa de Oscar Wilde
+Piccadilly Circus
+Palácio Real
 @
 

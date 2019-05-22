@@ -17,6 +17,7 @@ CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/Menus.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/PlacesList.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/PointsOfInterestList.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/StudentsList.h
+CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/files.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/PointsOfInterestList.c.o: ../PointsOfInterestList.c
@@ -34,6 +35,7 @@ CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/PointsOfInterestList.h
 CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/StudentsList.h
 CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/TripList.h
 CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/files.h
+CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/TripList.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/TripList.c.o: ../TripList.c
 
@@ -42,6 +44,7 @@ CMakeFiles/Projeto.dir/files.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/files.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/files.c.o: ../files.c
 
+CMakeFiles/Projeto.dir/functions.c.o: ../Headers/Menus.h
 CMakeFiles/Projeto.dir/functions.c.o: ../Headers/PointsOfInterestList.h
 CMakeFiles/Projeto.dir/functions.c.o: ../Headers/files.h
 CMakeFiles/Projeto.dir/functions.c.o: ../Headers/functions.h
@@ -58,6 +61,7 @@ CMakeFiles/Projeto.dir/main.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/main.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/main.c.o: ../main.c
 
+CMakeFiles/Projeto.dir/structs.c.o: ../Headers/functions.h
 CMakeFiles/Projeto.dir/structs.c.o: ../Headers/structs.h
 CMakeFiles/Projeto.dir/structs.c.o: ../structs.c
 
