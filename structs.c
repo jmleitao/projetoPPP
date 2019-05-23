@@ -5,8 +5,7 @@
 #include "Headers/structs.h"
 #include "Headers/functions.h"
 
-/* so funciona se estiver no main*/
-
+/* Todas as funções para construir as diversas listas ligadas*/
 /*Inicializei a head da lista(primeiro node) com valores para facilitar o debug
  * caso este seja necessário*/
 

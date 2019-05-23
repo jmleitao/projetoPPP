@@ -11,6 +11,7 @@
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/Menus.h"
 
+// Função que remove o caracter '/n' numa string que é passada como argumento da função
 int removeEnter(char *str) {
     int i = 0;
     while (*(str + i) != '\n')
@@ -19,6 +20,15 @@ int removeEnter(char *str) {
     return 0;
 }
 
+/* Para evitar o gasto excessivo de memoria que uma alocação estática tem associado.Foi criada esta função que tem como
+ * principal objetivo a essa otimização. A função recebe como parametors de entrada um double pointer para uma string
+ * o tamanho inicial desta e o tamanho que irá ser alocado se o tamanho inicial não for suficiente para guardar toda
+ * a informação na string.O double pointer é passado visto que a alocação de memoria dentro de uma rotina que é chamada
+ * dentro da função main pode não ser eficaz e não resultar ficando essa memoria invisivel quando se regressa á função
+ * main. Passando um double pointer esse problema fica resolvido.Esta função acaba por ter um funcionamento similar á
+ * função getline da standart library e que é utilizada nesta aplicação.
+ */
+/*A memoria é realocada com recurso á função realloc()*/
 int readstring(char **string, int init_size, int chunk) {
     int size = 0, i = 0;
     char c;
@@ -37,6 +47,9 @@ int readstring(char **string, int init_size, int chunk) {
     return 0;
 }
 
+//Função que recebe e protege a inserção de dados por parte do utilizador no campo do numero de telemovel verificando se este tem
+//mesmo 9 digitos
+//Recebe um double pointer para a string criada visto que durante a implementação parecia ser solução que trazia menos problemas
 int getPhoneNumber(char **phone) {
     char *i;
     int count, found;
@@ -57,10 +70,15 @@ int getPhoneNumber(char **phone) {
     return 0;
 }
 
+//Função que verifica se o ano tem 365 dias ou 366
+//Recebe por isso um inteiro que representa o ano
 int isLeapYear(int year) {
     return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) ? 0 : 1;
 }
 
+// Função que verifica a validade da data
+// A range de Anos aceites varia entre 1900 e 9999
+// Recebe como paramentros inteiros com o dia mês e ano
 int isDateValid(int day, int month, int year) {
     int answer = 0, min = 1900, max = 9999;
 
@@ -84,6 +102,9 @@ int isDateValid(int day, int month, int year) {
     return answer;
 }
 
+//Função que recebe e protege a inserção de dados por parte do utilizador no campo da data verificando se a data é valida
+//Recebe um double pointer para a string criada visto que durante a implementação parecia ser solução que trazia menos
+//problemas além de servir de treino no trabalho com double pointers
 int getDateOfBirth(char **date) {
     int found, day, month, year;
     do {
@@ -99,7 +120,9 @@ int getDateOfBirth(char **date) {
     return 0;
 }
 
-
+//Função que elimina espaços em branco no fim e no inicio de uma palavra/string
+//Recebe um double pointer para a string criada visto que durante a implementação parecia ser solução que trazia menos
+//problemas além de servir de treino no trabalho com double pointers
 int strip(char **string) {
     char *last = *string + strlen(*string) - 1;
 
@@ -115,6 +138,8 @@ int strip(char **string) {
     return 0;
 }
 
+// Função que recebe um ponteiro para void e que termina o programa caso a memoria que foi allocada com recuso ao malloc()
+// Teve sucesso.
 void mallocFail(void *pointer) {
     if (pointer == NULL) {
         mallocFailMenu();
@@ -123,6 +148,8 @@ void mallocFail(void *pointer) {
 
 }
 
+// Função que é responsavel por dar um delay com o tempo que é passado por parametro da função
+// É utilizada para que os menus sejam mais automatizados.
 void ConsolePause(double amount) {
     time_t current_time = time(0), start_time = time(NULL);
     while (difftime(current_time, start_time) < amount) {

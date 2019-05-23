@@ -4,6 +4,10 @@
 #include "Headers/Menus.h"
 #include "Headers/functions.h"
 
+// Ficheiro que contém a maioria dos menus do programa(menus estáticos)
+// Os restantes menus que dependem por exemplo do numero de pontos de interesse mostrados etc.. estão nos restantes
+// ficheiros de codigo fonte.
+
 
 void WelcomeMenu(void) {
     printf("+----------------------------------------------------------+\n");

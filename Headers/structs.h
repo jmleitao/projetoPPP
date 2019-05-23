@@ -1,8 +1,9 @@
 #ifndef PROJECT_STRUCTURES_H
 #define PROJECT_STRUCTURES_H
 
-#define NUM_PLACES 3
+#define NUM_PLACES 3 // Numero de locais que o aluno pode ter como favoritos
 
+// Ficheiro com todas as estruturas utilizadas na aplicação
 
 typedef struct Student *StudentsList;
 typedef struct Places *PlacesList;

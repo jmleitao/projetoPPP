@@ -12,6 +12,7 @@
 
 #define POINTS_OF_INTEREST_PER_PLACE 3
 
+// Função que cria um node da lista ligada de viagens
 PlacesList CreateNodeForTripList(PlacesList place) {
     PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
     mallocFail(newPlace);
@@ -21,7 +22,8 @@ PlacesList CreateNodeForTripList(PlacesList place) {
     newPlace->next = NULL;
     return newPlace;
 }
-
+// Função que constroi a viagem se todas as confições forem verificadas nomeadamente (Has3FavoritePlaces)
+// o utilizador ter 3 locais favoritos
 int BuildTrip(TripList trip_head, PlacesList places_head, StudentsList student) {
     PlacesList newPlace, place, current_place = trip_head->places;
     PointsOfInterestList newPointOfInterest, point_of_interest, current, aux;
@@ -67,6 +69,7 @@ int BuildTrip(TripList trip_head, PlacesList places_head, StudentsList student) 
     }
     return 0;
 }
+// ##############   Funções Utilizadas para calcular a popularidades da viagem  ################
 
 double UsersWithOneFavPlaceInTrip(TripList trip_head, StudentsList students_head) {
     int i, found, num_students = StudentCount(students_head);

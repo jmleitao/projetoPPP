@@ -13,7 +13,7 @@
 #include "Headers/Menus.h"
 #include "Headers/TripList.h"
 
-
+// O flow do programa foi implementado nesta função que é chamada na main()
 int UserInterface(void) {
     int lines, option1 = -1, option2 = -1, option3 = -1;
     double popularity;

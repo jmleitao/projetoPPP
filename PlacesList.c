@@ -9,10 +9,16 @@
 #include "Headers/Menus.h"
 #include "Headers/StudentsList.h"
 
-
+// Função que verifica se a lista de locais está vazia
+// Recebe a cabeça da lista e retorna 1 se estiver vazia e 0 caso contrario
 int isEmptyPlaces(Places_t *head) { return head->next == NULL ? 1 : 0; }
 
-
+/*Função que procura um local na lista ligada de locais com o nome "key" e se encontrar atualiza o paramentro current
+ * com esse node.O parametro before é atualizado com o node antes do current o que dá jeito para a função que remove um
+ * local(se os locais favoritos do aluno estivessem implementados como uma lista como incialmente estavam mas não estão..
+ * por isso afuncinalidade foi removida por não ser necessária).A função é utilizada na mesma para procurar um local na
+ * lista de locais por isso recebe a cabeça da lista.
+ */
 int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *key) {
     *before = head;
     *current = head->next;
@@ -27,7 +33,7 @@ int FindPlace(PlacesList head, PlacesList *before, PlacesList *current, char *ke
     return 0;
 }
 
-
+// Função que chama a função anterior e que apenas devolve o node se este for encontrado e NULL caso contrario
 PlacesList SearchPlace(PlacesList head, char *key) {
     PlacesList before;
     PlacesList current;
@@ -36,7 +42,9 @@ PlacesList SearchPlace(PlacesList head, char *key) {
     return current;
 }
 
-
+// Função que recebe a cabeça da lista de pontos de interesse que se encontra dentro dos locais e dá free de todos
+// os nós desta lista na memoria
+// Encontra-se no ficheiro Places.c só mesmo por forma a facilitar a leitura do codigo e o sentido lógico do mesmo
 int DeletePointsOfInterestList(PointsOfInterestList head) {
     PointsOfInterestList current;
     while (!isEmptyPointsOfInterest(head)) {
@@ -48,6 +56,7 @@ int DeletePointsOfInterestList(PointsOfInterestList head) {
     return 0;
 }
 
+// Função que recebe a cabeça da lista de Locais e dá free de todos os nós desta lista na memoria
 int DeletePlacesList(PlacesList head) {
     PlacesList current;
     while (!isEmptyPlaces(head)) {
@@ -60,6 +69,7 @@ int DeletePlacesList(PlacesList head) {
     return 0;
 }
 
+// Função que recebe dois nós de uma lista ligada de locais e reajanja os ponteiros com o objetivo de os reordenar
 PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2) {
     PlacesList temporary = NodePointer2->next;
     NodePointer2->next = NodePointer1;
@@ -67,7 +77,8 @@ PlacesList swapPlacesListNodes(PlacesList NodePointer1, PlacesList NodePointer2)
     return NodePointer2;
 }
 
-
+// Função que serve para ordenar alfabéticamente a lista de locais
+// Recebe a cabeça da lista de locais e o numero de nodes desta
 int AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     head = &(*head)->next;
     PlacesList *start, node1, current;
@@ -94,6 +105,7 @@ int AlphaSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     return 0;
 }
 
+// Função que serve para ordenar por popularidade a lista ligada
 int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     head = &(*head)->next;
     PlacesList *start, node1, current;
@@ -122,7 +134,7 @@ int PopSortPlacesAndPointsOfInterest(PlacesList *head, int numNodes) {
     }
     return 0;
 }
-
+// Função que serve para Contar o numero de locais que a lista ligada de locais contém
 int PlacesCount(PlacesList head) {
     int counter = 0;
     PlacesList current = head->next;
@@ -133,7 +145,7 @@ int PlacesCount(PlacesList head) {
     return counter;
 }
 
-
+// Função de Print de locais e pontos de interesse
 int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     PlacesList current_place = head->next;
     PointsOfInterestList current_point_of_interest;
@@ -159,7 +171,7 @@ int DisplayPlacesAndPointsOfInterest(PlacesList head) {
     return 0;
 }
 
-
+// Função de Print de locais e pontos de interesse
 int DisplayPlacesAndPointsOfInterestWithInfo(PlacesList head) {
     int i;
     PlacesList current_place = head->next;
@@ -206,7 +218,7 @@ int DisplayPlacesAndPointsOfInterestWithInfo(PlacesList head) {
     ClearConsole();
     return 0;
 }
-
+// Função de Print de locais e pontos de interesse
 int DisplayPlacesAndPointsOfInterestWithPopularity(PlacesList head) {
     PlacesList current_place = head->next;
     PointsOfInterestList current_point_of_interest;
@@ -242,7 +254,7 @@ int isInFavPlaces(StudentsList student, char *place) {
     }
     return found;
 }
-
+// Função de Print de locais apenas
 int PrintPlaces(StudentsList student, PlacesList head) {
     int lines = 7;
     PlacesList current = head->next;
@@ -258,7 +270,7 @@ int PrintPlaces(StudentsList student, PlacesList head) {
     printf("+------------------------------------------------------------+\n");
     return lines;
 }
-
+// Função que é responsavel por adicionar o nome do local ao array de strings que contem os locais favoritos do utilizador
 int AddPlace(StudentsList student, PlacesList head, char *place) {
     int i, answer, found = 0;
 
@@ -304,7 +316,9 @@ int AddPlace(StudentsList student, PlacesList head, char *place) {
     return 0;
 }
 
-
+// Função que dá sort do vetor de strigs dos locais favoritos do utilizador deixando o local "Not Defined" no fim o array
+// "Not defined" é o valor que é inicializado no array por default e que serve para marcar a posição do array como não
+// contendo nenhum local
 int sortFavPlacesArray(char **strings) {
     int i;
     char *temp;
@@ -320,6 +334,7 @@ int sortFavPlacesArray(char **strings) {
     return 0;
 }
 
+// Função que serve para remover um local das preferencias do utlizador colocando "Not Defined" na posição respetiva
 int RemovePlace(StudentsList student) {
     int i, j, key;
     do {
@@ -361,7 +376,7 @@ int RemovePlace(StudentsList student) {
     sortFavPlacesArray(student->InfoInterests.favorite_places);
     return 0;
 }
-
+// Função que calcula a popularidade de cada local o que vai ser util para classificar a viagem
 int PlacesPopularity(PlacesList places_head, StudentsList students_head) {
     int i;
     PlacesList place;

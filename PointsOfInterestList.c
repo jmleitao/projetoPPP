@@ -10,6 +10,8 @@
 #include "Headers/StudentsList.h"
 #include "Headers/files.h"
 
+/*Maior parte das funções tem coportamento semelhante ás funções presentes no ficheiro PlacesList.c*/
+/*As que são diferentes foram comentadas*/
 
 int isEmptyPointsOfInterest(PointsOfInterest_t *head) { return head->next == NULL ? 1 : 0; }
 
@@ -35,7 +37,7 @@ PointsOfInterestList SearchPointOfInterest(PointsOfInterestList head, char *key)
     FindPointOfInterest(head, &before, &current, key);
     return current;
 }
-
+// Função que verifica se o ponto de interesse do aluno é hot ou não
 int FavPointOfInterest(StudentsList student, char *key) {
     int answer = 1;
     if (SearchPointOfInterest(student->InfoInterests.other_points_of_interest, key) != NULL ||
@@ -43,7 +45,7 @@ int FavPointOfInterest(StudentsList student, char *key) {
         answer = 0;
     return answer;
 }
-
+// Função que adiciona um ponto de interesse á lista de pontos de interesse favoritos do aluno
 int AddPointOfInterest(StudentsList student, PlacesList places_head, char *key) {
     PlacesList current_place = places_head->next;
     PointsOfInterestList current = student->InfoInterests.other_points_of_interest;
@@ -160,6 +162,7 @@ int PointsOfInterestCount(PointsOfInterestList head) {
     return counter;
 }
 
+// Função que marca um dos pontos de interesse favoritos do aluno como sendo Hot
 int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *key) {
     int found = 0;
     PointsOfInterestList head = student->InfoInterests.other_points_of_interest;
@@ -211,7 +214,8 @@ int AddHotPointOfInterest(PlacesList places_head, StudentsList student, char *ke
     return 0;
 }
 
-
+// Função encarregue de desmarcar o ponto de interesse hot do aluno e de adicionar de novo esse ponto á lista de pontos
+// de interesse favoritos
 int RemoveHotPointOfInterest(PlacesList places_head, StudentsList student) {
     int found = 0;
     PointsOfInterestList new = NULL, point_of_interest_head = student->InfoInterests.other_points_of_interest;
@@ -257,7 +261,7 @@ int RemovePointOfInterest(StudentsList student, char *key) {
     }
     return 0;
 }
-
+// Função que da print dos pontos de interesse do aluno mas não mostra os que ele já tem marcados como favoritos
 int PrintandCheckPointsOfInterestList(StudentsList student, PlacesList head) {
     int i;
     PlacesList current_place = head->next;
@@ -353,6 +357,7 @@ int PointsOfInterestPopularity(PlacesList head, StudentsList students_head) {
     return 0;
 }
 
+// Função que calcula a popularidade do ponto de interesse hot de cada um dos alunos
 int HotPointOfInterestPopularity(PlacesList head, StudentsList students_head) {
     int found;
     char *student_interest;

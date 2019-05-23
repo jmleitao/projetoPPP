@@ -9,9 +9,13 @@
 #include "Headers/PointsOfInterestList.h"
 #include "Headers/Menus.h"
 
+/*Maior parte das funções tem coportamento semelhante ás funções presentes no ficheiro PlacesList.c*/
+/*As que são diferentes foram comentadas*/
+
 int isEmptyStudent(Student_t *head) { return head->next == NULL ? 1 : 0; }
 
-
+// Função utilizada para dado um estudante recebido como parametro alterar um dos campos dos seus dados pessoais
+// caso este estudante esteja registado claro
 int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
     StudentsList student;
     int option;
@@ -71,7 +75,7 @@ int ChangeStudentInfo(StudentsList head, char *key, int *option3) {
     return 0;
 }
 
-
+// Função que apenas pede ao utlizador os dados para os guardar na estrutura que alberga os seus dados pessoais
 int getInfoStudent(StudentData_t *student_data) {
     //const int size = 60;
     printf("»»» Introduza os dados nos respetivos campos «««\n\n");
@@ -126,7 +130,7 @@ StudentsList SearchStudent(StudentsList head, char *key) {
     FindStudent(head, &before, &current, key);
     return current;
 }
-
+// Adiciona um estudante á lista ligada de estudantes recebe por isso como parametro a cabeça da lista ligada de estudantes
 int AddStudent(StudentsList head) {
     StudentData_t student_data;
     StudentsList current = head;

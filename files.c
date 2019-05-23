@@ -8,17 +8,19 @@
 #include "Headers/files.h"
 #include "Headers/functions.h"
 
-// Ficheiros dos alunos e locais estão na pasta cmake-build-debug
-// Se for necessário alterar estes paths é só ir copiar os paths do desses ficheiros e dar paste aqui
-// Caso contrario o programa encarrega-se de criar estes ficheiros automaticamente e deixa-os vazios
-// No caso do ficheiro dos alunos não existe grande problema mas no caso dos locais iremos ter um ficheiro sem locais
-// Para ir recuperar a informação dos locais deixei um backup destes na pasta Info que vem com o projeto
-// É so ir la dar copy paste da informação
+/* Os ficheiros que contém os dados dos alunos e dos locais juntamente com o executavel e makefile escontram-se na
+ * pasta cmake-build-debug.Para correr o programa é só entrar nessa pasta e fazer ./Projeto.No caso de não existir
+ * um executavel basta utilizar o comando make.Caso os ficheiros que contém os dados dos alunos ou dos locais não
+ * existirem serão emitidas mensagens de erro.No caso do ficheiro dos alunos o programa encarrega-se de criar um novo
+ * ficheiro para colocar todas as novas contas criadas no programa.No caso dos locais o programa irá terminar com uma
+ * mensagem de erro.Para o caso de existirem problemas e se perderem estes ficheiros deixei um backup na pasta Info.
+ */
 
+// PATH dos ficheiros que contem as contas dos alunos e os dados dos locais e pontos de interesse
 #define STUDENTSPATH "Students.txt"
 #define PLACESPATH "Places.txt"
 
-
+//Função responsavel por criar um ficheiro recebe como paramentros o nome do ficheiro e a sua extensão
 int createfile(char *name, char *extension) {
     FILE *fp;
     int len = strlen(name) + strlen(extension) + 1;
@@ -35,6 +37,8 @@ int createfile(char *name, char *extension) {
     return 0;
 }
 
+// Função responsavel por adicionar um estudante no fim da lista ligada dos alunos
+// Recebe a cabeça da lista ligada de alunos e as estruturas de dados correspendentes aos seus dados pessoais e interesses
 int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_Interests_t student_interests) {
     StudentsList current = head;
     StudentsList newStudent = (StudentsList) malloc(sizeof(Student_t));
@@ -51,6 +55,8 @@ int AppendToStudentsList(StudentsList head, StudentData_t student_data, Student_
     return 0;
 }
 
+// Função responsavel por adicionar um ponto de interesse no fim da lista ligada de pontos de interesse
+// Recebe a cabeça da lista ligada de pontos de interesse e o node que vai ser adicionado
 int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList point_of_interest_data) {
     PointsOfInterestList current = head;
     PointsOfInterestList newPointOfInterest = (PointsOfInterestList) malloc(sizeof(PointsOfInterest_t));
@@ -70,6 +76,9 @@ int AppendToPointsOfInterestList(PointsOfInterestList head, PointsOfInterestList
     return 0;
 }
 
+// Função responsavel por adicionar um local no fim da lista ligada de locais
+// Recebe a cabeça da lista ligada de locais,o node que vai ser adicionado a esta e a cabeça da lista ligada de pontos
+// de interesse que este node da lista de locais vai conter no seu interior.
 int AppendToPlacesList(PlacesList places_head, PointsOfInterestList points_of_interest_head, PlacesList place_data) {
     PlacesList current = places_head;
     PlacesList newPlace = (PlacesList) malloc(sizeof(Places_t));
@@ -86,6 +95,8 @@ int AppendToPlacesList(PlacesList places_head, PointsOfInterestList points_of_in
     return 0;
 }
 
+// Função responsavel por carregar a informação do ficheiro dos alunos na lista ligada que irá conter todos os alunos
+// Recebe por isso a cabeça da lista ligada de alunos
 int LoadStudentsList(StudentsList head) {
     FILE *fp;
     PointsOfInterestList points_of_interest_head;
@@ -185,6 +196,9 @@ int LoadStudentsList(StudentsList head) {
     return 0;
 }
 
+// Função responsavel por carregar o ficheiro de alunos antes de o programa terminar de forma a salvaguardar todas as
+// modificações efetuadas durante o tempo em que a aplicação esteve a correr.
+// Recebe por isso a cabeça da lista ligada de alunos.
 int LoadStudentsFile(StudentsList head) {
     FILE *fp;
     int i;
@@ -220,6 +234,8 @@ int LoadStudentsFile(StudentsList head) {
     return 0;
 }
 
+// Função responsavel por carregar a lista ligada de Locais com informações provenientes do ficheiro de Locais
+// Recebe por isso a cabeça da lista de locais por onde vai começar a carregar a informação
 int LoadPlacesList(PlacesList head) {
     FILE *fp;
     int i = 0, j;
